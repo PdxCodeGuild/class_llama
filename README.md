@@ -19,7 +19,7 @@ TBA (Definitely labor day though)
 
 ## Capstone Dates:
 
-Capstone proposal due: TBA 
+Capstone proposal due: TBA  
 Presentation Day: September 18th, 2020  
 
 ## Python Labs Assigned:
