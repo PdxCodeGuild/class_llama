@@ -18,6 +18,7 @@ In Linux, you can open a terminal with `Ctrl + Alt + T`.
     - `cd ..` will bring you into the parent directory
     - `cd` alone will return you to your 'home' directory
 - `mkdir <foldername>` create a new folder 
+- `touch <filename>` creates a new file 
 - `rmdir <foldername>` removes an empty folder
 - `rmdir -R NewFolder` removes a nonempty folder 
 - `rm <filename>` removes a file
