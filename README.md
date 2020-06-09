@@ -7,7 +7,8 @@ M-F 9:30 am – 4:30 pm
 
 ### Holidays
 
-TBA (Definitely labor day though)
+July 3rd -- Independence Day  
+September 7th -- Labor Day  
 
 ### Staff
 
