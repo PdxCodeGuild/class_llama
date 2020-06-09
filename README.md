@@ -24,11 +24,12 @@ Presentation Day: September 18th, 2020
 
 ## Python Labs Assigned:
 
- None yet!
+ Lab 09 -- Unit Converter  
+ Lab 11 -- Simple Calculator  
 
 #### Optional Python Labs
 
-None yet!
+Labs 01-08, 12 (You did these during the intro course)  
 
 ## Student Presentations
 
