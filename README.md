@@ -27,6 +27,7 @@ Presentation Day: September 18th, 2020
 
  Lab 09 -- Unit Converter  
  Lab 11 -- Simple Calculator  
+ Lab 10 -- Average Numbers  
 
 #### Optional Python Labs
 
