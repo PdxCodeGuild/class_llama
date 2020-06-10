@@ -1,3 +1,6 @@
+# Average Numbers
+
+# Please enter this list of numbers: 5, 0, 8, 3, 4, 1, 6
 
 num = int(input('Please enter how many numbers to average: '))
 
