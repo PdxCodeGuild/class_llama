@@ -3,11 +3,19 @@
 def conversion():
     
     num = input("Enter the distance in numerical value: ")
-    unit = input("Enter the unit you would like to use [ft, m, mi, km]: ")
+    unit = input("Enter the unit you would like to use [in, ft, yd, m, mi, km]: ")
 
-    if unit == "ft":
+    if unit == "in":
+        in_num = float(num) * 0.0254
+        print(f"{num} in is {in_num} m!")
+
+    elif unit == "ft":
         ft_num = float(num) * 0.3048
         print(f"{num} ft is {ft_num} m!")
+
+    elif unit == "yd":
+        yd_num = float(num) * 0.9144
+        print(f"{num} ft is {yd_num} m!")
     
     elif unit == "m":
         m_num = float(num) * 1
