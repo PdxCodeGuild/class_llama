@@ -1,15 +1,11 @@
 # Simple Calculator
 
-def opening():
-    print("Hey, let's MATH!!!")
+def math_prob():
 
-def main():
-    opening()
+    text = input("Which operation would you like to use? [+, -, *, /]")
 
     num1 = int(input("What is the first number?"))
     num2 = int(input("What is the second number?"))
-
-    text = input("Which operation would you like to use?")
 
     if text == "+":
         print("Addition, great!")
@@ -18,7 +14,6 @@ def main():
         sum = num1 + num2
 
         print(sum)
-        return sum
 
     elif text == "-":
         print("Subtraction, great!")
@@ -27,7 +22,6 @@ def main():
         difference = num1 - num2
 
         print(difference)
-        return difference
 
     elif text == "*":
         print("Multiplication, great!")
@@ -36,19 +30,30 @@ def main():
         product = num1 * num2
 
         print(product)
-        return product
 
     elif text == "/":
         print("Division, great!")
-        print(f"{num1}{text}{num2}")
 
         quotient = num1 / num2
 
+        print(f"{num1}{text}{num2}")
         print(quotient)
-        return quotient
+
+
+
+while True:
+
+    text = input("Would you like to solve a math problem? [yes/y, no/n]")
+
+    if text in ["yes", "y"]:
+        math_prob()
+    
+    elif text in ["no", "n"]:
+        print("Okay, goodbye.")
+        break
 
     else:
-        print("That is not math... See ya.")
+        print("Please enter a valid response.")
 
-
-main()
+        
+       
