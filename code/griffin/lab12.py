@@ -29,4 +29,5 @@ def main():
         last_guess = guess
 
 
-main()
+if __name__ == "__main__":
+    main()
