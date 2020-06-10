@@ -4,12 +4,12 @@ simple calculator
 ''' 
 # operators = + - / % ** // 
 
-comp = input("welcome to the calculator.")
+print("welcome to the calculator.")
 
 while True:
 
+    operations = input("select your operations ( + , - , * , /, done):\n")
     num1 = input("what is your first number: ")
-    operations = input("select your operations ( + , - , * , /):\n")
     num2 = input("what is your second number: ")
 
     num1 = float(num1)
@@ -29,7 +29,11 @@ while True:
     elif operations == "/":
         formula = num1 / num2
 
-    if num1 = "done":
+    elif operations in ["done"]:
+        ## will run through numbers before ending
+        print("Thank you! Have super day!")
         break
+  
+   
 
     print("Answer:" + str(formula))
