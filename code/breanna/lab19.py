@@ -3,7 +3,7 @@
 
 def blackjack():
 
-    f_card = input("What is your first card?")
+    f_card = input("What is your first card? ")
 
     if f_card == "J":
         f_card = 10
@@ -16,7 +16,7 @@ def blackjack():
     else:
         f_card = int(f_card)
 
-    s_card = input("What is your second card?")
+    s_card = input("What is your second card? ")
 
     if s_card == "J":
         s_card = 10
@@ -29,7 +29,7 @@ def blackjack():
     else:
         s_card = int(s_card)
 
-    t_card = input("What is your third card?")
+    t_card = input("What is your third card? ")
 
     if t_card == "J":
         t_card = 10
