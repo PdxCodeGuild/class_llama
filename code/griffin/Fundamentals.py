@@ -16,4 +16,3 @@ def near_100(x):
     else:
         return False
 
-print(near_100(120))

@@ -25,7 +25,7 @@ def main():
     ones_digit = number%10
 
     #looks through the dictionaries for each digit and finds the appropriate words
-    hundreds_word = number_finder(hundreds_digit,hundreds_words)
+    hundreds_place_word = number_finder(hundreds_digit,hundreds_words)
 
     if tens_digit == 1:
         tens_and_ones = number_finder(teen_exception,teen_exceptions)
@@ -35,7 +35,7 @@ def main():
         ones_place_word = number_finder(ones_digit, ones_words)
         tens_and_ones = f"{tens_place_word}{ones_place_word}"
     
-    print(f"{hundreds_word}{tens_and_ones}")
+    print(f"{hundreds_place_word}{tens_and_ones}")
 
 
 

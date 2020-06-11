@@ -8,6 +8,7 @@ Write a program that prompts the user for a string, and encodes it with ROT13. F
 | English | a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
 | ROT+13  | n| o| p| q| r| s| t| u| v| w| x| y| z| a| b| c| d| e| f| g| h| i| j| k| l| m|
 
+<!-- To wrap around from index 25 to 0 use modulus %26 to give you the remainder -->
 
 ## Version 2 (optional)
 
