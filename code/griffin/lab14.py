@@ -31,16 +31,21 @@ def num_matches(winning, ticket):
 def main():
     savings_account = 0
     purchase_counter = 0
+    earnings = 0
+    expenses = 0
 
     while purchase_counter < 100000:
         savings_account = savings_account - 2
+        expenses = expenses + 2
         winning = pick6()
         ticket = pick6()
         prizes = num_matches(winning, ticket)
         savings_account = savings_account + prizes
+        earnings = earnings + prizes
         purchase_counter += 1
-    
-    print(savings_account)
 
+    return_on_investment = 100 * (earnings - expenses)/expenses
+    print(f"you have earned a total of ${savings_account}")
+    print(f"your return on investment is {return_on_investment}%")
 if __name__ == "__main__":
     main()

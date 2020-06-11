@@ -1,14 +1,20 @@
+# Average Numbers
 
-num = int(input('Please enter how many numbers to average: '))
+# Please enter this list of numbers: 5, 0, 8, 3, 4, 1, 6
 
-total_sum = 0
+"""
+ nums = [5, 0, 8, 3, 4, 1, 6]
+ avg = sum(nums)/len(nums)
+ print(avg)
+ """
 
-for n in range(num):
+nums = []
 
-    numbers = float(input('Input a number : '))
+lst_size = int(input('Enter list size: ' ))
 
-    total_sum += numbers
+for i in range(0, lst_size):
+    nums.append(int(input('Enter numbers: ')))
 
-avg = total_sum/num
+avg = sum(nums)/lst_size
 
-print('Average of the', num, ' numbers is :', avg)
+print('Average: ', avg)
