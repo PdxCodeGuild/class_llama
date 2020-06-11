@@ -16,16 +16,18 @@ def rot_13():
 
     new_list = []
 
-    # adding rotated numbers to the empty new_list
-    for num in letters:
-        num += 13
+    num = int(input("How far do you want to shift them (pick a number): "))
         
+    # adding rotated numbers to the empty new_list
+    for rot in letters:
+        rot += num
+
         # check if number is over 25, start index back at 0
-        if num > 25:
-            num %= 26
-            new_list.append(num)
+        if rot > 25:
+            rot %= 26
+            new_list.append(rot)
         else:
-            new_list.append(num)
+            new_list.append(rot)
     print(new_list)
 
     new_letters = []
@@ -38,11 +40,6 @@ def rot_13():
     out_text = "".join(new_letters)
 
     print(out_text)
-    
-        
-
-
-    # return out_text
 
 
 rot_13()
