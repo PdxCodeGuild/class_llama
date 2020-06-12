@@ -4,7 +4,7 @@ def main():
     code_numbers = []
     new_code_numbers = []
     new_phrase_list = []
-    phrase = input("enter a phrase to send to your spy: ")
+    phrase = input("enter a phrase to send to your spy: ").lower()
     offset = int(input("enter a number with which to encode your message: "))
     
     #goes through the phrase and assigns a numerical value to each letter, then adds it to a list
