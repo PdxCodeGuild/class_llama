@@ -25,7 +25,7 @@ def num_to_word(num):
         # find the tens word
         if n1 == 1: 
             print(num_dict[og_num])
-        # find the ones word
+        # find the tens word then ones word
         else: 
             n1 *= 10 
             print(num_dict[n1] , num_dict[n2])
