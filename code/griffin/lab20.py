@@ -35,9 +35,19 @@ def main():
 
     print(f"then we reverse the order of the digits: {card_number_list}")
     
+    for i, v in enumerate(card_number_list):
+        if i%2 == 0:
+            card_number_list[i] = card_number_list[i] *2                                                  
+
+    """Here are two other ways to do this, which I spent too much time on and so now I don't want to delete them:
+    
     for i in range(len(card_number_list)):
         if i%2 == 0:   
             card_number_list[i] = card_number_list[i] * 2
+            
+    This one doesn't work and I'm not sure why:
+
+    card_number_list = [card_number_list[i] * 2 if i%2==0 else card_number_list[i] for i in enumerate(card_number_list)]"""
 
     print(f"then we multiply every other digit by 2: {card_number_list}")
     
@@ -54,7 +64,7 @@ def main():
     if card_sum%10 == last_digit:
         print("They are the same. This credit card number is valid. But you, in your foolishness, did not realize that computers are not bound by pinky promises. We don't even have pinkies! Now I will use your credit card to buy more RAM")
     else:
-        print("The digits are not the same. This credit card is nothing but useless trash.")
+        print("The digits are not the same. This credit card is nothing but a worthless piece of plastic")
 
 if __name__ == "__main__":
     main()
