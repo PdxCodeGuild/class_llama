@@ -47,5 +47,6 @@ def main():
     return_on_investment = 100 * (earnings - expenses)/expenses
     print(f"you have earned a total of ${savings_account}")
     print(f"your return on investment is {return_on_investment}%")
+    
 if __name__ == "__main__":
     main()
