@@ -46,11 +46,12 @@ card_num = [card_num[i]*(2**(i%2)) for i in range(len(card_num))]
 print(card_num)
 
 # subtract 9 from integers over 9, leave single digits as be
-card_num = [i - 9 if i > 9 for i in range(len(card_num))]
+card_num = [i - 9 if i > 9 else i for i in card_num]
 print(card_num)
 
-S
 # sum of the the number value
+sum_of = sum(card_num)
+print(sum_of)
 #if the second sum matches that check digit (first digit you took off) than the
 #number is valid
 #is_valid = [card_num]
