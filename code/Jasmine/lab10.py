@@ -16,7 +16,7 @@ Averaging Numbers
 #print(average)
 print("The Averaging Tool.")
 
-while True
+while True 
 
 nums_list = [5, 0, 8, 3, 4, 1, 6]
 avg = sum(nums_list) / len(nums_list)
