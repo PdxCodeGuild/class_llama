@@ -1,25 +1,24 @@
-''' 
-convert a number into plain word (i.e. sixty-seven for 67). 
-function must be able to convert 0-99 
 
-Hint: you can use modulus to extract the ones and tens digit.
+# Courtesy of Taro Ogawa, enhanced by Marius Grigaitis, and 
 
-x = 67
-tens_digit = x//10
-ones_digit = x%10
+# from num2words import num2words
 
-Hint 2: use the digit as an index for a list of strings OR as a key for a dict of digit:phrase pairs.
-''' 
+# choice = input('Pick a number: ')
+
+# print(num2words(choice))
+
 
 num = int(input("Pick a number: "))
 
 
-def convert_nums(num):
+def numberconverter(num):
     #create a dictionary where the key is a number and the value is a string
     number_dict = {1: "one" , 2: "two" , 3: "three" , 4: "four" , 5: "5" , 
     6: "6" , 7: "seven" , 8: "eight" , 9: "nine" , 10: "ten" , 11: "eleven" , 12: "twelve" ,  
     13: "thirteen" , 14: "fourteen" , 15: "fifteen" , 16: "sixteen" , 17: "seventeen" , 18: "eighteen" , 
-    19: "nineteen" , 20: "twenty" , 30: "thirty" , 40: "forty" , 50: "fifty" , 60: "sixty" , 70: "seventy" , 80: "eighty" , 90: "ninety"} 
+    19: "nineteen" , 20: "twenty" , 30: "thirty" , 40: "forty" , 50: "fifty" , 60: "sixty" , 70: "seventy" , 
+    80: "eighty" , 90: "ninety", 100: "one hundred", 200: "two hundred", 300: "three hundred", 400: "four hundred", 500: "five hundred",
+    600: "six hundred", 700: "seven hundred", 800: "eight hundred", 900: "nine hundred" } 
 
 
     #convert two digits numbers into words
@@ -36,9 +35,6 @@ def convert_nums(num):
         else: 
             n *= 10 
             print(number_dict[n] , number_dict[n2])
-        #print(n)
-        #print(n2)
-        #print(number_dict[num])
         
 
-convert_nums(num)
+numberconverter(num)
