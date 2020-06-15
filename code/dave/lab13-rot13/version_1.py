@@ -11,14 +11,19 @@ so encryption is the same as decryption.
 # create ROT13 function
 def rot13():
     letters = "abcdefghijklmnopqrstuvwxyz"
-    str = input("Enter a word: ")
-    encrypted = ""
 
     # prompt user to enter str
+    str = input("Enter a word: ")
 
-    # for loop that finds the character, adds 13, 
-    # then if over 26 (the number of letters in alphabet)
-    # modulus 26 gives the remainder which wraps back to beginning of list
+    # initialize var encrypted as an empty sting
+    encrypted = ""
+
+    '''
+    for loop that finds the character, adds 13, 
+    then if over 26 (the number of letters in alphabet)
+    modulus 26 gives the remainder which wraps back to beginning of list
+    '''
+
     for char in str:
         encrypted += letters[(letters.find(char)+13)%26]
     return encrypted
