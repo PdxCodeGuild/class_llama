@@ -54,6 +54,16 @@ In all three presentations, you should first explain the development process and
 - what part did you like the most? least?
 - what is the future of the project? what features (if any) will you work on next?
 
+## Getting Unstuck
+
+- Write pseudocode in English
+- Add comments to explain your process to yourself
+- Use functions to "black box" pieces of code
+- Break code into logical bits
+- Only do one thing at a time
+- Don't do too much on one line
+- There's no such thing as too many `print()`s
+
 ## Odds and Ends
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
 https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/  
