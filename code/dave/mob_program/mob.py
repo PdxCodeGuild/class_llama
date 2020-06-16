@@ -15,15 +15,35 @@ age = 0
 year = 0
 
 # initialize jackalope count and list
-jackalope_count = 2
-jackalope = [0,0]
+
+jackalope = [4,10]
+jackalope_count = len(jackalope)
+
 
 
 # conditional statement to compare age to reproduction
-if age < 3 and > 8:
-    # does not produce offspring
-else:
-    # produces two offspring
+# increase age every year by adding one to the age 
+#jack_age = [x + 1 for x in jackalope]
+#print(jack_age)
+
+while jackalope_count <= 1000:
+    mate_counter = 0
+
+    for jack in jackalope: 
+    
+        if jack >= 4 and jack <= 8:    # ages not producing offspring and a year 
+            mate_counter += 1                         
+              
+    jack_pop = jackalope.count(10)
+    print(jack_pop)
+    # removing 10 from the list
+    for jack in range(0, jack_pop): 
+        jackalope.remove(10)
+        print(jackalope)
+# # offspring produced between ages 4 - 8 , produce heir and add a year age
+        #for i in the range 
+        
+    print()
 
 
 # jackalopes = [0,0]
