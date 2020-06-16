@@ -18,6 +18,7 @@ def aging_jacks(total_jacks):
     
     for jacks in total_jacks:
         jacks += 1
+    return total_jacks
 
 def new_jacks(total_jacks):
 
@@ -43,6 +44,7 @@ while len(total_jacks) < 1000:
         total_mature_jacks = mature_jacks(total_jacks)
         total_new_jacks = new_jacks(total_mature_jacks)
         goodbye_old_yeller = old_yeller(total_jacks)
+        aging_jacks(total_jacks)
 
     num_years += 1
 
