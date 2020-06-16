@@ -16,7 +16,7 @@ if user_input1 == "m" and user_input2 == "mi":
 if user_input1 == "m" and user_input2 == "km":
     print(user_input / 1000 )
 if user_input1 == "mi" and user_input2 == "ft":
-    print(user_input / 5280 )
+    print(user_input * 5280 )
 if user_input1 == "mi" and user_input2 == "m":
     print(user_input * 1609 )
 if user_input1 == "mi" and user_input2 == "km":

@@ -35,6 +35,25 @@ def numberconverter(num):
         else: 
             n *= 10 
             print(number_dict[n] , number_dict[n2])
+
+    if 100 <= num <= 999:
+        n1 = num // 100
+        # modulus to take away hundreds then floor divide remainder for tens
+        n2 = num % 100 // 10
+        n3 = num % 10
+        # get the ones
+        if n1 == 0 and n2 == 0 and n3 == 1:
+            print(number_dict[num])
+        # get the tens
+        elif n1 == 0 and n2 == 1 and n3 == 1:
+            n2 *= 10
+            print(number_dict[n1] , number_dict[n2])
+        # get the hundreds
+        else:
+            n1 *= 100
+            n2 *= 10
+            # print(n1, n2, n3)
+            print(number_dict[n1] , number_dict[n2] , number_dict[n3])
         
 
 numberconverter(num)

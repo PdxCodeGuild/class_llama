@@ -29,8 +29,7 @@ while True:
     elif user_input == "/":
         print(user_input1 / user_input2)
 
-    elif user_input == "the room":
-        print("Oh Hi Mark!")
+    
         
     
     
