@@ -1,8 +1,8 @@
 import random as r
 
 def name(baby):
-    prefix_list = ["Da","Ka","Sha","Ma","Gla","Tre","Ru","Tu","Sue","Fo","Jo","Jenny"]
-    suffix_list = ["ren","ana","lyn","da","ra","bu","bob","role","tana","nissa","aqua"]
+    prefix_list = ["Da","Ka","Sha","Ma","Gla","Tre","Ru","Ron","Tu","Sue","Fo","Jo","Jenni","Po","Minni","Deli","Aissa","Mai","Jeze","Ja","Sa","Diy","Ami","Sala","Oli","Dem","Li","Ev","Moha","Ahme","Kaja"]
+    suffix_list = ["ren","ron","ana","lyn","da","paul","ra","bu","bob","role","tana","nissa","aqua","ray","lah","tou","mouna","bel","din","ya","nata","ba","med","lith","a","vi","via"]
     prefix = r.choice(prefix_list)
     suffix = r.choice(suffix_list)
     name = prefix+suffix
@@ -28,7 +28,7 @@ def aging_jacks(pop):
 
 
 #Sometimes line 35 throws an index error, saying the list index is out of range... I'm not sure why, because it should refer to list index 1.
-def jack_off(pop):    
+def mate(pop):    
     for i, jack in enumerate(pop):
         if 4 <= jack["age"] <= 8 and jack["sex"] == "f":
             if i == 0:
@@ -44,8 +44,10 @@ def jack_off(pop):
 def miracle_of_life(pop):
     for jack in pop:
         if jack["pregnant"] == True:
-            crotch_goblin = birth()
-            pop.append(crotch_goblin)
+            crotch_goblin1 = birth()
+            crotch_goblin2 = birth()
+            pop.append(crotch_goblin1)
+            pop.append(crotch_goblin2)
             jack["pregnant"] = False  
     return pop          
         
@@ -65,7 +67,7 @@ while len(jackalopes) < scope:
     print("Happy New Year!")
     jackalopes = miracle_of_life(jackalopes)
     print(jackalopes)
-    jackalopes = jack_off(jackalopes)
+    jackalopes = mate(jackalopes)
     print(jackalopes)
     jackalopes = old_yeller(jackalopes)
     print(jackalopes)
@@ -78,7 +80,7 @@ while len(jackalopes) < scope:
     num_years += 1
 
 if len(jackalopes) == 0:
-    print("all the jackalopes are dead")
+    print(f"it took, {num_years} years, but all the jackalopes are dead")
 else:
     print(f"it took {num_years} years to reach {scope} jackalopes")
 
