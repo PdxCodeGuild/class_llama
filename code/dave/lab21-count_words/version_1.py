@@ -40,7 +40,6 @@ def main():
             else:
                 stoplist.append(word)
 
-
         # iterate through each item in the list and add to dictionary. range is set to the length of the wordlist to prevent any errors and make it dynamic
         for word in stoplist:
             x = stoplist.index(word)
