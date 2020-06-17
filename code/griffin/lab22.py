@@ -44,4 +44,4 @@ for num in ari_scale:
 if ari > 14:
     print("This document has an ARI rating that exceeds college level. It should only be read by those masochistic enough for grad school.")
 else:
-    print(f"This document has an ARI rating of this document is {ari}.\n This corresponds to a grade level of {age_level['grade_level']}. \n It is suitable for an average person who is {age_level['ages']} years old.")
+    print(f"This document has an ARI rating of {ari}.\n This corresponds to a reading level of {age_level['grade_level']} comprehension. \n It is suitable for an average person who is {age_level['ages']} years old.")
