@@ -5,9 +5,6 @@ def peaks(data):
                 print(f"peak at index {i}")
         
 
-
-           
-
 def valleys():
     pass
 
