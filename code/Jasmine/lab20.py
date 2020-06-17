@@ -52,6 +52,7 @@ print(card_num)
 # sum of the the number value
 sum_of = sum(card_num)
 print(sum_of)
+
 #if the second sum matches that check digit (first digit you took off) than the
 #number is valid
 #is_valid = [card_num]
