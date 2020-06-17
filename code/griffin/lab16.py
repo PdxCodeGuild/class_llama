@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageDraw
 import colorsys
 
 img = Image.open("lenna.png") # must be in same folder
@@ -51,6 +51,36 @@ def hsvify():
     img.show()
 
     
+def draw_something():
+    width = 500
+    height = 500
+
+    img = Image.new('RGB', (width, height))
+
+    draw = ImageDraw.Draw(img)
 
 
-hsvify()
+    # the origin (0, 0) is at the top-left corner
+
+    draw.rectangle(((0, 0), (width, height)), fill="yellow")
+
+    # using the color pink
+    color = (256, 128, 128)  # pink
+
+    # draw a line from x0, y0, x1, y1
+    
+
+
+    circle_x = width/2
+    circle_y = height/4
+    circle_radius = 50
+    draw.ellipse((circle_x-circle_radius, circle_y-circle_radius, circle_x+circle_radius, circle_y+circle_radius), fill='lightgreen')
+
+    draw.line((circle_x,circle_y,width/2,height*.65), fill ="lightgreen", width = 10)
+    draw.line((width/4,height/2,width*.75,height/2), fill = "lightgreen", width = 10)
+    draw.line((width/2,height*.65, width/3,height*.9), fill = "lightgreen", width = 10)
+    draw.line((width/2,height*.65, width *.66,height*.9), fill = "lightgreen", width = 10)
+
+    img.show()
+
+draw_something()
