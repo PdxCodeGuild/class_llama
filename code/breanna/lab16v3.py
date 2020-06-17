@@ -18,6 +18,7 @@ draw.rectangle(((0, 0), (width, height)), fill="white")
 circle_x = width/2
 circle_y = height/2
 circle_radius = 45
+
 draw.ellipse((circle_x-circle_radius, circle_y-circle_radius, circle_x+circle_radius, circle_y+circle_radius), outline="red", fill=None)
 
 # draw Sticky a body
