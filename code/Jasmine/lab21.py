@@ -5,31 +5,45 @@ with open('file.txt') as f:
 
 #print(contents)
 
-#s = 'contents'
+ # all words to lower case and splits string into list
     contents = contents.lower()
-    contents = contents.split()
-    print(contents)
+    #print(contents)
 #s.strip('contents')
 
     translator = str.maketrans('' , '' , string.punctuation)
-    print(translator)
+    #print(translator)
     content = contents.translate(translator) 
-    print(content)
+    #print(content)
 
-    # content_1 = []
-    # for in content: 
-    #     for content in item.split(): 
-    #         content_1.append(item)
-    # print(content_1)
+    #put content into a list of words
+    content = content.split()
+    #print(content) 
+       
+
+    #create dictionary 
+    word_dict = {}
+
+    #add words from content list to dictionary with count occurence, remove most commonly used words
+    for i in range(len(content)): 
+        stopwords = ['the' , 'of' , 'and' , 'to' , 'a' , 'is' , 'in' , 'or']
+        if content in stopwords:
+            content.remove(content)
+        else:
+            word_dict[content[i]] = content.count(content[i])
+    print(word_dict)
+
+    #word_dict 
+    words = list(word_dict.items())
+    #print(words)
+    words.sort(key=lambda tup: tup[1], reverse=True)
+    for i in range(min(10, len(words))):
+        print(words[i])
+        
+        
+
+
+
+
+
     
-
-#each word to single string from multi word string 
-    #content_1 = content.split(',')
-    #print(content_1)
-
-    #con = list(content_1)
-    #print(con)
-
-#create list to populate dictionary 
-#dictionary of words 
-#content_dict = {"": 0}
+ 
