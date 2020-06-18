@@ -39,9 +39,7 @@ ari_scale = {
 }
 
 
-# compare ari_score to ari_scale
-
-
-# what it should print out after comparing ari_score to ari_scale
-# print("The ARI for gettysburg-address.txt is (ari_score)."/n"This corresponds to (ari_scale grade)-level difficulty,"/n"suitable for the average (ari_scale age) year old.")
+# compare ari_score to ari_scale, print result
+# if ari_score >= 14:
+    # print("The ARI for gettysburg-address.txt is (ari_score)."/n"This corresponds to (ari_scale grade)-level difficulty,"/n"suitable for the average (ari_scale age) year old.")
 
