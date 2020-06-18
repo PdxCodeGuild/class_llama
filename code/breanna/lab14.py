@@ -54,4 +54,4 @@ for i in range(100000):
 print("Total expenses: ", expenses)
 print("Total earnings: ", earnings)
 print("Final balance: ", balance)
-
+print("ROI: ", (earnings - expenses)/expenses)
