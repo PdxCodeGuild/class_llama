@@ -33,11 +33,15 @@ Presentation Day: September 18th, 2020
  Lab 13 -- ROT13  
  Lab 20 -- Credit Card Validation  
  Lab 14 -- Pick 6  
+ Group -- Jackalope  
+ Lab 21 -- Count Words  
+ Lab 16 -- Image Manipulation  
 
 #### Optional Python Labs
 
 Practice 1-5  
 Labs 01-08, 12 (You did these during the intro course)  
+Lab 18 -- Peaks and Valleys  
 
 ## Student Presentations
 
