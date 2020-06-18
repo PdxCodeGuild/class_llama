@@ -35,6 +35,7 @@ Presentation Day: September 18th, 2020
  Lab 14 -- Pick 6  
  Group -- Jackalope  
  Lab 21 -- Count Words  
+ Lab 16 -- Image Manipulation  
 
 #### Optional Python Labs
 
