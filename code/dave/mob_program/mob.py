@@ -24,11 +24,24 @@ age = 0
 # initialize years
 year = 0
 
-# jack_xx = female 
-# jack _xy = male 
+# jack_xx = female
+# jack _xy = male
+ 
 # initialize jackalope count and list
 
-jackalope = [0,0]
+jackalope = [{
+    "sex": "xy",
+    "age": 0,
+    "name": "Steve",
+    "pregnant": False},
+    {
+    "sex": "xx",
+    "age": 0,
+    "name": "Sarah",
+    "pregnant": False}]
+
+
+
 jackalope_count = len(jackalope)
 jack_babies = [0]
 
@@ -44,8 +57,10 @@ while jackalope_count <= 1000:
 
     for jack in jackalope: 
     
-        if jack >= 4 and jack <= 8: # offspring produced between ages 4 - 8 , produce heir and add a year age
-            mate_counter += 1                      
+        if jack['age'] >= 4 and jack['age'] <= 8: # offspring produced between ages 4 - 8 , produce heir and add a year age
+            if jack['sex'] == "xy" and jack['sex']
+
+                                  
               
     jack_pop = jackalope.count(10)
    # print(jack_pop)
@@ -65,8 +80,6 @@ while jackalope_count <= 1000:
     
     
    
-        
-
     print(jackalope)
     print("Jackalope population:" , jackalope_count)
     print("Years:" , year)
