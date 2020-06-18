@@ -1,6 +1,5 @@
 # Automated Readability Index
 
-import decimal
 import math
 
 
@@ -10,18 +9,19 @@ with open("metamorphosis.txt", "r") as text:
 
 # find values for ari_score math
 characters = len(content)
-print(characters)
+# print(characters)
 words = len(content.split())
-print(words)
+# print(words)
 sentences = len(content.split('.'))
-print(sentences)
+# print(sentences)
 
+# get the decimal ari_num
+ari_num = 4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43
+print(ari_num)
 
-# figure out this math nonsense
-# ceil() from math module rounds up
-# decimal() to do math with decimals
-# ari_score = math.ceil(float(4.71(characters/words)) + (0.5(words/sentences) - 21.43)
-# print(ari_score)
+# math.ceil() rounds up to nearest whole integer to get the actual ari_score
+ari_score = math.ceil(ari_num)
+print(ari_score)
 
 
 # fix dictionary format
