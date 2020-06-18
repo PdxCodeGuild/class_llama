@@ -16,11 +16,7 @@ sentences = len(content.split('.'))
 # print(sentences)
 
 # get the decimal ari_num
-ari_num = 4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43
-print(ari_num)
-
-# math.ceil() rounds up to nearest whole integer to get the actual ari_score
-ari_score = math.ceil(ari_num)
+ari_score = math.ceil(4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43)
 print(ari_score)
 
 
