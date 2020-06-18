@@ -29,13 +29,10 @@ hund_digit = {0: '', 1: 'One-Hundred', 2: 'Two-Hundred', 3: 'Three-Hundred',
 # create num_to_phrase function
 def num_to_phrase(num):
 
-    # isolate the tens
+    # isolate the hundreds, tens, and ones
     hund = int(num)//100
-    print(hund)
     tens = (int(num)//10)%10
-    print(tens)
     ones = int(num)%10
-    print(ones)
 
     # if statements to determine ones, teens, and tens digits
     if hund >= 0 and tens == 0:
