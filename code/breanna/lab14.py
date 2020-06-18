@@ -21,4 +21,7 @@ for item in winning_nums:
         else:
             pass
     
-# figure out how to show "You have 'x' matches!" in stade of matching numbers
+# figure out how to show "You have 'x' matches!" instead of matching numbers
+
+
+
