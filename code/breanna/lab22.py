@@ -25,27 +25,27 @@ print(sentences)
 
 
 # fix dictionary format
-# ari_scale = {
-#      1: {'ages': '5-6', 'grade': 'Kindergarten'},
-#      2: {'ages': '6-7', 'grade': '1st Grade'},
-#      3: {'ages': '7-8', 'grade': '2nd Grade'},
-#      4: {'ages': '8-9', 'grade': '3rd Grade'},
-#      5: {'ages': '9-10', 'grade': '4th Grade'},
-#      6: {'ages': '10-11', 'grade': '5th Grade'},
-#      7: {'ages': '11-12', 'grade': '6th Grade'},
-#      8: {'ages': '12-13', 'grade': '7th Grade'},
-#      9: {'ages': '13-14', 'grade': '8th Grade'},
-#     10: {'ages': '14-15', 'grade': '9th Grade'},
-#     11: {'ages': '15-16', 'grade': '10th Grade'},
-#     12: {'ages': '16-17', 'grade': '11th Grade'},
-#     13: {'ages': '17-18', 'grade': '12th Grade'},
-#     14: {'ages': '18-22', 'grade': 'College'}
-# }
+ari_scale = {
+     '1': {'ages': '5-6', 'grade': 'kindergarten'},
+     '2': {'ages': '6-7', 'grade': '1st grade'},
+     '3': {'ages': '7-8', 'grade': '2nd grade'},
+     '4': {'ages': '8-9', 'grade': '3rd grade'},
+     '5': {'ages': '9-10', 'grade': '4th grade'},
+     '6': {'ages': '10-11', 'grade': '5th grade'},
+     '7': {'ages': '11-12', 'grade': '6th grade'},
+     '8': {'ages': '12-13', 'grade': '7th grade'},
+     '9': {'ages': '13-14', 'grade': '8th grade'},
+    '10': {'ages': '14-15', 'grade': '9th grade'},
+    '11': {'ages': '15-16', 'grade': '10th grade'},
+    '12': {'ages': '16-17', 'grade': '11th grade'},
+    '13': {'ages': '17-18', 'grade': '12th grade'},
+    '14': {'ages': '18-22', 'grade': 'college'}
+}
 
 
 # compare ari_score to ari_scale
 
 
 # what it should print out after comparing ari_score to ari_scale
-# print("The ARI for gettysburg-address.txt is 12."/n"This corresponds to 11th Grade level difficulty,"/n"suitable for the average 16-17 year old.")
+# print("The ARI for gettysburg-address.txt is (ari_score)."/n"This corresponds to (ari_scale grade)-level difficulty,"/n"suitable for the average (ari_scale age) year old.")
 
