@@ -44,11 +44,9 @@ ari_scale = {
 
 
 # compare ari_score to ari_scale, print result
-for ari_score in ari_scale:
-    ari_score = ari_scale[ari_score]
-    if ari_score >= 14:
-        ari_score = 14
-        print(f"The ARI for Metamorphosis is {ari_scale[ari_score]}./nThis corresponds to {ari_scale[ari_score]['grade']}-level difficulty,\nsuitable for the average {ari_scale[ari_score]['ages']} year old.")
-    else:
-        print(f"The ARI for Metamorphosis is {ari_scale[ari_score]}.\nThis corresponds to {ari_scale[ari_score]['grade']}-level difficulty,\nsuitable for the average {ari_scale[ari_score]['ages']} year old.")
+if ari_score >= 14:
+    ari_score = 14
+    print(f"The ARI for Metamorphosis is {ari_score}.\nThis corresponds to {ari_scale[str(ari_score)]['grade']}-level difficulty,\nsuitable for the average {ari_scale[str(ari_score)]['ages']} year old.")
+else:
+    print(f"The ARI for Metamorphosis is {ari_score}.\nThis corresponds to {ari_scale[str(ari_score)]['grade']}-level difficulty,\nsuitable for the average {ari_scale[str(ari_score)]['ages']} year old.")
         
