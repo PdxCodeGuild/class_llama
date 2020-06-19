@@ -36,7 +36,7 @@ for word in wordier_words:
 
 
 
-print(best_counts)
+print(counts)
 
 
 
