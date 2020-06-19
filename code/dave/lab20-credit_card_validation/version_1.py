@@ -34,7 +34,7 @@ def second_digit_of_sum():
 def compare_check_and_second():
     pass
 
-# create func that passes card_num from main in and runs all steps for validation
+# create func that passes card_num from main in and runs all steps for validation. Print 'Valid' or 'Not Valid'
 def validate_credit_card():
     pass
 
