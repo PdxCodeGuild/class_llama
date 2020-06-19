@@ -1,18 +1,6 @@
 with open('medieval contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 
-dict_list = []
-
-for line in lines:
-    temp_list = line.split(",")
-    temp_dict = {}
-    for line in temp_list:
-        very_temp_list = line.split(":")
-        very_temp_list[0] = very_temp_list[0].strip()
-        very_temp_list[1] = very_temp_list[1].strip()            
-        temp_dict[very_temp_list[0]] = very_temp_list[1]
-    dict_list.append(temp_dict)
-
 def create_contact(contact_list):
     while True:
         medieval_myspace = {}
@@ -55,9 +43,16 @@ def delete_contact(contact_list):
     return contact_list
 
 def save_changes(contacts):
-    contact_string = str(contacts)
+    contacts_string = ""
+    for contact in contacts:
+        for key in contact:
+            contacts_string = contacts_string + key + ": " + contact[key]
+            if key != "status":
+                contacts_string = contacts_string + ", "
+        contacts_string = contacts_string + "\n"   
+    contacts_string = contacts_string.strip()    
     with open("medieval contacts.csv", "w") as contact_list:
-        contact_list.write(contact_string)
+        contact_list.write(contacts_string)
 
 def main():
     with open('medieval contacts.csv', 'r') as file:
