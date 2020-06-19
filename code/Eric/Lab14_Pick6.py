@@ -15,7 +15,7 @@ def generateLotteryNumbers(num_of_numbers):
 
     def printLotteryNumbers(lottery_numbers):
         for lottery_numbers in range(len(lottery_numbers)):
-            print(lottery_numbers[lottery_numbers])
+            print(lottery_numbers(lottery_numbers) )
 
     
 
