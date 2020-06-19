@@ -15,6 +15,7 @@ and subtracting 21.43. If the result is a decimal, always round up. Scores great
 
 '''
 import string
+import math
 # create string for reading characters of a document (ARI)
 # string should output a score between (1 and 14)
 
@@ -43,9 +44,9 @@ print("words:" , words)
 
 # ARI formula 
 
-ari = 4.71*(int(chars) / int(words)) + 0.5* (int(words) / int(lines)) - 21.43
+ari = math.ceil(4.71*(int(chars) / int(words)) + 0.5* (int(words) / int(lines)) - 21.43)
 
-print("The ARI of this material is:" , round(ari)) #rounds ARI 
+print("The ARI of this material is:" , ari) #rounds ARI 
 
 # use a dictionary to look up the age range and grade level equated with ARI
 # first step create dictionary 
