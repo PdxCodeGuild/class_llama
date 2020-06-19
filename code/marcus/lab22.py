@@ -20,11 +20,38 @@ ari_scale = {
     '13': {'ages': '17-18', 'grade': '12th grade'},
     '14': {'ages': '18-22', 'grade': 'college'}
 }
-
+# turns the input text into a string so regex can read it better
 moontotal_new = str(moontotal)
-moontotal_charac = re.sub(r'[^\w\s]','',moontotal_new)
 
-print(moontotal_charac)
+# removes punctuation from input text
+moontotal_words = re.sub(r'[^\w\s]','',moontotal_new)
+
+# breaks up every word into the characters and puts it into a list
+moontotal_charac_list = list(moontotal_words)
+
+# turns input text into a list of words
+moontotal_words_list = moontotal_words.split(' ')
+
+# turns input text into a list of sentences
+moontotal_sentence_list = moontotal_new.split(".")
+
+moonmath_ch_wor = float(4.71*(int(len(moontotal_charac_list)/len(moontotal_words_list))))
+
+moonmath_ch_wor_round = math.ceil(moonmath_ch_wor)
+
+
+moonmath_wor_sent = float(0.5*(int(len(moontotal_words_list)/len(moontotal_sentence_list))))
+
+moonmath_wor_sent_round = math.ceil(moonmath_wor_sent)
+
+
+we_choose_to_go_to_the_moon = math.ceil(float((moonmath_wor_sent_round + moonmath_ch_wor_round) - 21.43))
+
+
+for x in ari_scale:
+    we_choose_to_go_to_the_moon = ari_scale[x]
+    if ari_score >= 14:
+        print(f"The ARI for We Choose To Go To The Moon is 23.""This corresponds to {ari_scale["14"("grade")]}-level difficulty,""suitable for the average {ari_scale["we_choose_to_go_to_the_moon"("ages")]} year old.")
 
 
 

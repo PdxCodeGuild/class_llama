@@ -22,6 +22,7 @@ print(sentences)
 # get the decimal ari_num and round up for ari_score
 ari_score = math.ceil(4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43)
 print(ari_score)
+print(type(ari_score))
 
 
 ari_scale = {
@@ -43,6 +44,9 @@ ari_scale = {
 
 
 # compare ari_score to ari_scale, print result
-# if ari_score >= 14:
-    # print("The ARI for gettysburg-address.txt is (ari_score)."/n"This corresponds to (ari_scale grade)-level difficulty,"/n"suitable for the average (ari_scale age) year old.")
-
+if ari_score >= 14:
+    ari_score = 14
+    print(f"The ARI for Metamorphosis is {ari_score}.\nThis corresponds to {ari_scale[str(ari_score)]['grade']}-level difficulty,\nsuitable for the average {ari_scale[str(ari_score)]['ages']} year old.")
+else:
+    print(f"The ARI for Metamorphosis is {ari_score}.\nThis corresponds to {ari_scale[str(ari_score)]['grade']}-level difficulty,\nsuitable for the average {ari_scale[str(ari_score)]['ages']} year old.")
+        

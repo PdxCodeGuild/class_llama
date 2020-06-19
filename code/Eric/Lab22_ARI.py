@@ -14,8 +14,34 @@ Score  Ages     Grade Level
     12     16-17    Eleventh grade
     13     17-18    Twelfth grade
     14     18-22    College
-"""
 
+Output should look like:
+
+The ARI for gettysburg-address.txt is 12
+This corresponds to a 11th Grade level of difficulty
+that is suitable for an average person 16-17 years old.
+
+"""
+f = open("ARI_file.txt", "r")
+for x in f:
+  print(x)
+
+# Counting characters in a text file or string
+def count_chars(txt):
+	result = 0
+	for char in txt:
+		result += 1     # same as result = result + 1
+	return result
+print(count_chars(txt))
+
+# Counting words in text or string
+test_string = "This is how to use the split() function while counting words in a sentence"
+#original string
+print ("The original string is : " + test_string)
+# using split() function
+res = len(test_string.split())
+# total no of words
+print ("The number of words in string are : " + str(res))
 
 
 def ARI(text):
@@ -24,7 +50,7 @@ def ARI(text):
 		score = 4.71 * (len(text) / len(text.split()) ) +  0.5 * ( len(text.split()) / len(text.split('.'))) - 21.43 
 		return score if score > 0 else 0
 
-
+"""
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -41,4 +67,15 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
+"""
+
+# Python program to print list 
+# using for loop 
+a = [1, 2, 3, 4, 5] 
+  
+# printing the list using loop 
+for x in range(len(a)): 
+    print(a[x])
+
+
 
