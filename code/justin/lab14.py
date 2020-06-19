@@ -36,29 +36,36 @@ def winnings(num):
     elif num == 6:
         return 25000000
 
-def play_lottery():
+def play_lottery(times):
+    expenses = (2 * int(times))
     balance = 0
-    for x in range(100000):
+    for x in range(times):
         
         balance -= 2
         winner = pick6_winners()
         chance = pick6_player()
         matches = compared(winner, chance)
         balance += winnings(matches)
+    final_balance = expenses + balance
+    roi = final_balance/expenses
+        
+    if final_balance == 0:
+        print("You won nothing!")
+    elif final_balance == expenses:
+        print(f"You broke even.")
+    elif final_balance < expenses: 
+        print(f"You spent ${expenses} in all, winning only ${final_balance} in the process.")
+        print(f"You lost ${expenses - final_balance} altogether!")
+        print(f"That's a success rate of {roi}%!")
+    elif final_balance > expenses:
+        print(f"You won ${balance}!")
+        print(f"You spent ${expenses} in all, winning ${final_balance} in the process.")
+        print(f"That's a success rate of {roi}%!")
 
 
-    print(f"Your final balance is ${balance}")
 
-    '''
-    if balance >= 0:
-        final_balance = balance + 200000
-        print(f"You broke even at least, impressive! You won {final_balance} altogether")
-    elif balance < 0 and balance > -200000:
-        print(f"Your  You won {final_balance} altogether")
-    '''
+play_lottery(int(input("How many times do you want to play? ")))
 
-
-play_lottery()
 
 
 

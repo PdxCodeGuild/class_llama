@@ -15,9 +15,8 @@ def main():
 
     #adds 13 to each number in the list, activating the ROT Cipher
     for number in code_numbers:
-        new_num = number + offset
-        if new_num > 26:
-            new_num -= 26
+        new_num = (number + offset)%26
+        
         new_code_numbers.append(new_num)
 
     #converts the numbers into a list of strings
