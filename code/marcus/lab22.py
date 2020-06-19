@@ -21,7 +21,10 @@ ari_scale = {
     '14': {'ages': '18-22', 'grade': 'college'}
 }
 
+moontotal_new = str(moontotal)
+moontotal_charac = re.sub(r'[^\w\s]','',moontotal_new)
 
+print(moontotal_charac)
 
 
 
