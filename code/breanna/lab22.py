@@ -1,7 +1,8 @@
 # Automated Readability Index
 
-import decimal
 import math
+import re
+import string
 
 
 # get the book
@@ -11,17 +12,20 @@ with open("metamorphosis.txt", "r") as text:
 # find values for ari_score math
 characters = len(content)
 print(characters)
-words = len(content.split())
+words = len(re.split(r"\s+", content))
 print(words)
-sentences = len(content.split('.'))
+# below is the same thing without regex
+# words2 = len(content.split())
+# print(words2)
+sentences = len(re.split(r"[.?!]\s", content))
 print(sentences)
+# below only splits on "." and so has less sentences
+# sentences2 = len(content.split('.'))
+# print(sentences2)
 
-
-# figure out this math nonsense
-# ceil() from math module rounds up
-# decimal() to do math with decimals
-# ari_score = math.ceil(float(4.71(characters/words)) + (0.5(words/sentences) - 21.43)
-# print(ari_score)
+# get the decimal ari_num
+ari_score = math.ceil(4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43)
+print(ari_score)
 
 
 # fix dictionary format
@@ -43,9 +47,7 @@ ari_scale = {
 }
 
 
-# compare ari_score to ari_scale
-
-
-# what it should print out after comparing ari_score to ari_scale
-# print("The ARI for gettysburg-address.txt is (ari_score)."/n"This corresponds to (ari_scale grade)-level difficulty,"/n"suitable for the average (ari_scale age) year old.")
+# compare ari_score to ari_scale, print result
+# if ari_score >= 14:
+    # print("The ARI for gettysburg-address.txt is (ari_score)."/n"This corresponds to (ari_scale grade)-level difficulty,"/n"suitable for the average (ari_scale age) year old.")
 
