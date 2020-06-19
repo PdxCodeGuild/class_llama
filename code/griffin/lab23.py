@@ -55,9 +55,16 @@ def delete_contact(contact_list):
     return contact_list
 
 def save_changes(contacts):
-    contact_string = str(contacts)
-    with open("medieval contacts.csv", "w") as contact_list:
-        contact_list.write(contact_string)
+    contacts_string = ""
+    for contact in contacts:
+        for key in contact:
+            contacts_string = contacts_string + key + ": " + contact[key]
+            if key != "status":
+                contacts_string = contacts_string + ", "
+        contacts_string = contacts_string + "\n"
+    print(contacts_string)        
+    """with open("medieval contacts.csv", "w") as contact_list:
+        contact_list.write(contact_string)"""
 
 def main():
     with open('medieval contacts.csv', 'r') as file:
