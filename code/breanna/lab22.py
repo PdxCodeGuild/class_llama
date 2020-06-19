@@ -10,8 +10,14 @@ with open("metamorphosis.txt", "r") as text:
     content = text.read()
 
 # find values for ari_score math
+#remove punctuation first for a more accurate character count
+punctuation = '!.?"'''
+for x in content:
+    if x in punctuation:
+        content = content.replace(x, "")
 characters = len(content)
-print(characters)
+print(characters)   
+# regex above?
 words = len(re.split(r"\s+", content))
 print(words)
 # below is the same thing without regex
