@@ -1,6 +1,8 @@
 # Automated Readability Index
 
 import math
+import re
+import string
 
 
 # get the book
@@ -8,19 +10,20 @@ with open("metamorphosis.txt", "r") as text:
     content = text.read()
 
 # find values for ari_score math
-characters = len(content)
-# print(characters)
-words = len(content.split())
-# print(words)
-sentences = len(content.split('.'))
-# print(sentences)
+# remove punctuation for more accurate character count
+characters = len(re.sub(r'[^\w\s]','',content))
+print(characters)
+words = len(re.split(r"\s+", content))
+print(words)
+sentences = len(re.split(r"[.?!]\s", content))
+print(sentences)
 
-# get the decimal ari_num
+
+# get the decimal ari_num and round up for ari_score
 ari_score = math.ceil(4.71 * (characters/words) + 0.5 * (words/sentences) - 21.43)
 print(ari_score)
 
 
-# fix dictionary format
 ari_scale = {
      '1': {'ages': '5-6', 'grade': 'kindergarten'},
      '2': {'ages': '6-7', 'grade': '1st grade'},
