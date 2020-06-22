@@ -1,39 +1,46 @@
+# Credit Card Validation Program
 
-def int_list(card_number):
-	
-	card_number = card_number.split()
-	for i in range(len(card_number)):
-		card_number[i] = int(card_number[i])
-	return card_number
+import random
 
-def double_number(card_number_list):
-	
-	for i in range(0,len(card_number_list),2):
-		card_number_list[i] *= 2
-	return card_number_list
-
-def second_num(number):
-	
-	return int(list(str(number))[1])
+cred_card = [random.randint(1,10) for x in range(16)]
+card = list(cred_card)
+print(card)
 
 
-def print_valid(x, y):
-	
-	if x == y:
-		print('Valid number')
-	else:
-		print('Invalid number')
+verify_cc = card[15]
+print(verify_cc)	
+ 
+# .pop() removes and returns last object or obj from the list
+card.pop(15)
+print(card)
 
-def card_validation(card_number):
-	"""
-	>>> card_validation('4 5 5 6 7 3 7 5 8 6 8 9 9 8 5 5')
-	Valid number
-	"""
-	card_number = int_list(card_number)
-	check_digit = card_number.pop()
-	card_number.reverse()
-	card_number = double_number(card_number)
-	print_valid(second_num, check_digit)
+# reverses objects of list in place
+card.reverse()
+print(card)
+
+# Double the digits
+card[0::2] = [x*2 for x in card[0::2]]
+print(card)
+
+
+card = [x-9 if x > 9 else x for x in card]
+print(card)
+
+
+cc_digits = sum(card)
+print(cc_digits)
+
+
+card_verif = str(cc_digits)
+card_x = card_verif[1]
+
+print(card_x)
+
+
+if int(card_x) == int(verify_cc):
+    print("Valid Credit Card")
+else:
+    print("NOT Valid")
 
 
 
