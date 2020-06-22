@@ -27,5 +27,4 @@ with open('./contacts.csv', 'r') as f:
 
         people.append(dict_items)
     print(people) # works
-
     # print(people[1]['status']) # how to retrieve

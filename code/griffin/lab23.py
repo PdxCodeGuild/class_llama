@@ -1,5 +1,3 @@
-with open('medieval contacts.csv', 'r') as file:
-    lines = file.read().split('\n')
 
 def create_contact(contact_list):
     while True:
@@ -43,32 +41,38 @@ def delete_contact(contact_list):
     return contact_list
 
 def save_changes(contacts):
-    contacts_string = ""
+    contacts_string = "name,house allegiance,house words,status\n"
+
     for contact in contacts:
         for key in contact:
-            contacts_string = contacts_string + key + ": " + contact[key]
-            if key != "status":
-                contacts_string = contacts_string + ", "
-        contacts_string = contacts_string + "\n"   
-    contacts_string = contacts_string.strip()    
+            contacts_string = contacts_string + contact.get(key) + ","
+        contacts_string = contacts_string.strip(',')
+        contacts_string = contacts_string + "\n"
+    
     with open("medieval contacts.csv", "w") as contact_list:
         contact_list.write(contacts_string)
 
+
 def main():
-    with open('medieval contacts.csv', 'r') as file:
+    with open('medieval contacts new.csv', 'r') as file:
         lines = file.read().split('\n')
 
     dict_list = []
-
+    temp_dict = {}
+    items = []
     for line in lines:
-        temp_list = line.split(",")
-        temp_dict = {}
-        for line in temp_list:
-            very_temp_list = line.split(":")
-            very_temp_list[0] = very_temp_list[0].strip()
-            very_temp_list[1] = very_temp_list[1].strip()            
-            temp_dict[very_temp_list[0]] = very_temp_list[1]
+        new_item = line.split(",")
+        items.append(new_item)
+
+    categories = items[0]
+    for item in items:
+        if item == categories:
+            items.remove(item)
+
+    for item in items:
+        temp_dict = {categories[0]:item[0],categories[1]:item[1],categories[2]:item[2],categories[3]:item[3],}
         dict_list.append(temp_dict)
+
     while True:
         choice = int(input("""What would you like to do?
         (1) Create new contact 
