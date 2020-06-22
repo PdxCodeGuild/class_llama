@@ -29,7 +29,7 @@ def draw_xs(data):
                 print("X  ", end = "")
                 valley_toggle = True
             #this method of adding Os and counting water works for this data set... but I think there would be problems with more complex
-            #data sets, and I'm not sure how to do a better method
+            #data sets, and I'm not sure how to do a better method  
             elif valley_toggle == True:
                 print("O  ", end = "")
                 water_counter += 1
