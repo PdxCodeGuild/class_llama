@@ -21,3 +21,38 @@ with open('contacts.csv', 'r') as file:
         # match keys to each value, new dictionary for each new line
         contacts.append(dict(zip(keys, split_lines[k])))
     print(contacts)
+
+
+# # function to create a new contact and informaton
+# def create():
+#     pass
+
+# function to retreive a contact and information
+def retreive():
+    retreived = input("Choose a contact name to display information: ")
+    for contact in contacts:
+        # print(contact)
+        if contact['Name'] == retreived:
+            print(contact)
+            # MAKE PRETTY
+
+
+# # function to update a contact and information 
+# def update():
+#     pass
+
+# # function to delete a contact and information
+# def delete():
+#     pass
+
+
+# def crud():
+#     choice = input("Would you like to create, retreive, update, or delete a contact: ")
+#     if choice == "create":
+#         create()
+#     elif choice == "retreive":
+#         retreive()
+#     elif choice == "update":
+#         update()
+#     elif choice == "delete":
+#         delete()
