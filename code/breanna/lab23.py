@@ -23,9 +23,9 @@ with open('contacts.csv', 'r') as file:
     print(contacts)
 
 
-# function to create a new contact and informaton
-def create():
-    pass
+# # function to create a new contact and informaton
+# def create():
+#     pass
 
 # function to retreive a contact and information
 def retreive():
@@ -35,28 +35,38 @@ def retreive():
         if contact['Name'] == retreived:
             print(contact)
             # MAKE PRETTY?!
-            
-retreive()
 
 def retreive_and():
     retreived = input("Choose a contact name to display information: ")
     for contact in contacts:
         # print(contact)
         if contact['Name'] == retreived:
-            return(contact)
+            return contact
 
-# function to update a contact and information 
-def update():
-    retreive_and()
-    # update each value one by one?
+
+# # function to update a contact and information 
+# def update():
+#     retreive_and()
+#     # update each value one by one?
 
 
 # function to delete a contact and information
-def delete():
-    retreive_and()
-    # delete contact
-    # deleted = ?
+# def delete():
+#     retreive_and()
+#     # delete contact
+#     delete = input("Would you like you delete this contact and information (Y/N): ")
+#     if delete == "Y":
+#         for contact in range(len(contacts)): 
+#             if contact['Name'] == delete: 
+#                 del contact 
+#             break
+#         print("This contact and information has been deleted.")
+#         print(contacts)
+#     elif delete == "N":
+#         pass
+# BIG MESS!
 
+# delete()
 
 # def crud():
 #     choice = input("Would you like to create, retreive, update, or delete a contact: ")
