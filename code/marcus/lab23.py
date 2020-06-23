@@ -65,7 +65,15 @@ def newentry():
 
 
 
-
+def getouttahere():
+    contact = picknpull()
+    # delete contact
+    delete = input("Would you like you delete this contact and information (Y/N): ")
+    if delete == "Y": 
+        phonebook.remove(contact)
+        print(f"This contact and information has been deleted.\n{phonebook}")
+    elif delete == "N":
+        pass
 
 
 
