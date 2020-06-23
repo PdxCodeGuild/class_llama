@@ -25,6 +25,24 @@ with open('contacts.csv', 'r') as file:
     print(contacts)
 
 
+def update_file():
+    # join keys in list separated by commas
+    x = [','.join(keys)]
+    
+    # loop through contacts, get value of values (put individual dictionaries back into list)
+    for value in contacts:
+        y = ','.join(value.values())
+        # join lists
+        x.append(y)
+    
+    # add new lines after each comma to format for csv
+    z = '\n'.join(x)
+    
+    # write to file
+    with open('contacts.csv', 'w') as file:
+        file.write(z)
+
+
 # function to create a new contact and informaton
 def create():
     # use index 0 line for keys, split line to get individual keys
@@ -36,6 +54,8 @@ def create():
     contacts.append(new_contact)
     
     print(contacts)
+
+    update_file()
 
 
 # function to retreive a contact and information
@@ -58,7 +78,9 @@ def retreive_and():
 # function to update a contact and information 
 def update():
     contact = retreive_and()
+    
     update = input("Would you like to update this contact (Y/N): ")
+    
     if update == "Y":
         contact['Name'] = input("Enter the contact's first name: ")
         contact['Favorite animal'] = input("Enter their favorite animal: ")
@@ -67,16 +89,22 @@ def update():
         print(f"This contact and information has been updated.\n{contact}")
     elif update == "N":
         pass
+    
+    update_file()
 
 
 # function to delete a contact and information
 def delete():
     contact = retreive_and()
-    # delete contact
+
     delete = input("Would you like you delete this contact and information (Y/N): ")
+    
     if delete == "Y": 
         contacts.remove(contact)
         print(f"This contact and information has been deleted.\n{contacts}")
+   
+        update_file()
+   
     elif delete == "N":
         pass
 
