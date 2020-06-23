@@ -82,14 +82,15 @@ def delete():
 
 
 def crud():
-    choice = input("Would you like to create, retreive, update, or delete a contact (c/r/u/d): ")
-    if choice == "c":
-        create()
-    elif choice == "r":
-        retreive()
-    elif choice == "u":
-        update()
-    elif choice == "d":
-        delete()
+    while True:
+        choice = input("Would you like to create, retreive, update, or delete a contact (c/r/u/d): ")
+        if choice == "c":
+            create()
+        elif choice == "r":
+            retreive()
+        elif choice == "u":
+            update()
+        elif choice == "d":
+            delete()
 
 crud()
