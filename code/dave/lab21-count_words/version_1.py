@@ -14,7 +14,7 @@ def sort_words(word_dict):
     # word_dict is a dictionary where the key is the word and the value is the count
     words = list(word_dict.items()) # .items() returns a list of tuples
     words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
-    for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
+    for i in range(min(10, len(STOPWORDS))):  # print the top 10 words, or all of them, whichever is smaller
         print(words[i])
 
 
@@ -39,6 +39,11 @@ def main():
                 pass
             else:
                 stoplist.append(word)
+        #   elif word not in word_dict:
+        #       word_dict[word] = 1
+        #   elif word in word_dict:
+        #       word_dict[word] += 1
+    #   word_list = list(word_dict.items())
 
         # iterate through each item in the list and add to dictionary. range is set to the length of the wordlist to prevent any errors and make it dynamic
         for word in stoplist:
@@ -46,6 +51,9 @@ def main():
             word_dict[stoplist[x]] = stoplist.count(stoplist[x])
             # I am not 100% sure how this works found on YouTube 'Python Programming: Creating a dictionary from a list'
             # I understand how it works but not how I would come up with this on my own without more research.
+
+            # longhand
+
 
         # iterate through each item in the dictionary and print the key and value for each. Formatted for readability
         for key, value in word_dict.items():
