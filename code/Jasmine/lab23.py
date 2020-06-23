@@ -41,16 +41,15 @@ def dictupdates(advance_names):
         file.write("\n".join(newlist)) # overwrites csv file to include new entry
 
 
-  
-
-
 def person_lookup(): # looks up and retreives personnel information
     user_1 = input("Who would you like to locate:").lower()
     for person in advance_names:
         if person['lastname'] == user_1:
             print(person)
-
-#person_lookup()
+        else:
+            break
+        
+person_lookup()
 
 def add_person():
  #asks for information for creating new entry
@@ -63,8 +62,35 @@ def add_person():
     dictupdates(advance_names)
 add_person()
 
+def person_update(): #find update by whatever element needs to be updated
+    user = input("who do you need to update?")
+    user1 = input("what do you need to update")
+    user2 = input("what would like to replace it with?")
+    for person in advance_names:
+        if person['lastname'] == user:
+            if user1 in person: 
+                person[user1] = user2
+                dictupdates(advance_names)
+        elif person['lastname'] != user:
+            break
+    print(person, "this is person")
+    print(advance_names, "this is advance names")
+
+person_update()
+
+def remove_person(): #deleting entries
+    user3 = input("who do you need to remove: ")
+    for person['lastname'] == user3:
+        if user3 in person: 
+            
 
 
+
+
+
+
+remove_person()
+    
 
 
 #updating dictionary entries (use .update())
