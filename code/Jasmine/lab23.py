@@ -7,7 +7,7 @@ dictionaries, one dictionary for each user. The text in the header represents th
 the text in the other lines represent the values.
 '''
 with open('advancement.csv' , 'r') as file:
-    lines = file.read().split('\n')
+    lines = file.read().lower().split('\n')
     #print(lines)
     
 advance_names = []
@@ -15,26 +15,56 @@ advance_names = []
 # creates two list of keys and values
 for line in range(len(lines)): 
     key_1 = lines[0]
-    key_1 = key_1.split()
+    key_1 = key_1.split(',')
     val = lines[line]
-    val = val.split()
+    val = val.split(',')
 
     valdict = dict(zip(key_1, val)) #combines lists into tuple and then dictionary
     advance_names.append(valdict)
 print(advance_names)
 
+def dictupdates(advance_names):
+    #create lists from dictionary
+    #advance_names[0].values()
+    list(advance_names[0].values()) # takes values from dictionary and creates a list
+    list(advance_names[0].values()) # takes values from dictionary and creates a list
+    advance_names[0].keys()
+    ",".join(advance_names[0].keys()) 
+    ",".join(advance_names[0].values()) #creates new line
+    newlist = []
+    for i in range(len(advance_names)): #this loops combines values and keys into a new list
+        newlist.append(",".join(advance_names[i].values()))
+        "\n".join(newlist)
+    print(newlist)
+
+    with open('advancement.csv' , 'w') as file: 
+        file.write("\n".join(newlist)) # overwrites csv file to include new entry
+
+
+  
+
+
 def person_lookup(): # looks up and retreives personnel information
-    user_1 = input("Who would you like to locate:")
+    user_1 = input("Who would you like to locate:").lower()
     for person in advance_names:
         if person['lastname'] == user_1:
             print(person)
 
-person_lookup()
+#person_lookup()
 
-# def add_person():
-#     new_person = 
-#     r = input("What is the sailor's rate:")
-#     ln = input("What is the sailor's last name:")
-#     fn = input("What is the sailor's first name:")
-#     eligible = input("Are they exam eligible:")  #asks for information for creating new entry
+def add_person():
+ #asks for information for creating new entry
+    new_user = input("What is the sailor's rate:"),input("What is the sailor's last name:"),input("What is the sailor's first name:"),input("Are they exam eligible:")
+    print(new_user)
+    addsailor = dict(zip(key_1, new_user))
+    print(addsailor)
+    advance_names.append(addsailor)
+    print(advance_names)
+    dictupdates(advance_names)
+add_person()
 
+
+
+
+
+#updating dictionary entries (use .update())
