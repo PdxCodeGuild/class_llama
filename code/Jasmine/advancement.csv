@@ -1,5 +1,6 @@
-rate, lastname, firstname, exameligible
-CTR2, Adams, Bryan, Yes
-CTTSN, Brooks, Alisha, No
-CTN3, Cruz, Elizabeth, Yes
-ITSN, Thomas, Adam, Yes
+rate,lastname,firstname,exameligible
+ctr2,adams,bryan,yes
+cttsn,brooks,alisha,no
+ctn3,cruz,elizabeth,yes
+itsn,thomas,adam,yes
+it2,higgins,brett,yes
