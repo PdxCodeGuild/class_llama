@@ -30,8 +30,8 @@ def dictupdates(advance_names):
     list(advance_names[0].values()) # takes values from dictionary and creates a list
     advance_names[0].keys()
     ",".join(advance_names[0].keys()) 
-    ",".join(advance_names[0].values()) #creates new line
-    newlist = []
+    ",".join(advance_names[0].values()) #creates string
+    newlist = [] #list for combining keys and values 
     for i in range(len(advance_names)): #this loops combines values and keys into a new list
         newlist.append(",".join(advance_names[i].values()))
         "\n".join(newlist)
@@ -49,7 +49,7 @@ def person_lookup(): # looks up and retreives personnel information
         else:
             break
         
-person_lookup()
+#person_lookup()
 
 def add_person():
  #asks for information for creating new entry
@@ -60,7 +60,7 @@ def add_person():
     advance_names.append(addsailor)
     print(advance_names)
     dictupdates(advance_names)
-add_person()
+#add_person()
 
 def person_update(): #find update by whatever element needs to be updated
     user = input("who do you need to update?")
@@ -76,19 +76,14 @@ def person_update(): #find update by whatever element needs to be updated
     print(person, "this is person")
     print(advance_names, "this is advance names")
 
-person_update()
+#person_update()
 
 def remove_person(): #deleting entries
     user3 = input("who do you need to remove: ")
-    for person['lastname'] == user3:
-        if user3 in person: 
-            
-
-
-
-
-
-
+    if user3 in advance_names:
+        del advance_names[user3]
+        dictupdates(advance_names)
+    print(advance_names, "updated dict")
 remove_person()
     
 
