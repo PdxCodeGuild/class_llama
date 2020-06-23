@@ -35,19 +35,19 @@ def file_to_list(file_path):
 
 
 # create func that creates a record
-def create_contact(people):
+def create_contact(contact_list):
     pass
 
 # create func that retrieves a record
-def retrieve_contact(people):
+def retrieve_contact(contact_list):
     pass
 
 # create func that updates a record
-def update_contact(people):
+def update_contact(contact_list):
     pass
 
 # create func that deletes a record
-def delete_contact(people):
+def delete_contact(contact_list):
     pass
 
 
@@ -58,7 +58,7 @@ def delete_contact(people):
 if __name__ == "__main__":
 
     file_path = "./contacts.csv"
-    file_to_list(file_path)
+    contact_list = file_to_list(file_path)
     
     while True:
         try:
@@ -70,22 +70,22 @@ if __name__ == "__main__":
             if choices == 'c':
                 print("\nYou chose create")
                 choice = 'create'
-                create_contact()
+                create_contact(contact_list)
                 break
             elif choices == 'r':
                 print("\nYou chose retrieve")
                 choice = 'retrieve'
-                retrieve_contact()
+                retrieve_contact(contact_list)
                 break
             elif choices == 'u':
                 print("\nYou chose update")
                 choice = 'update'
-                update_contact()
+                update_contact(contact_list)
                 break
             elif choices == 'd':
                 print("\nYou chose delete")
                 choice = 'delete'
-                delete_contact()
+                delete_contact(contact_list)
                 break
             else:
                 input("\nWHOOPS, WRONG INPUT. Try Again (Press Enter To Continue)")
