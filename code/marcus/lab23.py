@@ -64,11 +64,36 @@ def newentry():
     phonebook.append(sherlockadded)
 
 
+# function to delete a contact
+def getouttahere():
+    # has the user pick a person using the old function
+    contact = picknpull()
+    # this input confirms whether the user would like to delete entry
+    delete = input("Would you like you delete this contact and information (Y/N): ")
+    if delete == "Y": 
+        # removes the contact
+        phonebook.remove(contact)
+        print("This contact and information has been deleted.")
+    elif delete == "N":
+        pass
 
 
-
-
-
+def changeuser():
+    # lets the user choose who to update
+    updated = picknpull()
+    # chooses what they'll update
+    updater = input('what would you like to update?: ')
+    # updates the show
+    if updater == 'favorite show':
+        updatershow = input('Please enter the new information: ')
+        updated.append(updatershow)
+    # updates the sport
+    if updater == 'favorite sport':
+        updatersport = input('Please enter the new information: ')
+        updated.append(updatersport)
+    else:
+        pass
+    print(phonebook)
 
 
 
