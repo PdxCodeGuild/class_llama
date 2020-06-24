@@ -12,8 +12,14 @@ with open("dict2csv.txt", 'w') as outfile:
 import csv
 
 
-with open('golf_league_list.csv', 'w') as f:
-    lines = f.write(str('golf_league_list.csv'+ '\n'))
+with open('golf_league_list.csv', mode='w') as csv_file:
+    fieldnames = ['name', 'team_name', 'putter_name']
+    writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+    writer.writeheader()
+    writer.writerow({'name': 'Carl Spackler', 'team_name': 'Dancing Gophers', 'putter_name': 'Gunga Dagunga'})
+    writer.writerow({'name': 'Judge Smails', 'team_name': 'Brown Nosers', 'putter_name': 'Billy Baroo'})
+    writer.writerow({'name': 'Ty Webb', 'team_name': 'Be the Balls', 'putter_name': 'Mitch Cumstein'})
 
 # creating or adding new golfers to the contact list
 def new_golfer(contact_list):
@@ -113,7 +119,7 @@ def main():
 
 if __name__ == "__main__":
     print("Executing as main program")
-    print("Value of __name__ is: ", __name__)  
+      
         
 
 
