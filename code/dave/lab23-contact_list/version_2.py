@@ -12,7 +12,6 @@ def file_to_list(file_path):
         # print(lines) #works
 
         people = []
-        contacts = []
 
         for i in range(len(lines)):
             dict_keys = lines[0]
@@ -26,66 +25,97 @@ def file_to_list(file_path):
             # print(dict_values) # works
 
             dict_items = dict(zip(dict_keys, dict_values))
-            print(dict_items) #works
+            # print(dict_items) #works
 
             people.append(dict_items)
-        print(people) # works
+        # print(people) # works
         # print(people[1]['status']) # how to retrieve
         return people
 
 
 # create func that creates a record
-def create_contact(people):
+def create_contact(contact_list):
     pass
 
 # create func that retrieves a record
-def retrieve_contact(people):
-    pass
+def retrieve_contact(contact_list):
+
+    # ask user for contact to retrieve
+    name = input("Enter the name of contact you wish to retrieve: ").lower()
+    
+    # for loop that searches through name value in contact_list
+    for contact in contact_list:
+        if name == contact['name']:
+            print()
+            print(contact['name'], ":", contact['profession'], "--", contact['status'])
+            break
+    else:
+        print("Contact not found. Try again. ")
+        
 
 # create func that updates a record
-def update_contact(people):
+def update_contact(contact_list):
     pass
+
+    # user_input = 
 
 # create func that deletes a record
-def delete_contact(people):
+def delete_contact(contact_list):
     pass
 
 
-
-
-
-# create main func
+# create main func that runs main if file called directly
 if __name__ == "__main__":
 
+    # create variable for file_path so it is more dynamic. Able to use easier in future code.
     file_path = "./contacts.csv"
-    file_to_list(file_path)
-    
-    while True:
+    contact_list = file_to_list(file_path)
+
+    # while loop that runs until user exits
+    while True:    
         try:
-            choices = input("\nWhat do you want to do?\nSelect and option from below:\n" +
-                            "\nCREATE enter(c)" + "\nRETRIEVE enter(r)" + "\nUPDATE enter(u)" +
-                            "\nDELETE enter(d)" + "\n\nEnter Your Selection Here: ").lower()
-            print("\n_______________________________________________________" +
-                  "\nvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
-            if choices == 'c':
-                print("\nYou chose create")
+
+            # print option menu for user to select from
+            print("""
+____________________________________ 
+------------------------------------
+What do you want to do?             
+Enter the letter in parenthesis: 
+
+(C) create new contact                
+(R) retrieve contact info             
+(U) update contact info               
+(D) delete contact info               
+(E) exit                              
+____________________________________
+------------------------------------
+            """)
+            
+            # store user's 'choice' in a variable 
+            choice = input("What would you like to do? : ").lower()
+            print()
+
+            # if statement that determines if user entered a valid option from menu
+            # option menu keeps looping unless user enters 'e' then while loop breaks.
+            if choice == 'c':
+                print("\nYou chose create.\n")
                 choice = 'create'
-                create_contact()
-                break
-            elif choices == 'r':
-                print("\nYou chose retrieve")
+                create_contact(contact_list)
+            elif choice == 'r':
+                print("\nYou chose retrieve.\n")
                 choice = 'retrieve'
-                retrieve_contact()
-                break
-            elif choices == 'u':
-                print("\nYou chose update")
+                retrieve_contact(contact_list)
+            elif choice == 'u':
+                print("\nYou chose update.\n")
                 choice = 'update'
-                update_contact()
-                break
-            elif choices == 'd':
-                print("\nYou chose delete")
+                update_contact(contact_list)
+            elif choice == 'd':
+                print("\nYou chose delete.\n")
                 choice = 'delete'
-                delete_contact()
+                delete_contact(contact_list)
+            elif choice == 'e':
+                print("You chose to exit.\nGoodbye.\n")
+                choice = 'exit'
                 break
             else:
                 input("\nWHOOPS, WRONG INPUT. Try Again (Press Enter To Continue)")
