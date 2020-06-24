@@ -43,7 +43,7 @@ Presentation Day: September 18th, 2020
 #### Optional Python Labs
 
 Practice 1-5  
-Labs 01-08, 12 (You did these during the intro course)  
+Labs 01-08, 12, 17 (You did these during the intro course)  
 Lab 18 -- Peaks and Valleys  
 Lab 24 -- Rain Data  
 
