@@ -12,8 +12,8 @@ with open("dict2csv.txt", 'w') as outfile:
 import csv
 
 
-with open('golf_league_list.csv', 'r') as file:
-    lines = file.read().split('\n')
+with open('golf_league_list.csv', 'w') as f:
+    lines = f.write(str('golf_league_list.csv'+ '\n'))
 
 # creating or adding new golfers to the contact list
 def new_golfer(contact_list):
@@ -51,7 +51,7 @@ def update_golfer(contact_list):
         return contact_list
 
 # deleting contacts or 
-def erase_contact(contact_list):
+def erase_golfer(contact_list):
     contact = retrieve_golfer(contact_list)
     contact_list.remove(contact)
     return contact_list
@@ -69,14 +69,56 @@ def commit_changes(contacts):
             with open("golf_league_list.csv", "w") as contact_list:
                 contact_list.write(contact_string)
 
-# storing a dictionary
+# dictionary list
 def main():
     with open('golf_league_list.csv', 'r') as file:
-        lines = file.read().split('\n')
+        lines = file.read().split
 
     dict_list = []
 
     for line in lines:
+        alt_list = line.split(",")
+        alt_dict = {}
+        for line in alt_list:
+            auth_alt_list = line.split(":")
+            auth_alt_list[0] = auth_alt_list[0].strip()
+            auth_alt_list[0] = auth_alt_list[1].strip()
+            alt_dict[auth_alt_list[0]] = auth_alt_list[1]
+            dict_list.append(alt_dict)
+    while True:
+        option = int(input("""Choose an option: 
+        (1) Register new golfer
+        (2) Search for league golfers
+        (3) Update info for a golfer
+        (4) Delete a golfer profile
+        (5) Show all current league golfers
+        (6) Save changes
+        (7) Quit
+        """))
+        
+        if option == 1:
+            new_golfer(dict_list)
+        elif option == 2:
+            retrieve_golfer(dict_list)
+        elif option == 3:
+            update_golfer(dict_list)
+        elif option == 4:
+            erase_golfer(dict_list)
+        elif option == 5:
+            print(dict_list)
+        elif option == 6:
+            commit_changes(dict_list)
+        elif option == 7:
+            break
+
+if __name__ == "__main__":
+    print("Executing as main program")
+    print("Value of __name__ is: ", __name__)  
+        
+
+
+
+
 
 
 
