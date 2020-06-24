@@ -37,6 +37,8 @@ Presentation Day: September 18th, 2020
  Lab 21 -- Count Words  
  Lab 16 -- Image Manipulation  
  Lab 22 -- ARI  
+ Lab 23 -- Contact List  
+ Lab 25 -- ATM  
 
 #### Optional Python Labs
 
