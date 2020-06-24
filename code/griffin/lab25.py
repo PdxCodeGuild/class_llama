@@ -28,7 +28,35 @@ class Account:
         print(self.transaction_record)
             
 
-checking = Account(500)
-checking.deposit()
-checking.withdraw()
-checking.print_transactions()
+def main():
+    checking = Account()
+    while True:
+        choice = int(input("""Please choose from among the following options:
+
+        (1) Deposit
+        (2) Withdrawal
+        (3) Check Balance
+        (4) Clear Check
+        (5) Transaction History
+        (6) Log Off
+        """))
+        if choice == 1:
+            checking.deposit()
+        elif choice == 2:
+            checking.withdraw()
+        elif choice == 3:
+            checking.check_balance()
+        elif choice == 4:
+            check_amount = int(input("How much is this check for? "))
+            status = checking.check_withdrawal(check_amount)
+            if status == True:
+                print("That check will clear")
+            else:
+                print("That check will not clear")
+        elif choice == 5:
+            checking.print_transactions()
+        elif choice == 6:
+            break
+
+if __name__ == "__main__":
+    main()
