@@ -5,6 +5,7 @@ class ATM:
     
     def __init__(self):
         self.balance = 0
+        self.transactions = []
         
     def check_balance(self):
         print(self.balance)
@@ -25,4 +26,5 @@ class ATM:
         else:
             print("You cannot withdraw that amount.")
 
-
+    def print_transactions(self):
+        self.transactions.append()
