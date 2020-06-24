@@ -9,33 +9,65 @@ def file_to_list(file_path):
     # open and read contacts.csv file
     with open(file_path, 'r') as f:
         lines = f.read().split('\n')
-        # print(lines) #works
+        print(lines) #TEST: pass
 
         people = []
 
         for i in range(len(lines)):
             dict_keys = lines[0]
-            # print(dict_keys) #works
+            print(dict_keys) #TEST: pass
             dict_keys = dict_keys.split(',')
-            # print(dict_keys)
+            print(dict_keys)
 
             dict_values = lines[i] # slice off headers at index 0, start at index 1
-            # print(dict_values) #works
+            print(dict_values) #TEST: pass
             dict_values = dict_values.split(',')
-            # print(dict_values) # works
+            print(dict_values) #TEST: pass
 
             dict_items = dict(zip(dict_keys, dict_values))
-            # print(dict_items) #works
+            print(dict_items) #TEST: pass
 
             people.append(dict_items)
-        # print(people) # works
+        print(people) # works
         # print(people[1]['status']) # how to retrieve
         return people
 
 
+# create func that saves updated to csv file
+def save_list(contact_list):
+    
+    # create for loop to reverse operations in file_to_list 
+    for i in range(len(contact_list)):
+
+        # put each unique item set into its own list
+        contact_values = dict(contact_list[i].values())
+        print(contact_values) # TEST: pass
+
+        dict_keys = dict_keys[0]
+        print(dict_keys) #TEST: 
+
+        dict_values = dict_values[i]
+        print(dict_values) #TEST:
+        
+
 # create func that creates a record
 def create_contact(contact_list):
-    pass
+
+    # get user input for name, status, and profession for contact
+    name = input("What is your new contacts name: ").lower()
+    status = input("What is your new contacts status: ").lower()
+    profession = input("What is your new contacts profession: ").lower()
+
+    # append new user name, status, and profession to create_contact list
+    contact_list.append({'name':name, 'status':status, 'profession':profession})
+    print(contact_list)
+
+    # return new_contact
+    return contact_list
+
+    
+
+
 
 # create func that retrieves a record
 def retrieve_contact(contact_list):
@@ -101,6 +133,7 @@ ____________________________________
                 print("\nYou chose create.\n")
                 choice = 'create'
                 create_contact(contact_list)
+                save_list(contact_list)
             elif choice == 'r':
                 print("\nYou chose retrieve.\n")
                 choice = 'retrieve'
@@ -109,6 +142,7 @@ ____________________________________
                 print("\nYou chose update.\n")
                 choice = 'update'
                 update_contact(contact_list)
+                # replace returned value from function to contact list
             elif choice == 'd':
                 print("\nYou chose delete.\n")
                 choice = 'delete'
