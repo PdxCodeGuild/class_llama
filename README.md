@@ -37,11 +37,13 @@ Presentation Day: September 18th, 2020
  Lab 21 -- Count Words  
  Lab 16 -- Image Manipulation  
  Lab 22 -- ARI  
+ Lab 23 -- Contact List  
+ Lab 25 -- ATM  
 
 #### Optional Python Labs
 
 Practice 1-5  
-Labs 01-08, 12 (You did these during the intro course)  
+Labs 01-08, 12, 17 (You did these during the intro course)  
 Lab 18 -- Peaks and Valleys  
 Lab 24 -- Rain Data  
 
