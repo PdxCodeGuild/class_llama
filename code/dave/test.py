@@ -1,14 +1,13 @@
-product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75, 'cherries': 1.5}
+class Point:
+	def __init__(self, x, y): # this is the initializer
+		self.x = x #these are member variables
+		self.y = y
 
-# print(list(product_to_price.keys()))
-# print(list(product_to_price.values()))
-# print(list(product_to_price.items()))
+x = input("x: ")
+y = input("y: ")
 
+p = Point(x,y) # call initializer, instanciate the class
+print(p.x) #5
+print(p.y) #2
 
-# for key, value in product_to_price.items():
-#     print(key, value)
-
-# checking if key exists
-# if 'apple' in product_to_price:
-#     print('apple', str(product_to_price['apple']))
-
+print(type(p)) # Point
