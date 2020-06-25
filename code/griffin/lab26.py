@@ -56,13 +56,10 @@ class Game:
         winner = self.calc_winner(player1,player2)
         full = self.is_full()
         if full == True:
-            print("is full")
             return True
         elif winner != '':
-            print(f"we have a winner: {winner.name}")
             return True
         else:
-            print("keep going")
             return False
 
 
@@ -77,18 +74,23 @@ def main():
     game = True
     while game:
         for player in player_list:
-            coordinates = input(f"{player.name}, please input the coordinates where you'd like to place your token: ")
-            string_list = coordinates.split(',')
-            num_list = []
-            for item in string_list:
-                num_list.append(int(item))
-            tictactoe.move(x = num_list[0],y = num_list[1],player = player)
+            while True:
+                coordinates = input(f"{player.name}, please input the coordinates where you'd like to place your token: ")
+                string_list = coordinates.split(',')
+                num_list = []
+                for item in string_list:
+                    num_list.append(int(item))
+                if tictactoe.board[num_list[0],num_list[1]] == " ":
+                    tictactoe.move(x = num_list[0],y = num_list[1],player = player)
+                    break
+                else:
+                    print("not a valid move")
+
             print(repr(tictactoe))
 
             winner = tictactoe.calc_winner(player_x,player_o)
             
             game_over = tictactoe.is_game_over(player_x,player_o)
-            print(game_over)
             if game_over == True:
                 game = False
                 break
