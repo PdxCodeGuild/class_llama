@@ -11,9 +11,11 @@ withdraw(amount) withdraws the amount from the account and returns it
 class bankaccount: 
     def __init__(self, balance=0):
         self.balance = balance
+        self.transactions = []
     
     def deposit(self, amount):
         self.balance = self.balance + amount
+        self.transactions.append(f'you deposited {amount}')
         return self.balance
         
     def checkwithdrawl(self, amount): 
@@ -24,13 +26,28 @@ class bankaccount:
     def withdrawl(self, amount):
         if self.checkwithdrawl(amount): #checks the amount is good for withdrawl
             self.balance = self.balance - amount
+            self.transactions.append(f'you withdrew {amount}')
         else: 
             print("insufficent funds")
         return self.balance
 
     def checkbalance(self):
         return self.balance
-        
 
+    def print_transactions(self):
+        for amount in self.transactions: 
+            print(amount)
+
+
+account = bankaccount()
+account.deposit(int(input("how much would like to deposit: ")))
+account.withdrawl(int(input("how much would like to withdraw: ")))
+print(account.checkbalance())
+account.print_transactions()
+
+user = input("What would you like to do (deposit, withdraw, check balance, history: ")
+    
+    
+    
         
 
