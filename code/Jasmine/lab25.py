@@ -37,15 +37,36 @@ class bankaccount:
     def print_transactions(self):
         for amount in self.transactions: 
             print(amount)
-
+    def display(self):
+        print("Net Available Balance:" , self.balance)
 
 account = bankaccount()
-account.deposit(int(input("how much would like to deposit: ")))
-account.withdrawl(int(input("how much would like to withdraw: ")))
-print(account.checkbalance())
-account.print_transactions()
+# account.deposit(int(input("how much would like to deposit: ")))
+# account.withdrawl(int(input("how much would like to withdraw: ")))
+# print(account.checkbalance())
+# account.print_transactions()
 
-user = input("What would you like to do (deposit, withdraw, check balance, history: ")
+#def atm():
+while True:
+
+    user = input("Welcome to the ATM! Select an option: deposit, withdraw, check balance, history, done: ")
+    if user == "deposit": 
+        useramount = int(input("how much would you like to deposit: "))
+        account.deposit(useramount)
+        #print()
+    elif user == "withdraw": 
+        userwithdraw = int(input("how much would you like to withdraw: "))
+        account.withdrawl(userwithdraw)
+    elif user == "check balance": 
+        account.checkbalance()
+    elif user == "history":
+        account.print_transactions()
+    elif user == "done":
+        break
+    
+
+
+#atm()
     
     
     
