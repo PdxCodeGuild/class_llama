@@ -3,11 +3,9 @@
 
 class Player:
     
-    def __init__(self):
-        self.name1 = player1
-        self.name2 = player2
-        self.token1 = 'X'
-        self.token2 = 'O'
+    def __init__(self, token, name):
+        self.name = name
+        self.token = token
 
 
 class Game:
@@ -26,38 +24,70 @@ class Game:
             '2,2': ' '
         }
 
-        self.count = 0
-
     def __repr__(self):
-        print(f"{self.board['0,0']}|{self.board['1,0']}|{self.board['2,0']}\n- - -\n{self.board['0,1']}|{self.board['1,1']}|{self.board['2,1']}\n- - -\n{self.board['0,2']}|{self.board['1,2']}|{self.board['2,2']}")
+        return f"{self.board['0,0']}|{self.board['1,0']}|{self.board['2,0']}\n- - -\n{self.board['0,1']}|{self.board['1,1']}|{self.board['2,1']}\n- - -\n{self.board['0,2']}|{self.board['1,2']}|{self.board['2,2']}"
 
 
     def move(self, x, y, player):
-        play.move(2, 1, player1)
-        self.count += 1
+        self.board[f'{x},{y}'] = player.token
 
     def winner(self):
         # if statement?
+        pass
 
     def is_full(self):
-        if self.count == 9:
-            print("The board is full. End of game.") 
-        elif self.count != 9:
-            pass
+        print("The board is full. End of game.") 
 
     def is_game_over(self):
         self.is_full()
+
 
 play = Game()
 
 def main():
     print("Let's play Tic-Tac-Toe!")
-    play.__repr__()
     
-    player1 = input("Enter the first player's name: ")
-    print(f"{player1}, you are 'X'.")
-    player2 = input("Enter the second player's name: ")
-    print(f"{player2}, you are 'O'.")
+    player1_name = input("Enter the first player's name: ")
+    print(f"{player1_name}, you are 'X'.")
+    player2_name = input("Enter the second player's name: ")
+    print(f"{player2_name}, you are 'O'.")
+
+    count = 0
+
+    while True:
+
+        if count % 2 == 0:
+            print(player1_name)
+            
+            x = input(f"{player1_name}, enter an 'x' horizontal value (0, 1, 2): ")
+            y = input("Now enter a 'y' vertical value (0, 1, 2): ")
+            
+            player1 = Player('X', player1_name)
+            play.move(x, y, player1)
+            print(play.__repr__())
+
+            count += 1
+
+            if count == 9:
+                play.is_full()
+            else:
+                pass
+
+        elif count % 2 == 1:
+
+            x = input(f"{player2_name}, enter an 'x' horizontal value (0, 1, 2): ")
+            y = input("Now enter a 'y' vertical value (0, 1, 2): ")
+            
+            player2 = Player('O', player2_name)
+            play.move(x, y, player2)
+            print(play.__repr__())
+
+            count += 1
+
+    
+    print(play)
+
+    print(play.board)
 
 
 
