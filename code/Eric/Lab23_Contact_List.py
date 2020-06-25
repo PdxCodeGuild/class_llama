@@ -1,60 +1,55 @@
 # Golf League Contact List
 
-'''
-dict_data = {'key1': [1, 2, 3], 'key2': [4, 5, 6]}
+# with open('employee_file2.csv', mode='w') as csv_file:
+#     fieldnames = ['emp_name', 'dept', 'birth_month']
+#     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
-with open("dict2csv.txt", 'w') as outfile:
-   csv_writer = csv.writer(outfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+#     writer.writeheader()
+#     writer.writerow({'emp_name': 'John Smith', 'dept': 'Accounting', 'birth_month': 'November'})
 
-   for k,v in dict_data.items():
-       csv_writer.writerow([k] + v)
-'''
+# a_file = open("sample.csv", "w")
+# a_dict = {"a": 1, "b": 2}
+
+# writer = csv.writer(a_file)
+# for key, value in a_dict.items():
+#     writer.writerow([key, value])
+# a_file.close()
+
 import csv
 
-
-with open('golf_league_list.csv', mode='w') as csv_file:
-    fieldnames = ['name', 'team_name', 'putter_name']
-    writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-
-    writer.writeheader()
-    writer.writerow({'name': 'Carl Spackler', 'team_name': 'Dancing Gophers', 'putter_name': 'Gunga Dagunga'})
-    writer.writerow({'name': 'Judge Smails', 'team_name': 'Brown Nosers', 'putter_name': 'Billy Baroo'})
-    writer.writerow({'name': 'Ty Webb', 'team_name': 'Be the Balls', 'putter_name': 'Mitch Cumstein'})
-
 # creating or adding new golfers to the contact list
-def new_golfer(contact_list):
-    
+def new_golfer(f):
     while True:
-        golf_league = {}
-        
+        golf_league_list = {}
+
         name = input("Enter your first and last name: ")
-        golf_league["name"] = name
+        golf_league_list["name"] = name
         
         team_name = input("Enter your team name: ")
-        golf_league["team_name"] = team_name
+        golf_league_list["team_name"] = team_name
         
         putter_name = input("What is your putter's name? ")
-        golf_league["putter_name"] = putter_name
+        golf_league_list["putter_name"] = putter_name
 
-        contact_list.append(golf_league)
-        return contact_list
+    f.append(golf_league_list)
+    return (f) 
 
-# search or lookup contacts w/ for loops
-def retrieve_golfer(contact_list):
-    lookup_golfer = input("Enter the golfer's name: ")
-    for contact in contact_list:
-        if contact["name"] == lookup_golfer:
+            
+def retrieve_golfer(f):
+    look_for = input("Enter the golfer's name: ")
+    for contact in (f):
+        if contact["name"] == look_for:
             print(contact)
             return contact
 
 # change the value of a specific item by referring to its key name
-def update_golfer(contact_list):
-    contact = retrieve_golfer(contact_list)
+def update_golfer(f):
+    contact = retrieve_golfer(f) 
     change_info = input("Change name, team name, or putters name? ")
-    for n in contact_list:
+    for n in (f) :
         if n == contact:
             n[change_info] = change_info
-        return contact_list
+        return (f)  
 
 # deleting contacts or 
 def erase_golfer(contact_list):
@@ -72,25 +67,36 @@ def commit_changes(contacts):
                 contact_string = contact_string + "," 
                 contact_string = contact_string + "\n"
                 contact_string = contact_string.strip()
-            with open("golf_league_list.csv", "w") as contact_list:
+            with open("golf_league_list.csv", mode= "w") as contact_list:
                 contact_list.write(contact_string)
 
-# dictionary list
+# with open('employee_file2.csv', mode='w') as csv_file:
+#     fieldnames = ['emp_name', 'dept', 'birth_month']
+#     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+#     writer.writeheader()
+#     writer.writerow({'emp_name': 'John Smith', 'dept': 'Accounting', 'birth_month': 'November'})
+
 def main():
-    with open('golf_league_list.csv', 'r') as file:
-        lines = file.read().split
+    with open('golf_league_list.csv', mode='w') as f:
+        fieldnames = ['name', 'team_name', 'putter_name']
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+    writer.writeheader()
+    writer.writerow({'name': 'Ty Webb', 'team_name': 'Caddy Shackers', 'putter_name': 'Mitch Cumstein'})    
 
     dict_list = []
 
-    for line in lines:
+    for line in dict_list:
         alt_list = line.split(",")
         alt_dict = {}
-        for line in alt_list:
-            auth_alt_list = line.split(":")
-            auth_alt_list[0] = auth_alt_list[0].strip()
-            auth_alt_list[0] = auth_alt_list[1].strip()
-            alt_dict[auth_alt_list[0]] = auth_alt_list[1]
-            dict_list.append(alt_dict)
+    for line in alt_list:
+        auth_alt_list = line.split(":")
+        auth_alt_list[0] = auth_alt_list[0].strip()
+        auth_alt_list[0] = auth_alt_list[1].strip()
+        alt_dict[auth_alt_list[0]] = auth_alt_list[1]
+        dict_list.append(alt_dict)       
+
     while True:
         option = int(input("""Choose an option: 
         (1) Register new golfer
@@ -101,7 +107,7 @@ def main():
         (6) Save changes
         (7) Quit
         """))
-        
+
         if option == 1:
             new_golfer(dict_list)
         elif option == 2:
@@ -116,10 +122,10 @@ def main():
             commit_changes(dict_list)
         elif option == 7:
             break
-
-if __name__ == "__main__":
-    print("Executing as main program")
-      
+    
+    
+# if __name__ == "__main__":
+#     main()  
         
 
 
