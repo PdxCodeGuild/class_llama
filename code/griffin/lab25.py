@@ -4,7 +4,6 @@ class Account:
         self.balance = balance
         self.transaction_record = transaction_record
 
-
     def check_balance(self):
         print(f'Your account contains ${self.balance}')
 
@@ -27,7 +26,6 @@ class Account:
     def print_transactions(self):
         print(self.transaction_record)
             
-
 def main():
     checking = Account()
     while True:
