@@ -17,6 +17,16 @@
 
 import csv
 
+with open('golf_league_list.csv', mode='w') as f:
+        fieldnames = ['name', 'team_name', 'putter_name']
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+        writer.writeheader()
+        writer.writerow({'name': 'Ty Webb', 'team_name': 'Caddy Shackers', 'putter_name': 'Mitch Cumstein'}) 
+        writer.writerow({'name': 'Judge Smails', 'team_name': 'Brown Nosers', 'putter_name': 'Billy Baroo'})
+        writer.writerow({'name': 'Carl Spackler', 'team_name': 'Cannon Ball Comin', 'putter_name': 'Ye Old Flat Wedge'})
+
+
 # creating or adding new golfers to the contact list
 def new_golfer(f):
     while True:
@@ -78,12 +88,7 @@ def commit_changes(contacts):
 #     writer.writerow({'emp_name': 'John Smith', 'dept': 'Accounting', 'birth_month': 'November'})
 
 def main():
-    with open('golf_league_list.csv', mode='w') as f:
-        fieldnames = ['name', 'team_name', 'putter_name']
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-
-    writer.writeheader()
-    writer.writerow({'name': 'Ty Webb', 'team_name': 'Caddy Shackers', 'putter_name': 'Mitch Cumstein'})    
+       
 
     dict_list = []
 
