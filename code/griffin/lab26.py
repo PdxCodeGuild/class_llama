@@ -11,9 +11,9 @@ class Game:
         self.board = {(0,0):" ", (0,1):" ", (0,2):" ", (1,0):" ", (1,1):" ", (1,2):" ",(2,0):" ",(2,1):" ",(2,2):" "}
     
     def __repr__(self):
-        return f'''{self.board[(0,0)]}|{self.board[(0,1)]}|{self.board[(0,2)]}
-{self.board[(1,0)]}|{self.board[(1,1)]}|{self.board[(1,2)]}
-{self.board[(2,0)]}|{self.board[(2,1)]}|{self.board[(2,2)]}'''
+        return f'''{self.board[(0,0)]}|{self.board[(1,0)]}|{self.board[(2,0)]}
+{self.board[(0,1)]}|{self.board[(1,1)]}|{self.board[(2,1)]}
+{self.board[(0,2)]}|{self.board[(1,2)]}|{self.board[(2,2)]}'''
 
     def move(self,x,y,player):
         for n in self.board:
@@ -28,15 +28,13 @@ class Game:
                 winner = player
             elif player.token == self.board[1,0] == self.board[1,1] == self.board[1,2]:
                 winner = player
-            elif player.token == self.board[2,0] == self.board[2,1] == self.board[3,2]:
+            elif player.token == self.board[2,0] == self.board[2,1] == self.board[2,2]:
                 winner = player
-            elif player.token == self.board[0,0] == self.board[1,0] == self.board[1,0]:
+            elif player.token == self.board[0,0] == self.board[1,0] == self.board[2,0]:
                 winner = player
             elif player.token == self.board[0,1] == self.board[1,1] == self.board[2,1]:
                 winner = player
             elif player.token == self.board[2,0] == self.board[2,1] == self.board[2,2]:
-                winner = player
-            elif player.token == self.board[0,0] == self.board[0,1] == self.board[0,2]:
                 winner = player
             elif player.token == self.board[0,0] == self.board[1,1] == self.board[2,2]:
                 winner = player
@@ -54,15 +52,57 @@ class Game:
         else:
             return False
 
-    def is_game_over(self):
-        if self.is_full == True:
+    def is_game_over(self,player1,player2):
+        winner = self.calc_winner(player1,player2)
+        full = self.is_full()
+        if full == True:
             return True
-        elif self.calc_winner != '':
+        elif winner != '':
             return True
+        else:
+            return False
 
 
+def main():
+    tictactoe = Game()
+    player_x_name = input('What is the name of player X? ')
+    player_x = Player(player_x_name,'X')
+    player_o_name = input('What is the name of player O? ')
+    player_o = Player(player_o_name, 'O')
+    player_list = [player_x,player_o]
 
-player1 = Player('Glar','X')
+    game = True
+    while game:
+        for player in player_list:
+            while True:
+                coordinates = input(f"{player.name}, please input the coordinates where you'd like to place your token: ")
+                string_list = coordinates.split(',')
+                num_list = []
+                for item in string_list:
+                    num_list.append(int(item))
+                if tictactoe.board[num_list[0],num_list[1]] == " ":
+                    tictactoe.move(x = num_list[0],y = num_list[1],player = player)
+                    break
+                else:
+                    print("not a valid move")
+
+            print(repr(tictactoe))
+
+            winner = tictactoe.calc_winner(player_x,player_o)
+            
+            game_over = tictactoe.is_game_over(player_x,player_o)
+            if game_over == True:
+                game = False
+                break
+    if winner == "":
+        print("it was a tie")
+    else:
+        print(f"the winner is {winner.name}")
+
+main()
+
+
+"""player1 = Player('Glar','X')
 player2 = Player('Blar','O')
 test = Game()
 
@@ -84,4 +124,4 @@ y = test.is_game_over()
 print(f'game over? {y}')
 
 winner = test.calc_winner(player1,player2)
-print(f'{winner.name} is the winner')
+print(f'{winner.name} is the winner')"""
