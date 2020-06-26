@@ -76,9 +76,9 @@ class Game:
         print("End of game.")
 
 
-play = Game()
-
 def main():
+    play = Game()
+
     print("Let's play Tic-Tac-Toe!")
     
     player1_name = input("Enter the first player's name: ")
@@ -89,7 +89,6 @@ def main():
     while True:
 
         if play.count % 2 == 0:
-            print(player1_name)
             
             x = input(f"{player1_name}, enter an 'x' horizontal value (0, 1, 2): ")
             y = input("Now enter a 'y' vertical value (0, 1, 2): ")
@@ -101,7 +100,6 @@ def main():
             play.count += 1
 
             if play.winner(player1):
-                print("See ya.")
                 play_again = input("Would you like to play again (Y/N): ")
                 if play_again in ['Y','y','yes']:
                     main()
