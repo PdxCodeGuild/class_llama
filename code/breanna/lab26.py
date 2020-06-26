@@ -32,32 +32,40 @@ class Game:
     def move(self, x, y, player):
         self.board[f'{x},{y}'] = player.token
 
-    def winner(self):
+    def winner(self, player):
         if self.count >= 5:
             if self.board['0,0'] == self.board['1,0'] == self.board['2,0']:
-                print("You win!")
+                print(f"You win!")
                 self.is_game_over()
+                return True
             elif self.board['0,1'] == self.board['1,1'] == self.board['2,1']:
                 print("You win!")
                 self.is_game_over()
+                return True
             elif self.board['0,2'] == self.board['1,2'] == self.board['2,2']:
                 print("You win!")
                 self.is_game_over()
+                return True
             elif self.board['0,0'] == self.board['0,1'] == self.board['0,2']:
                 print("You win!")
                 self.is_game_over()
+                return True
             elif self.board['1,0'] == self.board['1,1'] == self.board['1,2']:
                 print("You win!")
                 self.is_game_over()
+                return True
             elif self.board['2,0'] == self.board['2,1'] == self.board['2,2']:
                 print("You win!")
                 self.is_game_over()
+                return True
             elif self.board['0,0'] == self.board['1,1'] == self.board['2,2']:
                 print("You win!")
                 self.is_game_over()
+                return True
             elif self.board['0,2'] == self.board['1,1'] == self.board['2,0']:
                 print("You win!")
                 self.is_game_over()
+                return True
             else:
                 pass
                 
@@ -92,11 +100,23 @@ def main():
 
             play.count += 1
 
-            play.winner()
+            if play.winner(player1):
+                print("See ya.")
+                play_again = input("Would you like to play again (Y/N): ")
+                if play_again in ['Y','y','yes']:
+                    main()
+                elif play_again in ['N','n','no']:
+                    print("Exiting.")
+                    break
 
             if play.count == 9:
                 play.is_full()
-                break
+                play_again = input("Would you like to play again (Y/N): ")
+                if play_again in ['Y','y','yes']:
+                    main()
+                elif play_again in ['N','n','no']:
+                    print("Exiting.")
+                    break
             else:
                 pass
 
@@ -111,13 +131,7 @@ def main():
 
             play.count += 1
 
-            play.winner()
-
-    
-    print(play)
-
-    print(play.board)
-
+            play.winner(player2)
 
 
 main()
