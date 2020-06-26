@@ -34,46 +34,46 @@ class Game:
 
     def winner(self, player):
         if self.count >= 5:
-            if self.board['0,0'] == self.board['1,0'] == self.board['2,0']:
-                print(f"You win!")
+            if self.board['0,0'] == self.board['1,0'] == self.board['2,0'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['0,1'] == self.board['1,1'] == self.board['2,1']:
-                print("You win!")
+            elif self.board['0,1'] == self.board['1,1'] == self.board['2,1'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['0,2'] == self.board['1,2'] == self.board['2,2']:
-                print("You win!")
+            elif self.board['0,2'] == self.board['1,2'] == self.board['2,2'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['0,0'] == self.board['0,1'] == self.board['0,2']:
-                print("You win!")
+            elif self.board['0,0'] == self.board['0,1'] == self.board['0,2'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['1,0'] == self.board['1,1'] == self.board['1,2']:
-                print("You win!")
+            elif self.board['1,0'] == self.board['1,1'] == self.board['1,2'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['2,0'] == self.board['2,1'] == self.board['2,2']:
-                print("You win!")
+            elif self.board['2,0'] == self.board['2,1'] == self.board['2,2'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['0,0'] == self.board['1,1'] == self.board['2,2']:
-                print("You win!")
+            elif self.board['0,0'] == self.board['1,1'] == self.board['2,2'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
-            elif self.board['0,2'] == self.board['1,1'] == self.board['2,0']:
-                print("You win!")
+            elif self.board['0,2'] == self.board['1,1'] == self.board['2,0'] != ' ':
+                print(" \nYou win!")
                 self.is_game_over()
                 return True
             else:
                 pass
                 
     def is_full(self):
-        print("The board is full. End of game.")
+        print("The board is full. End of game.\n \n ")
 
     def is_game_over(self):
-        print("End of game.")
+        print("End of game.\n \n ")
 
 
 def main():
@@ -101,18 +101,20 @@ def main():
 
             if play.winner(player1):
                 play_again = input("Would you like to play again (Y/N): ")
-                if play_again in ['Y','y','yes']:
+                if play_again in ['Y','y','Yes','yes']:
                     main()
-                elif play_again in ['N','n','no']:
+                    break
+                elif play_again in ['N','n','No','no']:
                     print("Exiting.")
                     break
 
             if play.count == 9:
                 play.is_full()
                 play_again = input("Would you like to play again (Y/N): ")
-                if play_again in ['Y','y','yes']:
+                if play_again in ['Y','y','Yes','yes']:
                     main()
-                elif play_again in ['N','n','no']:
+                    break
+                elif play_again in ['N','n','No','no']:
                     print("Exiting.")
                     break
             else:
@@ -129,7 +131,14 @@ def main():
 
             play.count += 1
 
-            play.winner(player2)
+            if play.winner(player1):
+                play_again = input("Would you like to play again (Y/N): ")
+                if play_again in ['Y','y','Yes','yes']:
+                    main()
+                    break
+                elif play_again in ['N','n','No','no']:
+                    print("Exiting.")
+                    break
 
 
 main()
