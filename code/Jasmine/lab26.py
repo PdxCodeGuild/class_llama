@@ -25,45 +25,83 @@ __repr__() Returns a pretty string representation of the game board
 #name = player 
 token = 'X' or 'O'
 
+class Player(): 
+    def __init__(self, name, token):
+        self.name = name
+        self.token = token 
+
 class Game():
     def __init__(self):
         self.board = {"0,0": " " , "0,1": " " , "0,2": " " , 
         "0,3": " " , "0,4": " " , "0,5" : " " ,
         "0,6": " " , "0,7": " " , "0,8": " "}
     def __repr__(self): 
-        return f'{self.board["0,0"]}|{self.board["0,1"]}|{self.board["0,2"]} \n{self.board["0,3"]}|{self.board["0,4"]}|{self.board["0,5"]} \n{self.board["0,6"]}|{self.board["0,7"]}|{self.board["0,8"]}
-        print(board)
-    def move(self, x, y, player):
-        self.move(f{'x' , 'y'}) = player.token
-
+        return f'{self.board["0,0"]}|{self.board["0,1"]}|{self.board["0,2"]} \n{self.board["0,3"]}|{self.board["0,4"]}|{self.board["0,5"]} \n{self.board["0,6"]}|{self.board["0,7"]}|{self.board["0,8"]}'
+        
+    def move(self, x, o, player):
+        self.board[f'{x},{o}'] = player.token
+        
     def calcwinner(self):
-        if board = 
+        #write all winning conditions  ?
+        if self.board["0,0"] == self.board["0,1"] == self.board["0,2"]: 
+            return True 
+        
+        elif self.board["0,3"] == self.board["0,4"] == self.board["0,5"]:
+            return True 
 
-    def is_full(self):
-        if board.isfull(f)
-        return true
+        elif self.board["0,6"] == self.board["0,7"] == self.board["0,8"]:
+            return True 
 
+        elif self.board["0,0"] == self.board["0,3"] == self.board["0,6"]:
+            return True 
+
+        elif self.board["0,1"] == self.board["0,4"] == self.board["0,7"]:
+            return True 
+
+        elif self.board["0,2"] == self.board["0,5"] == self.board["0,8"]:
+            return True 
+
+        elif self.board["0,0"] == self.board["0,4"] == self.board["0,8"]:
+            return True 
+
+        elif self.board["0,2"] == self.board["0,4"] == self.board["0,6"]:
+            return True 
+        else: 
+            return False
+
+        
+    def board_is_full(self):
+        # need to check if the board spaces are empty
+         # checks to see if there is not a empty space, will return True if the board is full
+        if " " not in list(self.board.values()): 
+            return True 
+        else:
+            return False
+            
+        
     def game_over(self):
-        if board.game_over()
-        return True
-        elif board.game_over()
-        return False 
-
-class player(): 
-    def __init__(self, name, token):
-        self.name = name
-        self.token = token 
+        # check if there is a winner; hint: function already made 
+        if self.calcwinner() == True: 
+            return True
+        elif self.board_is_full() == True:
+            return True
+        else:
+            return False
     
-#game1 = Game()
-#print(game1)
  
+#play game 
+#first ask for players
+#while True:
 
 def main(): 
-   
-
-
-
-
+    game_on = Game()
+    user1 = input("What is your name 'x': ")
+    user2 = input("What is your name 'o': ")
+    player = Player(user1, 'x')
+    player = Player(user2, 'o')
+    x = input("Choose 0,1 or 0,2: ")
+    o = input("choose 0,1 or 0,2: ")
+    game_on.move(x,o,player)
 
 
 
@@ -75,7 +113,7 @@ def main():
 
 
 if __name__ == "__main__":
-    pass
+    main()
 
 
 

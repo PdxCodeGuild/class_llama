@@ -70,7 +70,7 @@ class Game:
                 pass
                 
     def is_full(self):
-        print("The board is full. End of game.\n \n ")
+        print(" \nThe board is full. End of game.\n \n ")
 
     def is_game_over(self):
         print("End of game.\n \n ")
