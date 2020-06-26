@@ -39,6 +39,8 @@ Presentation Day: September 18th, 2020
  Lab 22 -- ARI  
  Lab 23 -- Contact List  
  Lab 25 -- ATM  
+ Lab 26 -- Tic Tac Toe  
+ Python Mini-Capstone: Mini presentations Thursday, June 26th  
 
 #### Optional Python Labs
 
@@ -46,6 +48,7 @@ Practice 1-5
 Labs 01-08, 12, 17 (You did these during the intro course)  
 Lab 18 -- Peaks and Valleys  
 Lab 24 -- Rain Data  
+Lab 27 -- Connect Four  
 
 ## Student Presentations
 
