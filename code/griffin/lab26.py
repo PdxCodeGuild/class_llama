@@ -100,28 +100,3 @@ def main():
         print(f"the winner is {winner.name}")
 
 main()
-
-
-"""player1 = Player('Glar','X')
-player2 = Player('Blar','O')
-test = Game()
-
-test.move(0,1,player1)
-test.move(0,0,player1)
-test.move(0,2,player1)
-test.move(1,0,player2)
-test.move(1,1,player1)
-test.move(1,2,player1)
-test.move(2,0,player1)
-test.move(2,1,player1)
-test.move(2,2,player1)
-print(repr(test))
-
-x = test.is_full()
-print(f'board full? {x}')
-
-y = test.is_game_over()
-print(f'game over? {y}')
-
-winner = test.calc_winner(player1,player2)
-print(f'{winner.name} is the winner')"""
