@@ -24,22 +24,48 @@ class Game:
             '2,2': ' '
         }
 
+        self.count = 0
+
     def __repr__(self):
         return f"{self.board['0,0']}|{self.board['1,0']}|{self.board['2,0']}\n- - -\n{self.board['0,1']}|{self.board['1,1']}|{self.board['2,1']}\n- - -\n{self.board['0,2']}|{self.board['1,2']}|{self.board['2,2']}"
-
 
     def move(self, x, y, player):
         self.board[f'{x},{y}'] = player.token
 
     def winner(self):
-        # if statement?
-        pass
-
+        if self.count >= 5:
+            if self.board['0,0'] == self.board['1,0'] == self.board['2,0']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['0,1'] == self.board['1,1'] == self.board['2,1']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['0,2'] == self.board['1,2'] == self.board['2,2']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['0,0'] == self.board['0,1'] == self.board['0,2']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['1,0'] == self.board['1,1'] == self.board['1,2']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['2,0'] == self.board['2,1'] == self.board['2,2']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['0,0'] == self.board['1,1'] == self.board['2,2']:
+                print("You win!")
+                self.is_game_over()
+            elif self.board['0,2'] == self.board['1,1'] == self.board['2,0']:
+                print("You win!")
+                self.is_game_over()
+            else:
+                pass
+                
     def is_full(self):
-        print("The board is full. End of game.") 
+        print("The board is full. End of game.")
 
     def is_game_over(self):
-        self.is_full()
+        print("End of game.")
 
 
 play = Game()
@@ -52,11 +78,9 @@ def main():
     player2_name = input("Enter the second player's name: ")
     print(f"{player2_name}, you are 'O'.")
 
-    count = 0
-
     while True:
 
-        if count % 2 == 0:
+        if play.count % 2 == 0:
             print(player1_name)
             
             x = input(f"{player1_name}, enter an 'x' horizontal value (0, 1, 2): ")
@@ -66,14 +90,17 @@ def main():
             play.move(x, y, player1)
             print(play.__repr__())
 
-            count += 1
+            play.count += 1
 
-            if count == 9:
+            play.winner()
+
+            if play.count == 9:
                 play.is_full()
+                break
             else:
                 pass
 
-        elif count % 2 == 1:
+        elif play.count % 2 == 1:
 
             x = input(f"{player2_name}, enter an 'x' horizontal value (0, 1, 2): ")
             y = input("Now enter a 'y' vertical value (0, 1, 2): ")
@@ -82,7 +109,9 @@ def main():
             play.move(x, y, player2)
             print(play.__repr__())
 
-            count += 1
+            play.count += 1
+
+            play.winner()
 
     
     print(play)
