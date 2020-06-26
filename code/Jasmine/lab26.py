@@ -33,22 +33,21 @@ class Game():
     def __repr__(self): 
         return f'{self.board["0,0"]}|{self.board["0,1"]}|{self.board["0,2"]} \n{self.board["0,3"]}|{self.board["0,4"]}|{self.board["0,5"]} \n{self.board["0,6"]}|{self.board["0,7"]}|{self.board["0,8"]}
         print(board)
-    def move(x, y, player):
+    def move(self, x, y, player):
+        self.move(f{'x' , 'y'}) = player.token
 
-    def calcwinner():
+    def calcwinner(self):
         if board = 
 
-    def is_full():
-        if board.isfull()
+    def is_full(self):
+        if board.isfull(f)
         return true
 
-    def game_over():
+    def game_over(self):
         if board.game_over()
         return True
         elif board.game_over()
         return False 
-
-
 
 class player(): 
     def __init__(self, name, token):
@@ -57,7 +56,7 @@ class player():
     
 #game1 = Game()
 #print(game1)
-def 
+ 
 
 def main(): 
    
