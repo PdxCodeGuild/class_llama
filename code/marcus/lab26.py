@@ -20,13 +20,17 @@ class tic_tac_toe:
             player_move = int(input('Where would you like to go?: '))
             # this part makes sure a player doesn't select an already occupied space
             if self.board(player_move) != 'X' and self.board(player_move) != 'O':
-                self.board(player_move) = 'X'
+                self.board(player_move) == 'X'
                 self.create_board()
                 self.moves_count += 1
             else:
                 print('Someone already picked that spot')
-                self.player1()
+                self.player1(board)
             self.check_win()
+        except ValueError:
+            print('Select a valid option')
+            self.player1()
+
 
     def player2(self):
     # this sets the rules for player o and how they move
@@ -34,13 +38,16 @@ class tic_tac_toe:
             print('Player O')
             player_move1 = int(input('Where would you like to go?: '))
             if self.board(player_move) != 'X' and self.board(player_move) != 'O':
-                self.board(player_move) = 'O'
+                self.board(player_move) == 'O'
                 self.create_board()
                 self.moves_count += 1
             else:
                 print('Someone already picked that spot')
                 self.player2()
             self.check_win()
+        except ValueError:
+            print('Select a valid option')
+            self.player2()
 
     # this function houses the win conditions and the move counter in case there is a tie
     def check_win(self):
@@ -76,9 +83,5 @@ class tic_tac_toe:
             print('Alright, fine then. Bye Felicia')
             quit()
 
-
-tic_tac_toe.sendit()
-
-    
-
-    
+yo_boy_were_about_to_do_this_thang = tic_tac_toe()
+yo_boy_were_about_to_do_this_thang.fullsend()
