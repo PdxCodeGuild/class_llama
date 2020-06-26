@@ -14,8 +14,12 @@ class Account:
 
     def withdraw(self):
         withdraw = int(input("How much would you like to withdraw? "))
-        self.balance -= withdraw
-        self.transaction_record.append(f"you withdrew ${withdraw}")
+        if self.balance >= withdraw:
+            self.balance -= withdraw
+            self.transaction_record.append(f"you withdrew ${withdraw}")
+        else:
+            print("insufficient funds")
+        
 
     def check_withdrawal(self,amount):
         if self.balance >= amount:
