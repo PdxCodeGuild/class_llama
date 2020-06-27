@@ -4,7 +4,6 @@ class Account:
         self.balance = balance
         self.transaction_record = transaction_record
 
-
     def check_balance(self):
         print(f'Your account contains ${self.balance}')
 
@@ -15,8 +14,12 @@ class Account:
 
     def withdraw(self):
         withdraw = int(input("How much would you like to withdraw? "))
-        self.balance -= withdraw
-        self.transaction_record.append(f"you withdrew ${withdraw}")
+        if self.balance >= withdraw:
+            self.balance -= withdraw
+            self.transaction_record.append(f"you withdrew ${withdraw}")
+        else:
+            print("insufficient funds")
+        
 
     def check_withdrawal(self,amount):
         if self.balance >= amount:
@@ -27,7 +30,6 @@ class Account:
     def print_transactions(self):
         print(self.transaction_record)
             
-
 def main():
     checking = Account()
     while True:

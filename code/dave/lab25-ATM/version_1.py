@@ -12,17 +12,29 @@ class Atm:
     ## Declare multiple functions for each actions
     
     # func that checks balance
-    def check_balance(self):
-        pass
+    def check_balance(self, balance):
+        return self.balance
 
     # func that adds amount to balance
     def deposit(self, amount):
-        pass
+        self.balance += amount
+        return self.balance
 
     # func that checks account balance
     def check_withdrawl(self, amount):
-        pass
+        if self.balance >= amount:
+            return f"AVAILABLE"
+        else:
+            return f"NOT AVAILABLE"
+
 
     # func that withdraws the amount requested and returns it
     def withdraw(self, amount):
-        pass
+        self.balance -= amount
+        return self.balance
+
+atm = Atm()
+print(f"You're balance is: ${atm.check_balance(0)}") # 0 : pass
+print(f"Deposited amount: ${atm.deposit(60)}")
+print(f"The funds you requested are {atm.check_withdrawl(60)}")
+print(f"Your account balance is: ${atm.withdraw(20)}")
