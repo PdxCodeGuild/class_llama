@@ -1,8 +1,8 @@
 import random as r
 
 def name(baby):
-    prefix_list = ["Da","Ka","Sha","Ma","Gla","Tre","Ru","Ron","Tu","Sue","Fo","Jo","Jenni","Po","Minni","Deli","Aissa","Mai","Jeze","Ja","Sa","Diy","Ami","Sala","Oli","Dem","Li","Ev","Moha","Ahme","Kaja"]
-    suffix_list = ["ren","ron","ana","lyn","da","paul","ra","bu","bob","role","tana","nissa","aqua","ray","lah","tou","mouna","bel","din","ya","nata","ba","med","lith","a","vi","via"]
+    prefix_list = ["Da","Ka","Sha","Ma","Gla","Tre","Ru","Ron","Tu","Sue","Fo","Jo","Jenni","Po","Minni","Deli","Aissa","Mai","Jeze","Ja","Sa","Diy","Ami","Sala","Oli","Dem","Li","Ev","Moha","Ahme","Kaja","Na","Jona","Regi","Sher"]
+    suffix_list = ["ren","ron","ana","lyn","da","paul","ra","bu","bob","role","tana","nissa","aqua","ray","lah","tou","mouna","bel","din","ya","nata","ba","med","lith","a","vi","via","ver","than","nald","lock"]
     prefix = r.choice(prefix_list)
     suffix = r.choice(suffix_list)
     name = prefix+suffix
@@ -60,7 +60,7 @@ def old_yeller(pop):
 
 num_years = 0
 jackalopes = [{"name":"Adam","age": 0, "sex": "f","pregnant":False},{"name":"Steve","age":0,"sex":"m","pregnant":False}]
-scope = 10
+scope = 100
 
 print("start\n\n\n")
 while len(jackalopes) < scope:
