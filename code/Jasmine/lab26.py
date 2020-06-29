@@ -39,32 +39,35 @@ class Game():
         return f'{self.board["0,0"]}|{self.board["0,1"]}|{self.board["0,2"]} \n{self.board["0,3"]}|{self.board["0,4"]}|{self.board["0,5"]} \n{self.board["0,6"]}|{self.board["0,7"]}|{self.board["0,8"]}'
         
     def move(self, x, o, player):
-        self.board[f'{x},{o}'] = player.token
+        if self.board[f'{x},{o}'] == " ":
+            self.board[f'{x},{o}'] = player.token
+        return player.token
+
         
     def calcwinner(self):
         #write all winning conditions  ?
-        if self.board["0,0"] == self.board["0,1"] == self.board["0,2"]: 
+        if self.board["0,0"] == self.board["0,1"] == self.board["0,2"] != ' ': 
             return True 
         
-        elif self.board["0,3"] == self.board["0,4"] == self.board["0,5"]:
+        elif self.board["0,3"] == self.board["0,4"] == self.board["0,5"] != ' ':
             return True 
 
-        elif self.board["0,6"] == self.board["0,7"] == self.board["0,8"]:
+        elif self.board["0,6"] == self.board["0,7"] == self.board["0,8"] != ' ':
             return True 
 
-        elif self.board["0,0"] == self.board["0,3"] == self.board["0,6"]:
+        elif self.board["0,0"] == self.board["0,3"] == self.board["0,6"] != ' ':
             return True 
 
-        elif self.board["0,1"] == self.board["0,4"] == self.board["0,7"]:
+        elif self.board["0,1"] == self.board["0,4"] == self.board["0,7"] != ' ':
             return True 
 
-        elif self.board["0,2"] == self.board["0,5"] == self.board["0,8"]:
+        elif self.board["0,2"] == self.board["0,5"] == self.board["0,8"] != ' ':
             return True 
 
-        elif self.board["0,0"] == self.board["0,4"] == self.board["0,8"]:
+        elif self.board["0,0"] == self.board["0,4"] == self.board["0,8"] != ' ':
             return True 
 
-        elif self.board["0,2"] == self.board["0,4"] == self.board["0,6"]:
+        elif self.board["0,2"] == self.board["0,4"] == self.board["0,6"] != ' ':
             return True 
         else: 
             return False
@@ -83,7 +86,7 @@ class Game():
         # check if there is a winner; hint: function already made 
         if self.calcwinner() == True: 
             return True
-        elif self.board_is_full() == True:
+        elif self.is_full() == True:
             return True
         else:
             return False
@@ -95,6 +98,7 @@ class Game():
 
 def main(): 
     game_on = Game()
+    input("Welcome to Tic-Tac-Toe. Let's play!")
     user1 = input("What is your name 'x': ")
     user2 = input("What is your name 'o': ")
     
@@ -110,14 +114,31 @@ def main():
             game_on.move(x,o, player1)
             print(game_on.__repr__())
             count += 1 
-            #check to see if space is available for move and if board is full or not, call on functions
-            if is_full() == " ": 
-                return True
-            else: 
-                print("this spot is taken")
-                return False
-                
-        if count % 2 == 1: 
+            # check to see if space is available for move, place piece if is, or return that space unavailable and try again
+            # check to see if there is a winner, if there a winner quit game, if board full and no winner return "draw", if moves to make keep playing
+            if game_on.calcwinner(): 
+                print(f'{user1} won!')
+                again = input("Play again, Y or N?")
+                if again == "N": 
+                    break
+                else:
+                    main()
+                break
+            
+            if count == 9: 
+                if game_on.is_full():
+                    print("It's a draw")
+                    again = input("Play again, Y or N?")
+                    if again == "N":
+                        break
+                    else: 
+                        main()
+
+                        
+                    
+
+                     
+        elif count % 2 == 1: 
 
             x = input("Choose a position {x,o): ")
             o = input("Choose a position {x,o): ")
@@ -125,6 +146,28 @@ def main():
             game_on.move(x,o, player2)
             print(game_on.__repr__())
             count += 1
+            if game_on.calcwinner():
+                print(f'{user2} won!')
+                again = input("Play again, Y or N?")
+                if again == "N": 
+                    break
+                else:
+                    main()
+                break
+            if count == 9: 
+                if game_on.is_full():
+                    print("It's a draw")
+                    again = input("Play again, Y or N?")
+                    if again == "N": 
+                        break
+                    else:
+                        main()
+
+        
+                    
+
+            # check to see if space is available for move, place piece if is, or return that space unavailable and try again
+            # check to see if there is a winner, or not 
 
         
 
