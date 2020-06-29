@@ -1,4 +1,4 @@
-class Bank_Account: 
+class ATM_Card: 
     def __init__(self): 
         self.balance=0
         print("Welcome to the Best ATM Ever!") 
@@ -14,14 +14,14 @@ class Bank_Account:
             self.balance-=amount 
             print("\n You Withdrew:", amount) 
         else: 
-            print("\n Insufficient balance  ") 
+            print("\n Insufficient Balance! ") 
   
     def display(self): 
         print("\n Available Balance=",self.balance) 
   
   
 # create a class object 
-s = Bank_Account() 
+s = ATM_Card() 
    
 # Calling functions with that class object 
 s.deposit() 
