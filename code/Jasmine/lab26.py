@@ -23,7 +23,7 @@ __repr__() Returns a pretty string representation of the game board
 '''
 #winning_combos = {}
 #name = player 
-token = 'X' or 'O'
+#token = 'X' or 'O'
 
 class Player(): 
     def __init__(self, name, token):
@@ -70,7 +70,7 @@ class Game():
             return False
 
         
-    def board_is_full(self):
+    def is_full(self):
         # need to check if the board spaces are empty
          # checks to see if there is not a empty space, will return True if the board is full
         if " " not in list(self.board.values()): 
@@ -97,12 +97,39 @@ def main():
     game_on = Game()
     user1 = input("What is your name 'x': ")
     user2 = input("What is your name 'o': ")
-    player = Player(user1, 'x')
-    player = Player(user2, 'o')
-    x = input("Choose 0,1 or 0,2: ")
-    o = input("choose 0,1 or 0,2: ")
-    game_on.move(x,o,player)
+    
+    count = 0
+    
+    while True:
+        if count % 2 == 0:
 
+            x = input("Choose a position {x,o): ")
+            o = input("Choose a position {x,o): ")
+            player1 = Player(user1, 'x')
+            #player2 = Player(user2, 'o')
+            game_on.move(x,o, player1)
+            print(game_on.__repr__())
+            count += 1 
+            #check to see if space is available for move and if board is full or not, call on functions
+            if is_full() == " ": 
+                return True
+            else: 
+                print("this spot is taken")
+                return False
+                
+        if count % 2 == 1: 
+
+            x = input("Choose a position {x,o): ")
+            o = input("Choose a position {x,o): ")
+            player2 = Player(user2, 'o')
+            game_on.move(x,o, player2)
+            print(game_on.__repr__())
+            count += 1
+
+        
+
+       
+        
 
 
 
