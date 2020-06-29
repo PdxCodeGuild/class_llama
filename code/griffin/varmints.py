@@ -6,7 +6,7 @@ pygame.init()
 #Here is all the pre-game setup stuff
 screen = pygame.display.set_mode((960,640))
 background = pygame.image.load("grass background.png")
-varmintImg = pygame.image.load("rabbit.png")
+
 
 
 
@@ -18,6 +18,8 @@ class Varmint:
         self.sex = self.chromosomer()
         self.x = x
         self.y = y
+        self.x_move = 0
+        self.y_move = 0
         self.img = pygame.image.load("rabbit.png")
 
     def __repr__(self):
@@ -45,14 +47,28 @@ class Varmint:
     def draw(self):
         screen.blit(self.img,(self.x,self.y))
 
+    def choose_path(self):
+        self.x_move = r.randint(-1,1)
+        self.y_move = r.randint(-1,1)
 
-'''def draw_varmint(x,y):
-    screen.blit(varmintImg,(x,y))'''
+    def move(self):
+        #moves the varmints according to their randomly chosen path. Execute this once per loop
+        self.x +=self.x_move
+        self.y +=self.y_move
+        if self.x > 960 or self.x <0:
+            self.x_move*=-1
+        if self.y > 640 or self.y <0:
+            self.y_move*=-1
+        
+
 
 def main():
-    
-
-    testbunny = Varmint(500,300)
+    varmint_list = []
+    for i in range(6):
+        varm = Varmint(r.randint(0,920),r.randint(0,600))
+        varmint_list.append(varm)
+    for varm in varmint_list:
+        varm.choose_path()    
 
     running = True
     while running:
@@ -64,7 +80,9 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        testbunny.draw()
+        for varm in varmint_list:
+            varm.move()
+            varm.draw()
         pygame.display.update()
 
 if __name__ == "__main__":
