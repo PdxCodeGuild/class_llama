@@ -1,5 +1,6 @@
 import random as r
 import pygame
+import math
 
 pygame.init()
 
@@ -8,7 +9,14 @@ screen = pygame.display.set_mode((960,640))
 background = pygame.image.load("grass background.png")
 
 
+class Grass:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.img = pygame.image.load("grass.png")
 
+    def draw(self):
+        screen.blit(self.img,(self.x,self.y))
 
 class Varmint:
     def __init__(self,x,y):
@@ -48,8 +56,8 @@ class Varmint:
         screen.blit(self.img,(self.x,self.y))
 
     def choose_path(self):
-        self.x_move = r.randint(-1,1)
-        self.y_move = r.randint(-1,1)
+        self.x_move = r.randint(-3,3)
+        self.y_move = r.randint(-3,3)
 
     def move(self):
         #moves the varmints according to their randomly chosen path. Execute this once per loop
@@ -59,16 +67,40 @@ class Varmint:
             self.x_move*=-1
         if self.y > 640 or self.y <0:
             self.y_move*=-1
+
+    def proximity(self,target,awareness):
+        distance = math.sqrt((math.pow(self.x-target.x,2))+(math.pow(self.y-target.y,2)))
+        if distance < awareness:
+            return True
+    
+    def move_toward(self,target):
+        #while self.x != target.x or self.y != target.y:
+        if self.x > target.x:
+            self.x_move = -3
+        if self.x < target.x:
+            self.x_move = 3
+        if self.y > target.y:
+            self.move_y = -3
+        if self.y < target.y:
+            self.move_y = 3
+        '''if self.x == target.x and self.y == target.y:
+            self.move_x = 0
+            self.move_y = 0'''
+            
         
 
 
 def main():
     varmint_list = []
-    for i in range(6):
+    for i in range(24):
         varm = Varmint(r.randint(0,920),r.randint(0,600))
         varmint_list.append(varm)
     for varm in varmint_list:
-        varm.choose_path()    
+        varm.choose_path()
+    plant_list = []
+    for i in range(16):
+        plant = Grass(r.randint(0,920),r.randint(0,600))
+        plant_list.append(plant)    
 
     running = True
     while running:
@@ -79,10 +111,18 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
+        
         for varm in varmint_list:
+            for plant in plant_list:
+                prox = varm.proximity(plant,50)
+                if prox == True:
+                    varm.move_toward(plant)
+                    
             varm.move()
             varm.draw()
+        for plant in plant_list:
+            plant.draw()
+
         pygame.display.update()
 
 if __name__ == "__main__":
