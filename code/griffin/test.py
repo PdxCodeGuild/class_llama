@@ -1,6 +1,5 @@
-import random as r
+test_dict = {"boop":4,"koop":10,"snoop":7,"kloop":1}
 
+yo = sorted(test_dict, key=test_dict.get)
 
-for n in range(10):
-    thing = r.randint(1,3)
-    print(thing)
+print(yo)
