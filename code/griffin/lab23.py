@@ -54,7 +54,7 @@ def save_changes(contacts):
 
 
 def main():
-    with open('medieval contacts new.csv', 'r') as file:
+    with open('medieval contacts.csv', 'r') as file:
         lines = file.read().split('\n')
 
     dict_list = []

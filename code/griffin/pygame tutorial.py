@@ -3,7 +3,7 @@ import random
 import math
 
 #initializes pygame. Not sure if necessary anymore
-#pygame.init()
+pygame.init()
 
 #creates the screen
 screen = pygame.display.set_mode((800,600))

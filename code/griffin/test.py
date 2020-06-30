@@ -1,19 +1,5 @@
-class Point:
-    def __init__(self,x,y): #this is the initializer
-        self.x = x #these are member variables
-        self.y = y
+test_dict = {"boop":4,"koop":10,"snoop":7,"kloop":1}
 
-    def distance(self, p):
-        dx = self.x - p.x
-        dy = self.y - p.y
-        return math.sqrt(dx*dx + dy*dy)
+yo = sorted(test_dict, key=test_dict.get)
 
-    def scale(self,v):
-        self.x *= self.y *= v
-
-
-p = Point(5,2) # calls initializer. instantiates class
-print(p.x)
-print(p.y)
-
-print(type(p))
+print(yo)
