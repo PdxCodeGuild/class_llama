@@ -1,23 +1,18 @@
-import random
+# import random
 
-#Create an empty list that will be used to store the 6 random numbers
-lotteryNumbers = []
+# def random_num():
+#     random_num = random.randint(1,99)
+#     return random_num
 
-for i in range (0,6):
-  number = random.randint(1,99)
-  #Check if this number has already been picked
-  
-while number in lotteryNumbers:
-  loop_run = 
-  number = random.randint(1,99)
-  loop_run <= 100000  
+# def generate_num(lottery_nums):
+#     lottery_numbers = []
     
-  #Now that we have a unique number, let's append it to our list.
-  lotteryNumbers.append(number)
+#     for current_nums in range(lottery_nums):
+#         random_num = generate_num()
+#         lottery_numbers.append(random_num)
 
-  #Sort the list in ascending order
-  lotteryNumbers.sort()
+#     return lottery_numbers
 
-#Display the list on screen:
-print(">>> Today's lottery numbers are: ") 
-print(lotteryNumbers)
+# def print_lotto_nums(lottery_numbers):
+#     for current_nums in range(len(lottery_numbers)):
+#         print(lottery_numbers[current_nums])
