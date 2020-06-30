@@ -17,7 +17,7 @@ class Grass:
     def draw(self):
         screen.blit(self.img,(self.x,self.y))
 
-class Varmint:
+class Animal:
     def __init__(self,x,y):
         self.name = self.baby_name()
         self.age = 0
@@ -25,15 +25,9 @@ class Varmint:
         self.sex = self.chromosomer()
         self.x = x
         self.y = y
-        self.x_move = r.randint(-3,3)
-        self.y_move = r.randint(-3,3)
-        self.img = pygame.image.load("rabbit.png")
-        self.awareness = 50
+        self.awareness = 25
 
-    def __repr__(self):
-        return f"Name: {self.name}\nSex: {self.sex}\nAge: {self.age}\nPregnant? {self.pregnant}"
-
-    #names the varmint
+    #names the animal
     def baby_name(self):
         prefix_list = ["Da","Ka","Sha","Ma","Gla","Tre","Ru","Ron","Tu","Sue","Fo","Jo","Jenni","Po","Minni","Deli","Aissa","Mai","Jeze","Ja","Sa","Diy","Ami","Sala","Oli","Dem","Li","Ev","Ah","Moha","Ahme","Kaja","Na","Jona","Regi","Sher","A","Sa","Ma","Ta","Shel","Wil","Rag","Ud","Uth","Aga","Ab","Dah","Bre"]
         suffix_list = ["ren","ron","ana","lyn","da","paul","ra","bu","bob","role","tana","nissa","aqua","ray","lah","tou","mouna","bel","din","ya","nata","ba","med","lith","a","vi","via","ver","than","nald","lock","sha","ley","son","nar","red","tha","dou","by","lia","ria","von","onna","doul","mad"]
@@ -42,7 +36,7 @@ class Varmint:
         name = prefix+suffix
         return name
 
-    #determines the sex of the varmint
+    #determines the sex of the animal
     def chromosomer(self):
         genitals = r.randint(1,2)
         if genitals == 1:
@@ -50,22 +44,16 @@ class Varmint:
         elif genitals == 2:
             sex = "male"
         return sex
-    
-    #this method is probably not necessary and will likely be deleted
-    def age_up(self):
-        self.age+=1
 
-    #draws the varmint on the screen
+    def __repr__(self):
+        return f"Name: {self.name}\nSex: {self.sex}\nAge: {self.age}\nPregnant? {self.pregnant}"
+
+    #draws the animal on the screen
     def draw(self):
         screen.blit(self.img,(self.x,self.y))
 
-    #randomly decides which direction the varmint wants to travel in
-    def choose_path(self):
-        self.x_move = r.randint(-3,3)
-        self.y_move = r.randint(-3,3)
-
     def move(self):
-        #moves the varmints according to their randomly chosen path. Execute this once per loop
+        #moves the animal according to their randomly chosen path. Execute this once per loop
         self.x +=self.x_move
         self.y +=self.y_move
         if self.x > 960 or self.x <0:
@@ -99,16 +87,38 @@ class Varmint:
         elif self.y <= target.y:
             self.y_move = 3
 
-    def eat(self,plant_list):
-        for plant in plant_list:
-            prox = self.proximity(plant)
-            eat = self.adjacent(plant)
+    def eat(self,a_list):
+        for item in a_list:
+            prox = self.proximity(item)
+            eat = self.adjacent(item)
             if eat == True:
-                plant_list.remove(plant)
-                
-                del plant    
+                a_list.remove(item) 
+                del item    
             elif prox < self.awareness:
-                self.move_toward(plant)
+                self.move_toward(item)
+
+class Predator(Animal):
+    def __init__(self,x,y):
+        super().__init__(x,y)
+        self.img = pygame.image.load("fox.png")
+        self.x_move = r.randint(-3,3)
+        self.y_move = r.randint(-3,3)
+        self.awareness = 70       
+
+class Varmint(Animal):
+    def __init__(self,x,y):
+        super().__init__(x,y)
+        self.img = pygame.image.load("rabbit.png")
+        self.x_move = r.randint(-3,3)
+        self.y_move = r.randint(-3,3)
+        self.awareness = 50
+
+    #randomly decides which direction the varmint wants to travel in. This function does not currently work for some unknown reason
+    def choose_path(self):
+        self.x_move = r.randint(-3,3)
+        self.y_move = r.randint(-3,3)
+
+    
                     
         
 
@@ -120,22 +130,25 @@ def main():
 
     #Creates a bunch of grass and varmints at random points
     varmint_list = []
-    for i in range(12):
+    for i in range(32):
         varm = Varmint(r.randint(0,920),r.randint(0,600))
         varmint_list.append(varm)
-    for varm in varmint_list:
-        varm.choose_path()
+    '''for varm in varmint_list:
+        varm.choose_path()'''
+
     plant_list = []
     for i in range(16):
         plant = Grass(r.randint(0,920),r.randint(0,600))
         plant_list.append(plant)    
 
+    predator_list = []
+    for i in range(1):
+        pred = Predator(r.randint(0,920),r.randint(0,600))
+        predator_list.append(pred)
     
 
     running = True
     while running:
-        
-
         screen.fill((0,0,0))
         screen.blit(background,(0,0))
 
@@ -151,6 +164,7 @@ def main():
                     varm.age+=1
                     
                     if varm.pregnant == True:
+                        
                         baby_varm = Varmint(varm.x,varm.y)
                         varmint_list.append(baby_varm)
                         varm.pregnant = False
@@ -213,7 +227,12 @@ def main():
             if varm.age > 9:
                 varmint_list.remove(varm)
                 del varm
-                
+
+        for pred in predator_list:
+            pred.move()
+            pred.eat(varmint_list)
+            pred.draw()
+
         #refreshes the plant
         for plant in plant_list:
             plant.draw()
