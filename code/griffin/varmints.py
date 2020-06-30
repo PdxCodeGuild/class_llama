@@ -25,8 +25,8 @@ class Varmint:
         self.sex = self.chromosomer()
         self.x = x
         self.y = y
-        self.x_move = 0
-        self.y_move = 0
+        self.x_move = r.randint(-3,3)
+        self.y_move = r.randint(-3,3)
         self.img = pygame.image.load("rabbit.png")
         self.awareness = 50
 
@@ -95,9 +95,9 @@ class Varmint:
         elif self.x <= target.x:
             self.x_move = 3
         if self.y >= target.y:
-            self.move_y = -3
+            self.y_move = -3
         elif self.y <= target.y:
-            self.move_y = 3
+            self.y_move = 3
 
     def eat(self,plant_list):
         for plant in plant_list:
@@ -149,10 +149,13 @@ def main():
                 #print(varmint_list)
                 for varm in varmint_list:
                     varm.age+=1
-                    '''if varm.pregnant == True:
+                    
+                    if varm.pregnant == True:
                         baby_varm = Varmint(varm.x,varm.y)
                         varmint_list.append(baby_varm)
-                        varm.pregnant = False'''
+                        varm.pregnant = False
+                    varm.choose_path()
+                print(len(varmint_list))
                 
 
                     
@@ -161,7 +164,14 @@ def main():
         #nearby_plants = {}
         #instructs the males to move toward non-pregnant females before they seek out food
         for varm in varmint_list:
-            if varm.sex == "male" and varm.age >= 1:
+            varm.eat(plant_list)
+            if varm.sex == "female" and varm.age >= 1:
+                for v in varmint_list:
+                    if v.sex == "male" and v.age >= 1:
+                        mateable = varm.proximity(v)
+                        if mateable < 40:
+                            varm.pregnant = True
+            '''if varm.sex == "male" and varm.age >= 1:
                 for v in varmint_list:
                     varm.proximity(v)
                     if v.sex == "female" and v.pregnant == False and v.age >= 1:
@@ -174,7 +184,7 @@ def main():
                 for v in varmint_list:
                     mate = varm.adjacent(v)
                     if v.sex == "male" and mate == True:
-                        varm.pregnant = True
+                        varm.pregnant = True'''
             #figures out which plants the varmint is aware of; then the varmint moves toward the closest one; then eats it
             '''else:
                 for plant in plant_list:
