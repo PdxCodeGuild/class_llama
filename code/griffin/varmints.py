@@ -75,25 +75,40 @@ class Varmint:
 
     #determines how far away an object is from the varmint
     def proximity(self,target):
-        distance = math.sqrt((math.pow(self.x-target.x,2))+(math.pow(self.y-target.y,2)))
+        #distance = math.sqrt((math.pow(self.x-target.x,2))+(math.pow(self.y-target.y,2)))
+        distance_x = abs(self.x - target.x)
+        distance_y = abs(self.y-target.y)
+        distance = math.sqrt(pow(distance_x,2)+pow(distance_y,2))
+        #print(distance)
         return distance
 
     #determines whether a varmint is occupying the same space as an object
     def adjacent(self,target):
         distance = self.proximity(target)
-        if distance < 10:
+        if distance < 16:
             return True
     
     def move_toward(self,target):
         #while self.x != target.x or self.y != target.y:
-        if self.x > target.x:
+        if self.x >= target.x:
             self.x_move = -3
-        elif self.x < target.x:
+        elif self.x <= target.x:
             self.x_move = 3
-        if self.y > target.y:
+        if self.y >= target.y:
             self.move_y = -3
-        elif self.y < target.y:
+        elif self.y <= target.y:
             self.move_y = 3
+
+    def eat(self,plant_list):
+        for plant in plant_list:
+            prox = self.proximity(plant)
+            eat = self.adjacent(plant)
+            if eat == True:
+                plant_list.remove(plant)
+                
+                del plant    
+            elif prox < self.awareness:
+                self.move_toward(plant)
                     
         
 
@@ -105,7 +120,7 @@ def main():
 
     #Creates a bunch of grass and varmints at random points
     varmint_list = []
-    for i in range(48):
+    for i in range(12):
         varm = Varmint(r.randint(0,920),r.randint(0,600))
         varmint_list.append(varm)
     for varm in varmint_list:
@@ -131,21 +146,46 @@ def main():
             elif event.type == pygame.USEREVENT:
                 year_counter+=1
                 print(f"Happy new year! {year_counter}")
+                #print(varmint_list)
                 for varm in varmint_list:
                     varm.age+=1
+                    '''if varm.pregnant == True:
+                        baby_varm = Varmint(varm.x,varm.y)
+                        varmint_list.append(baby_varm)
+                        varm.pregnant = False'''
+                
+
                     
         
-        #figures out which plants the varmint is aware of; then the varmint moves toward the closest one; then eats it
+        
         #nearby_plants = {}
+        #instructs the males to move toward non-pregnant females before they seek out food
         for varm in varmint_list:
-            for plant in plant_list:
-                prox = varm.proximity(plant)
-                eat = varm.adjacent(plant)
-                if eat == True:
-                    plant_list.remove(plant)
-                    del plant    
-                elif prox < varm.awareness:
-                    varm.move_toward(plant)
+            if varm.sex == "male" and varm.age >= 1:
+                for v in varmint_list:
+                    varm.proximity(v)
+                    if v.sex == "female" and v.pregnant == False and v.age >= 1:
+                        varm.move_toward(v)
+                        
+                    else:
+                        varm.eat(plant_list)
+            #instructs female varmints to become pregnant when near male varmints so that the male varmints will leave them alone
+            elif varm.sex == "female" and varm.age >= 1:
+                for v in varmint_list:
+                    mate = varm.adjacent(v)
+                    if v.sex == "male" and mate == True:
+                        varm.pregnant = True
+            #figures out which plants the varmint is aware of; then the varmint moves toward the closest one; then eats it
+            '''else:
+                for plant in plant_list:
+                    prox = varm.proximity(plant)
+                    eat = varm.adjacent(plant)
+                    if eat == True:
+                        plant_list.remove(plant)
+                        print("monch")
+                        del plant    
+                    elif prox < varm.awareness:
+                        varm.move_toward(plant)'''
                     
             #this code was supposed to create a sorted dictionary of nearby plants and then have the varmint go toward the closest one... but it didn't work        
             ''' nearby_plants[plant]=prox
