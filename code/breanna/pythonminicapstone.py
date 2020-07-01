@@ -59,4 +59,8 @@ try:
 finally:
     print("done")
 
+# click on the "Top Attractions" link
+
+# generate a list of the top ten attractions for the user
+
 
