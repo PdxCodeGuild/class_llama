@@ -17,7 +17,7 @@ class Machine:
         self.balance -= amount
 
     def check_withdrawl(self, amount):
-        return self.balance > amount
+        return self.balance >= amount
 
     def trans_list(self):
         for action in self.transactions:
@@ -45,6 +45,7 @@ def atm_ui():
             
             # Deposit
             if action in ['1', 'd', 'deposit']:
+                # using a float for the amount gives the option for cents
                 amount = int(input("How much would you like to deposit?: ").strip("$"))
                 atm.deposit(amount)
                 print(f"You have deposited ${amount}, your new balance is ${atm.check_balance()}.")
