@@ -41,28 +41,22 @@ visit_state = input("\nWhich state would you like to visit: ")
 driver = webdriver.Chrome()
 driver.get("https://www.tripadvisor.com/Search?q=Oregon&searchSessionId=CAACC22D5A827F2C2C5B482A8BC3987D1593554732925ssid&searchNearby=false&sid=95CFA2941911FF8F49348AE8E406E01C1593554756143&blockRedirect=true")
 # find the search bar on the Trip Advisor Attractions page
-# <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required="" name="q" class="_3qLQ-U8m" placeholder="Search a destination, attraction, or activity" title="Search" aria-label="Search" value="">
 search_bar = driver.find_element_by_id("mainSearch")
 # clear the search bar and enter user input
 search_bar.clear()
 search_bar.send_keys(visit_state)
 # "press enter" and submitting the search
 search_bar.send_keys(Keys.RETURN)
-# navigate back to the Things to Do page (Trip Advisor resets it to a general search)
-
-
-# attempt 64152 to click on that tab (no, it doesn't work)
-try: 
-    # wait 10 seconds before looking for element 
-    element = WebDriverWait(driver, 10).until( 
-        EC.presence_of_element_located((By.XPATH, '//*[@id="search-filters"]/ul/li[5]')) 
+# click on the first result, which is the state page (Trip Advisor resets to a general search)
+first_result = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="BODY_BLOCK_JQUERY_REFLOW"]/div[2]/div/div[2]/div/div/div/div/div[1]/div/div[1]/div/div[3]/div/div[1]/div/div[2]/div/div/div/div/div/div/div[2]')))
+first_result.click()
+# click on the "Things to do" tab to get a list of popular activities in the state
+try:
+    things_to_do_tab = WebDriverWait(driver, 10).until( 
+        EC.presence_of_element_located((By.TAG_NAME, '<a class="_1yB-kafB" href="/Attractions-g28958-Activities-Oregon.html" title="Things to Do"><span class="_28xP7Srb"><span class="_1Qo7YQ01">Things to Do</span><span class="KFRgbk1H"><span class="_1nX8jnDZ _2HBN-k68 _3LkX-HIr"></span></span></span></a>')) 
     )
-    element.click()
+    things_to_do_tab.click()
 finally:
     print("done")
-# things_to_do = driver.find_element_by_xpath('//*[@id="search-filters"]/ul/li[5]/a')
-# things_to_do.click()
-# print(things_to_do)
-
 
 
