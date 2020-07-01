@@ -122,3 +122,17 @@ offset = x // 10, y // 7
 # paste image onto 
 img.paste(Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((200,200)), offset)
 img.show()
+
+#----------------------------------------------------------------------------#
+## STEP FIVE - Paste multiple images on top of each other using loop
+#----------------------------------------------------------------------------#
+
+
+
+#----------------------------------------------------------------------------#
+## STEP SIX - Define function for 'STEP FIVE' and recursively call loop
+#----------------------------------------------------------------------------#
+
+
+
+
