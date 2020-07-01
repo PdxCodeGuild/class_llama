@@ -1,8 +1,13 @@
-from encrypter.py import translator
+import codecs
 
 from stegano import lsb
-secret = lsb.hide("Lenna.png", "Hello World")
-secret.save("Lenna-secret.png")
 
-clear_message = lsb.reveal("Lenna-secret.png")
-print(clear_message)
+user_input = input('What would you like to encrypt?: ')
+encoded = codecs.encode(user_input, 'rot_13')
+
+secret = lsb.hide(, encoded)
+secret.save()
+
+clear_message = lsb.reveal()
+decoded = codecs.decode(clear_message, 'rot_13')
+print(decoded)

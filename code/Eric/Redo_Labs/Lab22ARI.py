@@ -1,8 +1,4 @@
-import math
-
 '''
-ARI = 4.71 * (characters/words) + 0.5 * (words/sentence) -21.43
-
 Score  Ages     Grade Level
      1       5-6    Kindergarten
      2       6-7    First Grade
@@ -35,3 +31,25 @@ Score  Ages     Grade Level
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
+
+'''
+import string
+
+
+def main():
+
+    # open text file and read contents
+    f: open("AbeLincoln.txt", "r")
+    if f.mode == "r":
+        contents = f.read()
+        print(contents)
+
+# ARI = 4.71 * (characters/words) + 0.5 * (words/sentence) -21.43
+
+def ARI(contents):
+	score = 0.0
+
+    for line in lines(): 
+	if len(contents) > 0:
+		score = 4.71 * (len(text) / len(text.split()) ) +  0.5 * ( len(text.split()) / len(text.split('.'))) - 21.43 
+		return score if score > 0 else 0
