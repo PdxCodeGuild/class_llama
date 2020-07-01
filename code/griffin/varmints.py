@@ -49,7 +49,7 @@ class Animal:
         return sex
 
     def __repr__(self):
-        return f"Name: {self.name}\nSex: {self.sex}\nAge: {self.age}\nPregnant? {self.pregnant}"
+        return f"Name: {self.name}\nSex: {self.sex}\nAge: {self.age}\nEnergy: {self.energy}\nPregnant? {self.pregnant}"
 
     #draws the animal on the screen
     def draw(self):
@@ -59,9 +59,9 @@ class Animal:
         #moves the animal according to their randomly chosen path. Execute this once per loop
         self.x +=self.x_move
         self.y +=self.y_move
-        if self.x > 960 or self.x <0:
+        if self.x > 936 or self.x <0:
             self.x_move*=-1
-        if self.y > 640 or self.y <0:
+        if self.y > 606 or self.y <0:
             self.y_move*=-1
 
     #determines how far away an object is from the varmint
@@ -90,6 +90,17 @@ class Animal:
         elif self.y <= target.y:
             self.y_move = 3
 
+    def move_away(self,target):
+        #while self.x != target.x or self.y != target.y:
+        if self.x >= target.x:
+            self.x_move = 3
+        elif self.x <= target.x:
+            self.x_move = -3
+        if self.y >= target.y:
+            self.y_move = 3
+        elif self.y <= target.y:
+            self.y_move = -3
+
     def eat(self,a_list):
         for item in a_list:
             prox = self.proximity(item)
@@ -106,7 +117,7 @@ class Animal:
             for v in species_list:
                 if v.sex == "male" and v.age >= 1:
                     mateable = self.proximity(v)
-                    if mateable < 40:
+                    if mateable < self.awareness:
                         self.pregnant = True
                         self.energy -= self.start_energy
 
@@ -117,8 +128,20 @@ class Predator(Animal):
         self.x_move = r.randint(-3,3)
         self.y_move = r.randint(-3,3)
         self.awareness = 70
-        self.start_energy = 20
-        self.energy = 20       
+        self.start_energy = 10
+        self.energy = 10
+        self.metabolism = 3  
+
+    def move_toward(self,target):
+        #while self.x != target.x or self.y != target.y:
+        if self.x >= target.x:
+            self.x_move = -4
+        elif self.x <= target.x:
+            self.x_move = 4
+        if self.y >= target.y:
+            self.y_move = -4
+        elif self.y <= target.y:
+            self.y_move = 4     
 
 class Varmint(Animal):
     def __init__(self,x,y):
@@ -129,6 +152,7 @@ class Varmint(Animal):
         self.awareness = 50
         self.start_energy = 10
         self.energy = 10
+        self.metabolism = 1
 
     #randomly decides which direction the varmint wants to travel in. This function does not currently work for some unknown reason
     def choose_path(self):
@@ -155,12 +179,12 @@ def main():
         varmint_list.append(varm)
     
     plant_list = []
-    for i in range(16):
+    for i in range(60):
         plant = Grass(r.randint(0,920),r.randint(0,600))
         plant_list.append(plant)    
 
     predator_list = []
-    for i in range(6):
+    for i in range(4):
         pred = Predator(r.randint(0,920),r.randint(0,600))
         predator_list.append(pred)
 
@@ -177,12 +201,12 @@ def main():
             #Causes varmints and predators to lose some energy every .5 seconds, and if their energy is 0 or less, they die
             elif event.type == ENERGY_LOSS:
                 for varm in varmint_list:
-                    varm.energy -=1
+                    varm.energy -= varm.metabolism
                     if varm.energy <= 0:
                         varmint_list.remove(varm)
                         del varm
                 for pred in predator_list:
-                    pred.energy -= 1
+                    pred.energy -= pred.metabolism
                     if pred.energy <= 0:
                         predator_list.remove(pred)
                         del pred
@@ -194,11 +218,13 @@ def main():
                     varm.age+=1
                     
                     if varm.pregnant == True:                        
-                        baby_varm = Varmint(varm.x,varm.y)
-                        varmint_list.append(baby_varm)
+                        for n in range(5):
+                            baby_varm = Varmint(varm.x,varm.y)
+                            varmint_list.append(baby_varm)
                         varm.pregnant = False
                 for pred in predator_list:
                     pred.age+=1
+                    
                     if pred.pregnant == True:
                         baby_pred = Predator(pred.x,pred.y)
                         predator_list.append(baby_pred)
@@ -207,6 +233,10 @@ def main():
                         
         #instructs varmints to eat and mate
         for varm in varmint_list:
+            for pred in predator_list:
+                danger = varm.proximity(pred)
+                if danger < varm.awareness:
+                    varm.move_away(pred)
             varm.eat(plant_list)
             varm.mate(varmint_list)
             
@@ -219,7 +249,7 @@ def main():
         for pred in predator_list:
             pred.move()
             pred.mate(predator_list)
-            if pred.energy < 60:            
+            if pred.energy <= 60:            
                 pred.eat(varmint_list)
             pred.draw()
 
