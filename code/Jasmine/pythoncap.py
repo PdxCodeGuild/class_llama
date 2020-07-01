@@ -15,7 +15,7 @@ with open('IMG_7280.jpg' , 'rb') as image_file:
     True
 
 dir(my_image) #lists out all the 
-print(dir(my_image))
+#print(dir(my_image))
 
 
 #convert list of image stats to create a keys:values dict (k eys would dir() and tags would be values)
@@ -29,17 +29,33 @@ def convert():
     for tag in tag_list: 
         imagemeta_dict[tag] = my_image[tag]
     print(imagemeta_dict)
+    return imagemeta_dict
 
+   
 
 convert()
 
-metadata = []
+imagemeta_dict = convert()
+# loop through dictionary each value to a string,
+for tag in imagemeta_dict: 
+    imagemeta_dict[tag] = str(imagemeta_dict[tag])
+#print(imagemeta_dict)
+# 
+#return dictionary to list for conversion into .csv file
+list(imagemeta_dict.values()) #takes values form dictionary and creates a list
+imagemeta_dict.keys()
+",".join(imagemeta_dict.keys())
+",".join(imagemeta_dict.values()) #creates string
+
+newmeta = [] #new list for combining keys and values
+for i in range(len(imagemeta_dict)): 
+    newmeta.append(",".join(imagemeta_dict.values()))
+    "\n".join(newmeta)
+print(newmeta)
+
+#creates csv docmument
+with open('photo_metadata.csv' , 'w') as file: 
+    file.write("\n".join(newmeta))
 
 
-
-
-
-
-    
-    
 
