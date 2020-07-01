@@ -13,6 +13,7 @@ class Grass:
         self.x = x
         self.y = y
         self.img = pygame.image.load("grass.png")
+        self.energy = 1
 
     def draw(self):
         screen.blit(self.img,(self.x,self.y))
@@ -92,6 +93,7 @@ class Animal:
             prox = self.proximity(item)
             eat = self.adjacent(item)
             if eat == True:
+                self.energy+=item.energy
                 a_list.remove(item) 
                 del item    
             elif prox < self.awareness:
@@ -103,7 +105,8 @@ class Predator(Animal):
         self.img = pygame.image.load("fox.png")
         self.x_move = r.randint(-3,3)
         self.y_move = r.randint(-3,3)
-        self.awareness = 70       
+        self.awareness = 70
+        self.energy = 20       
 
 class Varmint(Animal):
     def __init__(self,x,y):
@@ -112,6 +115,7 @@ class Varmint(Animal):
         self.x_move = r.randint(-3,3)
         self.y_move = r.randint(-3,3)
         self.awareness = 50
+        self.energy = 10
 
     #randomly decides which direction the varmint wants to travel in. This function does not currently work for some unknown reason
     def choose_path(self):
@@ -125,27 +129,29 @@ class Varmint(Animal):
 
 def main():
     #Setting a timer to go off every 4 seconds; each time the timer ticks, this will indicate 1 in-simulation year and will trigger various events
-    pygame.time.set_timer(pygame.USEREVENT,4000)
+    NEW_YEAR = pygame.USEREVENT + 1
+    pygame.time.set_timer(NEW_YEAR,4000)
+    ENERGY_LOSS = pygame.USEREVENT + 2
+    pygame.time.set_timer(ENERGY_LOSS,500)
     year_counter = 0
 
     #Creates a bunch of grass and varmints at random points
     varmint_list = []
-    for i in range(32):
+    for i in range(28):
         varm = Varmint(r.randint(0,920),r.randint(0,600))
         varmint_list.append(varm)
-    '''for varm in varmint_list:
-        varm.choose_path()'''
-
+    
     plant_list = []
     for i in range(16):
         plant = Grass(r.randint(0,920),r.randint(0,600))
         plant_list.append(plant)    
 
     predator_list = []
-    for i in range(1):
+    for i in range(2):
         pred = Predator(r.randint(0,920),r.randint(0,600))
         predator_list.append(pred)
     
+    counter = 0
 
     running = True
     while running:
@@ -154,11 +160,26 @@ def main():
 
         #All events go in this for loop
         for event in pygame.event.get():
+            #Quits the simulation if the 'X' button in the top right corner is clicked
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.USEREVENT:
+            #Causes varmints and predators to lose some energy every .5 seconds, and if their energy is 0 or less, they die
+            elif event.type == ENERGY_LOSS:
+                for varm in varmint_list:
+                    varm.energy -=1
+                    if varm.energy <= 0:
+                        varmint_list.remove(varm)
+                        del varm
+                for pred in predator_list:
+                    pred.energy -= 5
+                    if pred.energy <= 0:
+                        predator_list.remove(pred)
+                        del pred
+            #simulates 1 in-game year every 4 seconds            
+            elif event.type == NEW_YEAR:
                 year_counter+=1
                 print(f"Happy new year! {year_counter}")
+                print(f"counter: {counter}")
                 #print(varmint_list)
                 for varm in varmint_list:
                     varm.age+=1
@@ -175,8 +196,8 @@ def main():
                     
         
         
-        #nearby_plants = {}
-        #instructs the males to move toward non-pregnant females before they seek out food
+        
+        #instructs varmints to eat and mate
         for varm in varmint_list:
             varm.eat(plant_list)
             if varm.sex == "female" and varm.age >= 1:
@@ -185,37 +206,6 @@ def main():
                         mateable = varm.proximity(v)
                         if mateable < 40:
                             varm.pregnant = True
-            '''if varm.sex == "male" and varm.age >= 1:
-                for v in varmint_list:
-                    varm.proximity(v)
-                    if v.sex == "female" and v.pregnant == False and v.age >= 1:
-                        varm.move_toward(v)
-                        
-                    else:
-                        varm.eat(plant_list)
-            #instructs female varmints to become pregnant when near male varmints so that the male varmints will leave them alone
-            elif varm.sex == "female" and varm.age >= 1:
-                for v in varmint_list:
-                    mate = varm.adjacent(v)
-                    if v.sex == "male" and mate == True:
-                        varm.pregnant = True'''
-            #figures out which plants the varmint is aware of; then the varmint moves toward the closest one; then eats it
-            '''else:
-                for plant in plant_list:
-                    prox = varm.proximity(plant)
-                    eat = varm.adjacent(plant)
-                    if eat == True:
-                        plant_list.remove(plant)
-                        print("monch")
-                        del plant    
-                    elif prox < varm.awareness:
-                        varm.move_toward(plant)'''
-                    
-            #this code was supposed to create a sorted dictionary of nearby plants and then have the varmint go toward the closest one... but it didn't work        
-            ''' nearby_plants[plant]=prox
-            food = sorted(nearby_plants,key=nearby_plants.get)
-            if nearby_plants != {}:
-                varm.move_toward(food[0]) '''   
             
             #moves varmints according to their AI
             varm.move()
@@ -230,12 +220,14 @@ def main():
 
         for pred in predator_list:
             pred.move()
-            pred.eat(varmint_list)
+            if pred.energy < 20:
+                pred.eat(varmint_list)
             pred.draw()
 
         #refreshes the plant
         for plant in plant_list:
             plant.draw()
+            
 
         plant = Grass(r.randint(0,920),r.randint(0,600))
         plant_list.append(plant)
