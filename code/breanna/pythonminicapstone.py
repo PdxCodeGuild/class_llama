@@ -48,21 +48,17 @@ search_bar.clear()
 search_bar.send_keys(visit_state)
 # "press enter" and submitting the search
 search_bar.send_keys(Keys.RETURN)
-# navigate back to the Things to Do page (Trip Advisor resets it to a general search)
-
-
-# attempt 64152 to click on that tab (no, it doesn't work)
+# click on the first result, which is the state page (Trip Advisor resets to a general search)
+first_result = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="BODY_BLOCK_JQUERY_REFLOW"]/div[2]/div/div[2]/div/div/div/div/div[1]/div/div[1]/div/div[3]/div/div[1]/div/div[2]/div/div/div/div/div/div/div[2]')))
+first_result.click()
+# click on the "Things to do" tab to get a list of popular activities in the state
 try: 
-    # wait 10 seconds before looking for element 
-    element = WebDriverWait(driver, 10).until( 
-        EC.presence_of_element_located((By.XPATH, '//*[@id="search-filters"]/ul/li[5]')) 
+    # wait 10 seconds before looking for element ("Things to do" tab)
+    things_to_do_tab = WebDriverWait(driver, 10).until( 
+        EC.presence_of_element_located((By.XPATH, '//*[@id="lithium-root"]/main/div[2]/div/div/div[3]')) 
     )
-    element.click()
+    things_to_do_tab.click()
 finally:
     print("done")
-# things_to_do = driver.find_element_by_xpath('//*[@id="search-filters"]/ul/li[5]/a')
-# things_to_do.click()
-# print(things_to_do)
-
 
 
