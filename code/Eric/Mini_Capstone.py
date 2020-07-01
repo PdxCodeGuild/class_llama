@@ -10,25 +10,8 @@ Might lead into the final Capstone Project
 Potential to add music theory (notation)
 Metronome or Back Beat to play along with...
 Use an Audio Converter program to convert mp3 to FLAC (Lossless) file for higher quality sound
-pip installed pyaudio, wave, playsound and soundfile 
+pip installed pyaudio, wave, playsound, soundfile and ftransc 
 """
-
-# record audio
-import pyaudio
-
-import wave
-
-# plays the .mp3 or .wav file after recording
-from playsound import playsound
-
-# convert .wav to FLAC (Lossless) higher quality sound
-# import soundfile as sf
-
-# Extract audio data and sampling rate from file 
-# data, fs = sf.read('myfile.wav') 
-# # Save as FLAC file at correct sampling rate
-# sf.write('myfile.flac', data, fs)  
-
 
 # pyaudio.PyAudio.open() (To record or play audio)
 # pyaudio.Stream.write() (Play audio by writing audio data to the stream)
@@ -36,6 +19,19 @@ from playsound import playsound
 # pyaudio.Stream.stop_stream() (Pause/play recording)
 # pyaudio.Stream.close() (To terminate the stream)
 # pyaudio.Pyaudio.terminate() (End the session)
+
+
+# record audio in .wav or .mp3
+import pyaudio
+
+# .wav format
+import wave
+
+# plays the .mp3 or .wav file after recording
+from playsound import playsound
+
+# ftransc is a python library for converting audio files across various formats
+import ftransc
 
 
 """
