@@ -105,6 +105,34 @@ print(img_new_rz.shape)
 #----------------------------------------------------------------------------#
 
 # import modules
+from PIL import Image
+
+# create blank background
+img = Image.new("RGB", (1200,1080), color="green")
+# img.show() # TEST: pass - green background displayed 400x400
+
+# save as 'green_bg
+img.save("./img/green_bg.png")
+# img.show() # TEST: pass - green_bg saved to location
+
+# define x,y and offset 
+x,y = img.size
+offset = x // 10, y // 7
+
+# paste image onto 
+img.paste(Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((200,200)), offset)
+img.show()
+
+#----------------------------------------------------------------------------#
+## STEP FIVE - Paste multiple images on top of each other using loop
+#----------------------------------------------------------------------------#
+
+
+
+#----------------------------------------------------------------------------#
+## STEP SIX - Define function for 'STEP FIVE' and recursively call loop
+#----------------------------------------------------------------------------#
+
 
 
 
