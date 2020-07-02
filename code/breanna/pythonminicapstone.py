@@ -17,34 +17,29 @@ from bs4 import BeautifulSoup
 import requests
 import webbrowser
 from geopy.geocoders import Nominatim
-# from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
+
+
 
 def map():
+    # step 5
     key = input('Choose an attraction to be mapped: ')
     geolocator = Nominatim(user_agent='pythonminicapstone')
     location = geolocator.geocode(key)
     latitude = str(location.latitude)
     longitude = str(location.longitude)
     location = "https://www.google.com/maps/@"+latitude+","+longitude+","+"18z"
+    # step 6
     webbrowser.open_new_tab(location)
 
 def scrape():
+    # step 3
     soup = BeautifulSoup(page.text, 'html.parser')
-    # attractions = soup.find_all("div", class_ = "tracking_attraction_title")
     attr = soup.find_all('a')
-    # z = ",".join(map(str, attr))
-    # # print(z)
-    # y = z[8:-9].split("<a>, </a>")
-    # x = [str(val).split(",") for val in y]
-    # print(x)
-    # print(y)
-    # print(attr)
+    # step 4
     y = []
     for x in attr:
         z = x.get_text()
         y.append(z)
-    # print(y)
     s = slice(111,129)
     things_to_do = y[s]
     for thing in things_to_do:
@@ -61,13 +56,11 @@ def scrape():
     
 
 # step 1
-# get a list of all US states, display to the user
 states = us.states.STATES
 states = [state.name for state in states]
 states = ', '.join(states)
 
 # step 2
-# let the user pick the state they want to go to
 print("\nHere is a list of US states: \n")
 print(states)
 visit_state = input("\nWhich state would you like to visit (capitalize the state or use the capitalized two-letter abbreviation): ")
@@ -174,27 +167,26 @@ elif visit_state in ["Wisconsin","WI"]:
 elif visit_state in ["Wyoming","WY"]:
     page = requests.get("https://www.tripadvisor.com/Attractions-g28973-Activities-Wyoming.html")
 
-# step 3
-# scrape Trip Advisor Top Attractions for that state
-# scrape() defined above
-
-# step 4
-# generate a list of the top 10(?)/most popular things to do
 
 
 
-# Here is the pretty version of searching for things to do based on the user's state selection:
-# driver = webdriver.Chrome()
-# driver.get("https://www.tripadvisor.com/Search?q=Oregon&searchSessionId=CAACC22D5A827F2C2C5B482A8BC3987D1593554732925ssid&searchNearby=false&sid=95CFA2941911FF8F49348AE8E406E01C1593554756143&blockRedirect=true")
-# search_bar = driver.find_element_by_id("mainSearch")
-# search_bar.clear()
-# search_bar.send_keys(visit_state)
-# search_bar.send_keys(Keys.RETURN)
-# first_result = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="BODY_BLOCK_JQUERY_REFLOW"]/div[2]/div/div[2]/div/div/div/div/div[1]/div/div[1]/div/div[3]/div/div[1]/div/div[2]/div/div/div/div/div/div/div[2]')))
-# first_result.click()
-# state_dropdown = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="component_7"]/div/div[2]/header/div/nav/a[1]')))
-# state_dropdown.click()
-# things_to_do_tab = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="lithium-root"]/main/div[6]/div/div/div/div[2]/span/div/div/div[1]/a[7]')))
-# things_to_do_tab.click()
+'''
+Here is the pretty version of steps 3 and 4:
 
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome()
+driver.get("https://www.tripadvisor.com/Search?q=Oregon&searchSessionId=CAACC22D5A827F2C2C5B482A8BC3987D1593554732925ssid&searchNearby=false&sid=95CFA2941911FF8F49348AE8E406E01C1593554756143&blockRedirect=true")
+search_bar = driver.find_element_by_id("mainSearch")
+search_bar.clear()
+search_bar.send_keys(visit_state)
+search_bar.send_keys(Keys.RETURN)
+first_result = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="BODY_BLOCK_JQUERY_REFLOW"]/div[2]/div/div[2]/div/div/div/div/div[1]/div/div[1]/div/div[3]/div/div[1]/div/div[2]/div/div/div/div/div/div/div[2]')))
+first_result.click()
+state_dropdown = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="component_7"]/div/div[2]/header/div/nav/a[1]')))
+state_dropdown.click()
+things_to_do_tab = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="lithium-root"]/main/div[6]/div/div/div/div[2]/span/div/div/div[1]/a[7]')))
+things_to_do_tab.click()
+'''
 
