@@ -30,7 +30,7 @@ class Animal:
         #the awareness attribute is how far away the animal can sense food, predators, and mates
         self.awareness = 25
         self.start_energy = 10
-        self.energy = start_energy
+        self.energy = self.start_energy
         #metabolism is how quickly the animal burns through energy
         self.metabolism = 3
         self.speed = 3
