@@ -36,7 +36,7 @@ img.show()
 '''
 
 #----------------------------------------------------------------------------#
-## STEP TWO
+## STEP TWO - Convert image rgb values to array
 #----------------------------------------------------------------------------#
 
 '''
@@ -104,7 +104,7 @@ print(img_new_rz.shape)
 ## STEP FOUR - Image on top of another image
 #----------------------------------------------------------------------------#
 
-# import modules
+'''# import modules
 from PIL import Image
 
 # create blank background
@@ -121,18 +121,94 @@ offset = x // 10, y // 7
 
 # paste image onto 
 img.paste(Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((200,200)), offset)
-img.show()
+img.show()'''
 
 #----------------------------------------------------------------------------#
 ## STEP FIVE - Paste multiple images on top of each other using loop
 #----------------------------------------------------------------------------#
+# import modules
+from PIL import Image
+import random
 
+# bg = Image.new("RGBA", (1200,800), (255, 255, 255, 255))
+# bg_w, bg_h = bg.size
+
+# load the image
+img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((800,800))
+img_w, img_h = img.size
+
+def fractal_img():
+
+    # load the image
+    img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((800,800))
+    img_w, img_h = img.size
+
+    for i in range(5):
+        x = img_w // 10
+        y = img_h // 10
+
+        img2 = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((x,y))
+        
+        img2.rotate(45)
+        if x <= img_w and y <= img_h:
+            img.paste(img2, (x*i,y*i))
+        else:
+            break
+
+    img.show()
+
+fractal_img()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# import random, math
+
+# # create blank white background
+# bg = Image.new("RGB", (1280,920), color="white")
+# bg_w, bg_h = bg.size
+# # img.show() # TEST: pass - green background displayed 400x400
+
+# # save as 'white_bg
+# bg.save("./img/white_bg.png")
+# # bg.show() # TEST: pass - white_bg saved to location
+
+# # # equation to start img in center
+# offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2) 
+
+
+
+
+# # paste image onto 
+# img.paste(Image.open("./img/Gnome_G017_HD_NoLogo.png").resize(((200+1),(200+i))), offset)
+# img.show()
 
 
 #----------------------------------------------------------------------------#
 ## STEP SIX - Define function for 'STEP FIVE' and recursively call loop
 #----------------------------------------------------------------------------#
-
-
-
-
