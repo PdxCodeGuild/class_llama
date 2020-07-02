@@ -1,16 +1,13 @@
-# Idea for Mini Capstone: ****U/Record**** a FREE Web App
-
-# My mini capstone would be a start to help some struggling artists with a free, simple, and easy to use
-# recording online web app! Record original music or voice over work. All the features needed to 
-# record a decent .wav or .mp3 file are all included. Create an account on Soundcloud.com or a 
-# YouTube Artist Channel and upload your recordings!
-
 """
-Might lead into the final Capstone Project
-Potential to add music theory (notation)
-Metronome or Back Beat to play along with...
-Use an Audio Converter program to convert mp3 to FLAC (Lossless) file for higher quality sound
-pip installed pyaudio, wave, playsound, soundfile and ftransc 
+
+Web App Name:    u/R3c0rD  
+
+FREE Online Recording Web App for Artistic Endeavors (USB Microphone is recommended)
+
+pip install metronomiconic (play along with a beat/tempo while writing a song)
+
+pip installed pyaudio, wave, playsound, and soundfile
+
 """
 
 # pyaudio.PyAudio.open() (To record or play audio)
@@ -30,12 +27,16 @@ import wave
 # plays the .mp3 or .wav file after recording
 from playsound import playsound
 
-# ftransc is a python library for converting audio files across various formats
-import ftransc
+# converting .wav files to FLAC or Lossless (much larger file but higher quality)
+import soundfile as sf
 
+# # Extract audio data and sampling rate from file 
+# data, fs = sf.read('myfile.wav') 
+# # Save as FLAC file at correct sampling rate
+# sf.write('myfile.flac', data, fs)  
 
 """
-*****SETTINGS for RECORDING******
+*****RECORDING PARAMETERS******
 """
 
 # the file name and output either .wav or .mp3
@@ -50,12 +51,11 @@ FORMAT = pyaudio.paInt16
 # mono, change to 2 if you want stereo
 channels = 1
 
-
 # 44100 samples per second
 sample_rate = 44100
 
-# How many seconds to record
-record_seconds = 30
+# How many seconds to record (180 sec = 3 minutes)
+record_seconds = 45
 
 # initialize PyAudio object
 p = pyaudio.PyAudio()
@@ -67,13 +67,17 @@ stream = p.open(format=FORMAT,
                 input=True,
                 output=True,
                 frames_per_buffer=chunk)
+
 frames = []
+
 print("Recording...")
+
 for i in range(int(44100 / chunk * record_seconds)):
     data = stream.read(chunk)
     # if you want to hear your voice while recording
     # stream.write(data)
     frames.append(data)
+
 print("Finished Recording")
 
 # stop and close stream
@@ -102,7 +106,7 @@ wf.writeframes(b"".join(frames))
 # close the file
 wf.close()
 
-# to playback the output file
+# to playback the output file after you are finished recording
 playsound("demotrack1.wav")
 
 
