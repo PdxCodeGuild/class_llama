@@ -170,9 +170,62 @@ def fractal_img():
             offset_bl = 0, 400
             img.paste(img2, offset_bl)
             img.save("./img/new_image_file.png")
-        
         else:
             break
+
+        for j in range(1,5):
+            x = x // 2
+            y = y // 2
+
+            img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
+
+            if j == 1:
+                offset_tl = 0,0
+                img.paste(img2, offset_tl)
+                img.save("./img/new_image_file.png")
+            elif j == 2:
+                # pass
+                offset_tr = img_w // 2, 0
+                img.paste(img2, offset_tr)
+                img.save("./img/new_image_file.png")
+            elif j == 3:
+                # pass
+                offset_br = img_w // 2, img_h // 2
+                img.paste(img2, offset_br)
+                img.save("./img/new_image_file.png")
+            elif j == 4:
+                # pass
+                offset_bl = 0, 400
+                img.paste(img2, offset_bl)
+                img.save("./img/new_image_file.png")
+            else:
+                break
+
+            for k in range(1,5):
+
+                img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
+
+                if k == 1:
+                    offset_tl = 0,0
+                    img.paste(img2, offset_tl)
+                    img.save("./img/new_image_file.png")
+                elif k == 2:
+                    # pass
+                    offset_tr = img_w // 2, 0
+                    img.paste(img2, offset_tr)
+                    img.save("./img/new_image_file.png")
+                elif k == 3:
+                    # pass
+                    offset_br = img_w // 2, img_h // 2
+                    img.paste(img2, offset_br)
+                    img.save("./img/new_image_file.png")
+                elif k == 4:
+                    # pass
+                    offset_bl = 0, 400
+                    img.paste(img2, offset_bl)
+                    img.save("./img/new_image_file.png")
+                else:
+                    break
     img.show()
     
     # display image for 5 seconds then kill after user hits enter
