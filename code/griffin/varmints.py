@@ -13,7 +13,7 @@ class Grass:
         self.x = x
         self.y = y
         self.img = pygame.image.load("grass.png")
-        self.energy = 3
+        self.energy = 10
 
     def draw(self):
         screen.blit(self.img,(self.x,self.y))
@@ -29,6 +29,9 @@ class Animal:
         self.awareness = 25
         self.start_energy = 10
         self.energy = 10
+        self.metabolism = 3
+        self.speed = 3
+        self.libido = r.randint(10,30)
 
     #names the animal
     def baby_name(self):
@@ -48,6 +51,10 @@ class Animal:
             sex = "male"
         return sex
 
+    def die(self):
+        self.sex = "none"
+        self.speed = 0
+
     def __repr__(self):
         return f"Name: {self.name}\nSex: {self.sex}\nAge: {self.age}\nEnergy: {self.energy}\nPregnant? {self.pregnant}"
 
@@ -59,9 +66,9 @@ class Animal:
         #moves the animal according to their randomly chosen path. Execute this once per loop
         self.x +=self.x_move
         self.y +=self.y_move
-        if self.x > 936 or self.x <0:
+        if self.x > 936 or self.x <24:
             self.x_move*=-1
-        if self.y > 606 or self.y <0:
+        if self.y > 606 or self.y <24:
             self.y_move*=-1
 
     #determines how far away an object is from the varmint
@@ -82,24 +89,24 @@ class Animal:
     def move_toward(self,target):
         #while self.x != target.x or self.y != target.y:
         if self.x >= target.x:
-            self.x_move = -3
+            self.x_move = -1 * self.speed
         elif self.x <= target.x:
-            self.x_move = 3
+            self.x_move = self.speed
         if self.y >= target.y:
-            self.y_move = -3
+            self.y_move = -1 * self.speed
         elif self.y <= target.y:
-            self.y_move = 3
+            self.y_move = self.speed
 
     def move_away(self,target):
         #while self.x != target.x or self.y != target.y:
         if self.x >= target.x:
-            self.x_move = 3
+            self.x_move = self.speed
         elif self.x <= target.x:
-            self.x_move = -3
+            self.x_move = -1 * self.speed
         if self.y >= target.y:
-            self.y_move = 3
+            self.y_move = self.speed
         elif self.y <= target.y:
-            self.y_move = -3
+            self.y_move = -1 * self.speed
 
     def eat(self,a_list):
         for item in a_list:
@@ -113,55 +120,94 @@ class Animal:
                 self.move_toward(item)
 
     def mate(self,species_list):
-        if self.sex == "female" and self.age >= 1 and self.energy >= (self.start_energy * 2):
+        if self.sex == "female" and self.age >= 1 and self.energy >= (self.start_energy * self.libido/10):
             for v in species_list:
                 if v.sex == "male" and v.age >= 1:
                     mateable = self.proximity(v)
                     if mateable < self.awareness:
                         self.pregnant = True
-                        self.energy -= self.start_energy
+                        v.energy -= (self.parental_investment * v.energy)
+                        self.energy += (self.parental_investment * v.energy)
+                        break
+
+   
+                        
+                        
 
 class Predator(Animal):
-    def __init__(self,x,y):
+    def __init__(self,x,y, mom = None):
         super().__init__(x,y)
         self.img = pygame.image.load("fox.png")
         self.x_move = r.randint(-3,3)
         self.y_move = r.randint(-3,3)
-        self.awareness = 70
+        if mom == None:
+            self.awareness = r.randint(50,100)
+        else: 
+            self.awareness = r.randint(int(mom.awareness*.75),int(mom.awareness*1.25))
         self.start_energy = 10
         self.energy = 10
-        self.metabolism = 3  
+        if mom == None:
+            self.speed = r.randint(3,6)
+        else:
+            self.speed = r.randint(int(.75*mom.speed),int(1.25*mom.speed))
+        self.metabolism = (self.speed/6) + (self.awareness/70)
+        if mom == None:
+            self.parental_investment = (r.randint(5,50))/100
+        else:
+            investment = r.randint(int(.75*mom.parental_investment),int(1.25*mom.parental_investment))
+            if investment > 1:
+                investment = 1
+            self.parental_investment = investment
+        if mom == None:
+            self.libido = r.randint(10,30)
+        else:
+            self.libido = r.randint(int(.75*mom.libido),int(1.25*mom.libido)) 
 
-    def move_toward(self,target):
-        #while self.x != target.x or self.y != target.y:
-        if self.x >= target.x:
-            self.x_move = -4
-        elif self.x <= target.x:
-            self.x_move = 4
-        if self.y >= target.y:
-            self.y_move = -4
-        elif self.y <= target.y:
-            self.y_move = 4     
+    def mate(self,species_list):
+        if self.sex == "female" and self.age >= 1 and self.energy >= (self.start_energy * self.libido/10):
+            for v in species_list:
+                if v.sex == "male" and v.age >= 1:
+                    mateable = self.proximity(v)
+                    if mateable < self.awareness:
+                        self.pregnant = True
+                        '''v.energy -= (v.energy/4)
+                        self.energy += (v.energy/4)
+                        break'''
+
+       
 
 class Varmint(Animal):
-    def __init__(self,x,y):
+    def __init__(self,x,y, mom = None):
         super().__init__(x,y)
         self.img = pygame.image.load("rabbit.png")
         self.x_move = r.randint(-3,3)
         self.y_move = r.randint(-3,3)
-        self.awareness = 50
+        if mom == None:
+            self.awareness = r.randint(40,80)
+        else:
+            self.awareness = r.randint(int(.75 * mom.awareness),int(1.25*mom.awareness))
+        if mom == None:
+            self.speed = r.randint(2,5)
+        else:
+            self.speed = r.randint(int(.75*mom.speed),int(1.25*mom.speed))  
         self.start_energy = 10
         self.energy = 10
-        self.metabolism = 1
-
-    #randomly decides which direction the varmint wants to travel in. This function does not currently work for some unknown reason
-    def choose_path(self):
-        self.x_move = r.randint(-3,3)
-        self.y_move = r.randint(-3,3)
+        self.metabolism = (self.speed/6) + (self.awareness/70)
+        if mom == None:
+            self.parental_investment = (r.randint(5,50))/100
+        else:
+            investment = r.randint(int(.75*mom.parental_investment),int(1.25*mom.parental_investment))
+            if investment > 1:
+                investment = 1
+            self.parental_investment = investment
+        if mom == None:
+            self.libido = r.randint(10,30)
+        else:
+            self.libido = r.randint(int(.75*mom.libido),int(1.25*mom.libido))
 
     
-                    
-        
+
+    
 
 
 def main():
@@ -175,17 +221,17 @@ def main():
     #Creates a bunch of grass and varmints at random points
     varmint_list = []
     for i in range(60):
-        varm = Varmint(r.randint(0,920),r.randint(0,600))
+        varm = Varmint(r.randint(40,920),r.randint(40,600))
         varmint_list.append(varm)
     
     plant_list = []
     for i in range(60):
-        plant = Grass(r.randint(0,920),r.randint(0,600))
+        plant = Grass(r.randint(40,920),r.randint(40,600))
         plant_list.append(plant)    
 
     predator_list = []
-    for i in range(4):
-        pred = Predator(r.randint(0,920),r.randint(0,600))
+    for i in range(8):
+        pred = Predator(r.randint(40,920),r.randint(40,600))
         predator_list.append(pred)
 
     running = True
@@ -202,11 +248,13 @@ def main():
             elif event.type == ENERGY_LOSS:
                 for varm in varmint_list:
                     varm.energy -= varm.metabolism
+                    
                     if varm.energy <= 0:
                         varmint_list.remove(varm)
                         del varm
                 for pred in predator_list:
                     pred.energy -= pred.metabolism
+                    
                     if pred.energy <= 0:
                         predator_list.remove(pred)
                         del pred
@@ -215,19 +263,28 @@ def main():
                 year_counter+=1                
                 print(f"Happy new year! {year_counter}")
                 for varm in varmint_list:
+                    
                     varm.age+=1
+                    '''if varm.age >= 8:
+                        varm.die()'''
                     
                     if varm.pregnant == True:                        
-                        for n in range(5):
-                            baby_varm = Varmint(varm.x,varm.y)
+                        for n in range(r.randint(3,5)):
+                            baby_varm = Varmint(varm.x,varm.y,varm)
                             varmint_list.append(baby_varm)
+                            varm.energy -= varm.start_energy
                         varm.pregnant = False
                 for pred in predator_list:
-                    pred.age+=1
+                    print(repr(pred))
                     
+                    pred.age+=1
+                    '''if pred.age >= 10:
+                        pred.die()'''
                     if pred.pregnant == True:
-                        baby_pred = Predator(pred.x,pred.y)
-                        predator_list.append(baby_pred)
+                        for n in range(1):
+                            baby_pred = Predator(pred.x,pred.y,pred)
+                            predator_list.append(baby_pred)
+                            pred.energy -= pred.start_energy
                         pred.pregnant = False
                 print(f"there are {len(varmint_list)} varmints and {len(predator_list)} predators")
                         
@@ -237,8 +294,10 @@ def main():
                 danger = varm.proximity(pred)
                 if danger < varm.awareness:
                     varm.move_away(pred)
-            varm.eat(plant_list)
             varm.mate(varmint_list)
+            
+            varm.eat(plant_list)
+            
             
             #moves varmints according to their AI
             varm.move()
@@ -257,8 +316,8 @@ def main():
         for plant in plant_list:
             plant.draw()
             
-        for n in range(3):
-            plant = Grass(r.randint(0,920),r.randint(0,600))
+        for n in range(1):
+            plant = Grass(r.randint(40,920),r.randint(40,600))
             plant_list.append(plant)
 
         pygame.display.update()
