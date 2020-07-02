@@ -126,8 +126,8 @@ class Animal:
                     mateable = self.proximity(v)
                     if mateable < self.awareness:
                         self.pregnant = True
-                        v.energy -= (v.energy/math.ceil(v.parental_investment))
-                        self.energy += (v.energy/math.ceil(v.parental_investment))
+                        v.energy -= (self.parental_investment * v.energy)
+                        self.energy += (self.parental_investment * v.energy)
                         break
 
    
@@ -135,18 +135,33 @@ class Animal:
                         
 
 class Predator(Animal):
-    def __init__(self,x,y):
+    def __init__(self,x,y, mom = None):
         super().__init__(x,y)
         self.img = pygame.image.load("fox.png")
         self.x_move = r.randint(-3,3)
         self.y_move = r.randint(-3,3)
-        self.awareness = r.randint(50,100)
+        if mom == None:
+            self.awareness = r.randint(50,100)
+        else: 
+            self.awareness = r.randint(int(mom.awareness*.75),int(mom.awareness*1.25))
         self.start_energy = 10
         self.energy = 10
-        self.speed = r.randint(3,6)
+        if mom == None:
+            self.speed = r.randint(3,6)
+        else:
+            self.speed = r.randint(int(.75*mom.speed),int(1.25*mom.speed))
         self.metabolism = (self.speed/6) + (self.awareness/70)
-        self.parental_investment = r.randint(10,20)
-        self.libido = r.randint(10,30)  
+        if mom == None:
+            self.parental_investment = (r.randint(5,50))/100
+        else:
+            investment = r.randint(int(.75*mom.parental_investment),int(1.25*mom.parental_investment))
+            if investment > 1:
+                investment = 1
+            self.parental_investment = investment
+        if mom == None:
+            self.libido = r.randint(10,30)
+        else:
+            self.libido = r.randint(int(.75*mom.libido),int(1.25*mom.libido)) 
 
     def mate(self,species_list):
         if self.sex == "female" and self.age >= 1 and self.energy >= (self.start_energy * self.libido/10):
@@ -179,9 +194,12 @@ class Varmint(Animal):
         self.energy = 10
         self.metabolism = (self.speed/6) + (self.awareness/70)
         if mom == None:
-            self.parental_investment = r.randint(2,10)
+            self.parental_investment = (r.randint(5,50))/100
         else:
-            self.parental_investment = r.randint(int(.75*mom.parental_investment),int(1.25*mom.parental_investment))
+            investment = r.randint(int(.75*mom.parental_investment),int(1.25*mom.parental_investment))
+            if investment > 1:
+                investment = 1
+            self.parental_investment = investment
         if mom == None:
             self.libido = r.randint(10,30)
         else:
@@ -264,7 +282,7 @@ def main():
                         pred.die()'''
                     if pred.pregnant == True:
                         for n in range(1):
-                            baby_pred = Predator(pred.x,pred.y)
+                            baby_pred = Predator(pred.x,pred.y,pred)
                             predator_list.append(baby_pred)
                             pred.energy -= pred.start_energy
                         pred.pregnant = False
