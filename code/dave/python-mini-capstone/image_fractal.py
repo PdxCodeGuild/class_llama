@@ -130,27 +130,34 @@ img.show()'''
 from PIL import Image
 import random
 
-bg = Image.new("RGBA", (1200,800), (255, 255, 255, 255))
-bg_w, bg_h = bg.size
+# bg = Image.new("RGBA", (1200,800), (255, 255, 255, 255))
+# bg_w, bg_h = bg.size
 
 # load the image
-img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((400,400))
+img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((800,800))
 img_w, img_h = img.size
 
-for i in range(10):
-    x = random.randint(200, 200)
-    y = random.randint(200, 200)
-    img2 = Image.open("./img/new_img.png").resize((x,y))
-    img2_w, img2_h = img2.size
+def fractal_img():
 
-    offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2)
-    offset2 = ((img_w - img2_w) // 2, (img_h - img2_h) // 2)
-    
-    img2.paste(img2, offset2)
-    img2.save("./img/new_img.png")
-img2.show()
+    # load the image
+    img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((800,800))
+    img_w, img_h = img.size
 
+    for i in range(5):
+        x = img_w // 10
+        y = img_h // 10
 
+        img2 = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((x,y))
+        
+        img2.rotate(45)
+        if x <= img_w and y <= img_h:
+            img.paste(img2, (x*i,y*i))
+        else:
+            break
+
+    img.show()
+
+fractal_img()
 
 
 
