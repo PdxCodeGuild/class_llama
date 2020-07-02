@@ -1,9 +1,10 @@
 
 from string import ascii_lowercase
+def num():
+    num = int(input("How far do you want to shift them (pick a number): "))
+    return num
 
-store = 0
-
-def superspystuff(store):
+def superspystuff():
     in_text = input("Please enter a lowercase string of letters: ")
     
     letters = []
@@ -19,15 +20,15 @@ def superspystuff(store):
     # print(letters)
 
     new_list = []
-
-    num = int(input("How far do you want to shift them (pick a number): "))
-    store = store + num
+    num1 = num()
+    # num = int(input("How far do you want to shift them (pick a number): "))
+    # store = store + num
     # adding rotated numbers to the empty new_list
     for rot in letters:
         if rot == " ":
             pass
         else:
-            rot += num
+            rot += num1
 
         # check if number is over 25, start index back at 0 
         if rot == " ":
@@ -52,10 +53,12 @@ def superspystuff(store):
     out_text = "".join(new_letters)
 
     # print(out_text)
+    # decode(out_text,num1)
     # print(store)
-    return out_text
+    return out_text, num1
 
-def decode(out_text,store):
+def decode(out_text, num1):
+    num2 = num1
     letters = []
     new_list = []
     for x in out_text:
@@ -70,7 +73,7 @@ def decode(out_text,store):
         if rot == " ":
             pass
         else:
-            rot -= int(store)
+            rot -= num2
 
         # check if number is over 25, start index back at 0 
         if rot == " ":
@@ -91,11 +94,11 @@ def decode(out_text,store):
             new_letters.append(letters)
         else:
             new_letters.append(ascii_lowercase[letters])
-
+    
     # joining list elements together in a string
     decoded = "".join(new_letters)
+    # print(decoded, 'this is line 98')
     return decoded
 
 
-# superspystuff(store)
-# decoderring()
+# superspystuff()
