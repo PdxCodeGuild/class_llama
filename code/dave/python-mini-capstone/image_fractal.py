@@ -126,65 +126,148 @@ img.show()'''
 #----------------------------------------------------------------------------#
 ## STEP FIVE - Paste multiple images on top of each other using loop
 #----------------------------------------------------------------------------#
+
 # import modules
 from PIL import Image
-import random
+import time
+import psutil
 
 # bg = Image.new("RGBA", (1200,800), (255, 255, 255, 255))
 # bg_w, bg_h = bg.size
 
 # load the image
-img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((800,800))
+img = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((800,800))
 img_w, img_h = img.size
 
 def fractal_img():
 
     # load the image
-    img = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((800,800))
+    img = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((800,800))
     img_w, img_h = img.size
 
-    for i in range(5):
-        x = img_w // 10
-        y = img_h // 10
+    for i in range(1,5):
+        x = img_w // 2
+        y = img_h // 2
 
-        img2 = Image.open("./img/Gnome_G017_5K_NoLogo.png").resize((x,y))
-        
-        img2.rotate(45)
-        if x <= img_w and y <= img_h:
-            img.paste(img2, (x*i,y*i))
+        img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
+
+        if i == 1:
+            offset_tl = 0,0
+            img.paste(img2, offset_tl)
+            img.save("./img/new_image_file.png")
+        elif i == 2:
+            # pass
+            offset_tr = img_w // 2, 0
+            img.paste(img2, offset_tr)
+            img.save("./img/new_image_file.png")
+        elif i == 3:
+            # pass
+            offset_br = img_w // 2, img_h // 2
+            img.paste(img2, offset_br)
+            img.save("./img/new_image_file.png")
+        elif i == 4:
+            # pass
+            offset_bl = 0, 400
+            img.paste(img2, offset_bl)
+            img.save("./img/new_image_file.png")
         else:
             break
 
+        for j in range(1,5):
+            x = x // 2
+            y = y // 2
+
+            img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
+
+            if j == 1:
+                offset_tl = 0,0
+                img.paste(img2, offset_tl)
+                img.save("./img/new_image_file.png")
+            elif j == 2:
+                # pass
+                offset_tr = img_w // 2, 0
+                img.paste(img2, offset_tr)
+                img.save("./img/new_image_file.png")
+            elif j == 3:
+                # pass
+                offset_br = img_w // 2, img_h // 2
+                img.paste(img2, offset_br)
+                img.save("./img/new_image_file.png")
+            elif j == 4:
+                # pass
+                offset_bl = 0, 400
+                img.paste(img2, offset_bl)
+                img.save("./img/new_image_file.png")
+            else:
+                break
+
+            for k in range(1,5):
+
+                img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
+
+                if k == 1:
+                    offset_tl = 0,0
+                    img.paste(img2, offset_tl)
+                    img.save("./img/new_image_file.png")
+                elif k == 2:
+                    # pass
+                    offset_tr = img_w // 2, 0
+                    img.paste(img2, offset_tr)
+                    img.save("./img/new_image_file.png")
+                elif k == 3:
+                    # pass
+                    offset_br = img_w // 2, img_h // 2
+                    img.paste(img2, offset_br)
+                    img.save("./img/new_image_file.png")
+                elif k == 4:
+                    # pass
+                    offset_bl = 0, 400
+                    img.paste(img2, offset_bl)
+                    img.save("./img/new_image_file.png")
+                else:
+                    break
     img.show()
+    
+    # display image for 5 seconds then kill after user hits enter
+    
+
+
+    # hide image once timer runs out
+    for proc in psutil.process_iter():
+        if proc.name() == "display":
+            proc.kill()
+
 
 fractal_img()
 
 
 
+'''# Mandelbrot fractal
+# FB - 201003254
+from PIL import Image
+# drawing area
+xa = -2.0
+xb = 1.0
+ya = -1.5
+yb = 1.5
+maxIt = 255 # max iterations allowed
+# image size
+imgx = 512
+imgy = 512
+image = Image.new("RGB", (imgx, imgy))
 
+for y in range(imgy):
+    zy = y * (yb - ya) / (imgy - 1)  + ya
+    for x in range(imgx):
+        zx = x * (xb - xa) / (imgx - 1)  + xa
+        z = zx + zy * 1j
+        c = z
+        for i in range(maxIt):
+            if abs(z) > 2.0: break 
+            z = z * z + c
+        image.putpixel((x, y), (i % 4 * 64, i % 8 * 32, i % 16 * 16))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+image.save("mandel.png", "PNG")'''
 
 
 # import random, math
