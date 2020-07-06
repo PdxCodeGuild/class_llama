@@ -363,6 +363,7 @@ def main():
             plant = Grass(r.randint(40,920),r.randint(40,600))
             plant_list.append(plant)
 
+        #updates the display to reflect the changes above
         pygame.display.update()
 
 if __name__ == "__main__":
