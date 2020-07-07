@@ -1,0 +1,13 @@
+body {
+    max-width: 900px;
+    margin: auto;
+    text-align: justify;
+}
+
+img {
+    float: left;
+  }
+
+div {
+    height: 300px;
+}
