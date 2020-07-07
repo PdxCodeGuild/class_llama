@@ -8,7 +8,7 @@ step three:
 from exif import Image
 import csv
 
-with open('IMG_7280.jpg' , 'rb') as image_file:  #open to image as in read as binary
+with open('IMG_8959.jpg' , 'rb') as image_file:  #open to image as in read as binary
     my_image = Image(image_file)
 
     my_image.has_exif #checks to be sure that image has exif information, if it does it returns true

@@ -1,13 +1,15 @@
 """
-
 Web App Name:    u/R3c0rD  
 
 FREE Online Recording Web App for Artistic Endeavors (USB Microphone is recommended)
 
+****Potential to Add these features for Final Capstone****
+
 pip install metronomiconic (play along with a beat/tempo while writing a song)
 
-pip installed pyaudio, wave, playsound, and soundfile
+pip install abjad (music notation)
 
+pip installed pyaudio, wave, playsound, and soundfile
 """
 
 # pyaudio.PyAudio.open() (To record or play audio)
@@ -28,7 +30,7 @@ import wave
 from playsound import playsound
 
 # converting .wav files to FLAC or Lossless (much larger file but higher quality)
-import soundfile as sf
+# import soundfile as sf
 
 # # Extract audio data and sampling rate from file 
 # data, fs = sf.read('myfile.wav') 
@@ -55,7 +57,7 @@ channels = 1
 sample_rate = 44100
 
 # How many seconds to record (180 sec = 3 minutes)
-record_seconds = 45
+record_seconds = 50
 
 # initialize PyAudio object
 p = pyaudio.PyAudio()
