@@ -3,10 +3,13 @@ body {
     margin: auto;
     text-align: justify;
     background-color: lightgoldenrodyellow;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: dimgray;
 }
 
 h1, h2, h3 {
     text-align: center;
+    color: black
 }
 
 img {
@@ -19,11 +22,18 @@ div.with-photo {
 }
 
 div.quote {
-    text-align: center;
     height: 90px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: black
 }
 
 div.under-photo {
     height: 550px;
     padding: 25px;
+}
+
+a {
+    color: lightsteelblue
 }
