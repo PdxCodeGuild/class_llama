@@ -64,7 +64,7 @@ print(data)
 '''
 
 #----------------------------------------------------------------------------#
-## STEP (optional 1) - Convert to grayscale
+## STEP (optional) - Convert to grayscale
 #----------------------------------------------------------------------------#
 
 '''
@@ -140,7 +140,7 @@ img = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((800,800))
 img_w, img_h = img.size
 
 def fractal_img():
-
+    
     # load the image
     img = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((800,800))
     img_w, img_h = img.size
@@ -173,9 +173,11 @@ def fractal_img():
         else:
             break
 
+
+
         for j in range(1,5):
-            x = x // 2
-            y = y // 2
+            x = 300
+            y = 300
 
             img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
 
@@ -202,6 +204,8 @@ def fractal_img():
                 break
 
             for k in range(1,5):
+                x = 100
+                y = 100
 
                 img2 = Image.open("./img/Gnome_G017_HD_NoLogo.png").resize((x,y))
 
@@ -226,6 +230,7 @@ def fractal_img():
                     img.save("./img/new_image_file.png")
                 else:
                     break
+    
     img.show()
     
     # display image for 5 seconds then kill after user hits enter
@@ -241,57 +246,63 @@ def fractal_img():
 fractal_img()
 
 
-
-'''# Mandelbrot fractal
-# FB - 201003254
-from PIL import Image
-# drawing area
-xa = -2.0
-xb = 1.0
-ya = -1.5
-yb = 1.5
-maxIt = 255 # max iterations allowed
-# image size
-imgx = 512
-imgy = 512
-image = Image.new("RGB", (imgx, imgy))
-
-for y in range(imgy):
-    zy = y * (yb - ya) / (imgy - 1)  + ya
-    for x in range(imgx):
-        zx = x * (xb - xa) / (imgx - 1)  + xa
-        z = zx + zy * 1j
-        c = z
-        for i in range(maxIt):
-            if abs(z) > 2.0: break 
-            z = z * z + c
-        image.putpixel((x, y), (i % 4 * 64, i % 8 * 32, i % 16 * 16))
-
-image.save("mandel.png", "PNG")'''
-
-
-# import random, math
-
-# # create blank white background
-# bg = Image.new("RGB", (1280,920), color="white")
-# bg_w, bg_h = bg.size
-# # img.show() # TEST: pass - green background displayed 400x400
-
-# # save as 'white_bg
-# bg.save("./img/white_bg.png")
-# # bg.show() # TEST: pass - white_bg saved to location
-
-# # # equation to start img in center
-# offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2) 
-
-
-
-
-# # paste image onto 
-# img.paste(Image.open("./img/Gnome_G017_HD_NoLogo.png").resize(((200+1),(200+i))), offset)
-# img.show()
-
-
 #----------------------------------------------------------------------------#
 ## STEP SIX - Define function for 'STEP FIVE' and recursively call loop
 #----------------------------------------------------------------------------#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#----------------------------------------------------------------------------#
+## FORMULA FOR MANDELBROT FRACTAL
+#----------------------------------------------------------------------------#
+
+# # Mandelbrot fractal
+# # FB - 201003254
+# from PIL import Image
+# # drawing area
+# xa = -2.0
+# xb = 1.0
+# ya = -1.5
+# yb = 1.5
+# maxIt = 255 # max iterations allowed
+# # image size
+# imgx = 512
+# imgy = 512
+# image = Image.new("RGB", (imgx, imgy))
+
+# for y in range(imgy):
+#     zy = y * (yb - ya) / (imgy - 1)  + ya
+#     for x in range(imgx):
+#         zx = x * (xb - xa) / (imgx - 1)  + xa
+#         z = zx + zy * 1j
+#         c = z
+#         for i in range(maxIt):
+#             if abs(z) > 2.0: break 
+#             z = z * z + c
+#         image.putpixel((x, y), (i % 4 * 64, i % 8 * 32, i % 16 * 16))
+
+# image.save("mandel.png", "PNG")
