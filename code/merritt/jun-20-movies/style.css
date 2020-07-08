@@ -1,0 +1,68 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: lightblue;
+    font-family: Futura, Arial, sans-serif;
+}
+
+header, footer {
+    background-color: darkgreen;
+    color: whitesmoke;
+    margin: 0;
+    padding: 12px 36px;
+}
+
+main {
+    padding: 0 36px;
+}
+
+header h1 {
+    font-size: 3em;
+}
+
+header h3 {
+    font-size: 1.5em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.item {
+    border: 1px solid forestgreen;
+    padding: 24px;
+    margin: 24px auto;
+}
+
+.item p {
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .item {
+        margin: 24px 0;
+        width: 45%;
+    }
+
+}
+
+@media (min-width: 1100px) {
+
+    .item {
+        width: 30%;
+    }    
+
+}

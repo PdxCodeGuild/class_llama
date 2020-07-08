@@ -13,15 +13,20 @@ body {
 img {
     float: left;
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 20px
+    border-radius: 500px;
+    padding-top: 20px;
+    padding-right: 20 px;
+    padding-left: 20 px;
+    padding-bottom: 20 px;
+    
+    
 }
 h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
-    background-color: darkgrey;
+    background-color: rgb(37, 37, 37);
     color: red
 }
 
@@ -30,22 +35,28 @@ li {
     list-style-type: square
 }
 
-
+strong {
+    font-weight: bolder
+}
 
 .article {
-    padding-top: 10px;
+    padding-top: 30px;
+    padding-right: 20 px;
+    padding-left: 20 px;
+    padding-bottom: 20 px;
     background-color: rgb(34, 23, 10);
     color: rgb(238, 193, 108);
     padding-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5 px;
-    margin-bottom: 5px;
-    border-radius: 20px
-}
+    margin: 10px;
+    border-radius: 50px;
+    height: auto;
+    
+
+    }
 
 a {
-    color: magenta
+    color: magenta;
+    font-size: 32px;
 }
 
 blockquote {

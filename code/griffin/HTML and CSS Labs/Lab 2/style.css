@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: rgb(37, 37, 37);
+    color: rgb(173, 65, 65);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+h1 {
+     text-align: center
+    
+}
+
+.item {
+    margin: 5px;
+    border: 1px solid rgb(113, 141, 150);
+    padding: 5px;
+    border-radius: 10px
+    
+}
+
+.sidenav {
+    margin: 5px;
+    border: 1px solid rgb(113, 141, 150);;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.container {
+        
+}
+@media (min-width: 768px) {
+
+
+
+
+    
+}
