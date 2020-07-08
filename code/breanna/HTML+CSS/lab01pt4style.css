@@ -1,0 +1,69 @@
+/* Khalil Gibran Bio: Part 4 */
+
+body {
+    max-width: 900px;
+    margin: auto;
+    text-align: justify;
+    background-color: lightgoldenrodyellow;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: dimgray
+}
+
+h1, h2, h3 {
+    margin-top: 40px;
+    text-align: center;
+    color: black
+}
+
+img.one {
+    float: left;
+    padding: 10px;
+    border: 5px solid #555;
+    border-radius: 50%
+  }
+
+img.two {
+    border: 1px solid #555;
+    border-radius: 50%
+  }
+
+img.three {
+    border: 1px solid #555;
+    border-radius: 50%
+  }
+
+img.four {
+    border: 1px solid #555;
+    border-radius: 50%
+  }
+
+div.with-photo {
+    height: 275px
+}
+
+div.quote {
+    height: 90px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: black
+}
+
+div.under-photo {
+    height: 550px;
+    padding: 50px
+}
+
+div.footer {
+    height: 350px;
+    padding: 40px;
+    text-align: center
+}
+
+li {
+    list-style-type: circle
+}
+
+a {
+    color: lightslategray
+}
