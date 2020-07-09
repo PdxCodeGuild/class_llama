@@ -1,0 +1,23 @@
+html {
+    box-sizing: border-box; 
+}
+*,*:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: lightgray;
+    font-family: "courier new", 'Courier New', Courier, monospace;
+}
+
+header {
+    background-color: slategray;
+    color: white;
+    margin: 0;
+    padding: 12px 35px;
+}
+
+main {
+    background-color: lightskyblue;
+    padding: 0px
+}
