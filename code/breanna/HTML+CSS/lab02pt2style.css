@@ -1,0 +1,90 @@
+/* Blog: Part 2 */
+
+.topnav {
+    background-color: #BAACA2;
+    overflow: hidden;
+  }
+  
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 7px 8px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+.topnav a:hover {
+    background-color: #8F7B6E;
+    color: black;
+  }
+  
+.topnav a.active {
+    background-color: #FFBD91;
+    color: white;
+  }
+
+aside {
+    height: 530px;
+    width: 100%;
+    color: black;
+    background-color: #BAACA2;
+    overflow-x: hidden;
+    margin-top: 20px;
+  }
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    padding-top: 15px;
+    text-align: center;
+}
+
+body {
+    background-color: #E6D5CA;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.social {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.travels p {
+    padding-left: 15px;
+}
+
+.intro {
+    padding: 3px;
+    background-color: #FFEBDE;;
+}
+
+h1 {
+    padding: 10px 15px;
+    background-color: #CCBCB1;
+}
+
+img {
+    border: 2px solid #695A51;
+}
+
+.cross-country, .ca, .nv-az, .or {
+    background-color: #FFEBDE;
+}
+
+#read-more {
+    background-color: #E6D5CA;
+}
+
+footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #BAACA2;
+}
+
