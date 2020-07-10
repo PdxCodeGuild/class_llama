@@ -75,6 +75,15 @@ img {
         flex-direction: row;
     }
 
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .item {
+        max-width: 45%
+    }
+
 
     
 }
@@ -90,6 +99,6 @@ img {
         flex-wrap: wrap;
     }
     .item {
-        max-width: 48%
+        max-width: 30%
     }
 }

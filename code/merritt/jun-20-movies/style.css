@@ -7,7 +7,11 @@ html {
 
 body {
     background-color: lightblue;
-    font-family: Futura, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
 }
 
 header, footer {
@@ -29,6 +33,10 @@ header h3 {
     font-size: 1.5em;
 }
 
+header {
+    line-height: .2;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -38,11 +46,51 @@ img {
     border: 1px solid forestgreen;
     padding: 24px;
     margin: 24px auto;
+    transition: background-color ease .125s;
+    background-image: url("movies.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: whitesmoke;
+}
+
+.item:hover {
+    transition: background-color ease .125s;
+    background: forestgreen;
+    /* width: 100%; */
 }
 
 .item p {
     text-align: justify;
 }
+
+.item img {
+    /* border-radius: 12px; */
+}
+
+.item {
+    /* border-radius: 0 0 0 96px; */
+    /* box-shadow: -25px 40px 50px black; */
+    /* text-shadow: 0 0 12px black; */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* z-index: -1; */
+}
+
+main {
+    margin-top: 128px;
+}
+
+/* .position-test {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+} */
 
 @media (min-width: 768px) {
     
