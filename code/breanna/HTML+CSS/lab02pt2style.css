@@ -1,6 +1,7 @@
 /* Blog: Part 2 */
 
 .topnav {
+    width: 100%;
     background-color: #BAACA2;
     overflow: hidden;
   }
