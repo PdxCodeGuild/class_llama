@@ -10,9 +10,9 @@ body a{
     color: #654321;
 }
 
-section, header, div{
+/* section, header, div{
     border: 2px solid black;
-}
+} */
 
 
 /*--------- header section ---------*/
@@ -84,8 +84,8 @@ nav li{
 }
 
 .np-box p{
-    margin: 10px 20px 0;
-    height: 2.5rem;
+    margin: 10px 20px;
+    height: 2.4rem;
     overflow: hidden;
     display: none;
 
@@ -95,7 +95,6 @@ nav li{
 .np-author{
     display: flex;
     align-items: center;
-
 }
 
 .stack-name-date{
@@ -123,12 +122,20 @@ nav li{
 .writers-section{
     display: flex;
     align-items: center;
+    justify-content: center;
 
     box-shadow: 6px 4px 23px -6px rgba(0,0,0,0.75);
     border-radius: 4px;
     background: #ffefdb;
 
     margin-bottom: 35px;
+
+    padding: 15px 10px;
+}
+
+.ws-wrapper{
+    display: block;
+    text-align: center;
 }
 
 .writers-section img{
@@ -139,8 +146,8 @@ nav li{
 }
 
 .writers-section p{
-    margin: 10px 20px 0;
-    height: 2.5rem;
+    margin: 10px 20px;
+    height: 2.7rem;
     overflow: hidden;
     display: none;
 
@@ -199,7 +206,7 @@ footer{
 
     .np-box p{
         display: block;
-        height: 5.5rem;
+        height: 5.8rem;
         width: 20rem;
         font-size: 1.4rem;
     }
@@ -215,9 +222,9 @@ footer{
 
     .writers-section p{
         display: block;
-        height: 5.5rem;
         width: 20rem;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        height: 2.7rem;
     }
 
     /* --------- footer section ---------- */
@@ -233,4 +240,20 @@ footer{
 }
 
 
+@media (min-width: 1281px) {
 
+    header{
+        width: 80%;
+        margin: auto;
+    }
+
+    main{
+        width: 80%;
+        margin: auto;
+    }
+
+    .writers-section{
+        padding: 
+    }
+
+}
