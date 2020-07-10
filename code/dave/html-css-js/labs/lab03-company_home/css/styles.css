@@ -1,0 +1,56 @@
+/* The following section is for debugging only: 
+comment out prior to going live */
+
+
+/* ----------------------------------------------------*/
+/* ----------------------------------------------------*/
+
+.page {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-rows: 50px 50px 1fr 1fr 50px;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-areas: "head  head  head"
+                         "nav   nav   nav"
+                         "main  main  main"
+                         "main  main  main"
+                         "foot  foot  foot";
+}
+  
+header {
+    grid-area: head;
+    background-color: #8ca0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #ffa08c;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+}
+
+main {
+    grid-area: main;
+    background-color: #ffff64;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: foot;
+    background-color: #8cffa0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
