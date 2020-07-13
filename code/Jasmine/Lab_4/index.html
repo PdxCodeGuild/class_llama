@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Burrito Builder
+        </title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
+        </head>
+
+        <body>
+        <header>
+         <h1> Build-a-Burrito </h1>
+        <img class="image1" src= "C:\Users\Jasmine Moore\Desktop\pdx_code2\class_llama\code\Jasmine\Lab_4\AL-PASTOR-BURRITO.jpg" alt= "burrito"/></img>
+
+        
+        </header>
+
+<h2> Build Your Own Burrito</h2>
+<form action="" method=""> 
+    <fieldset>
+        <legend>Choose Your Tortilla</legend>
+            <input type=radio name="wheat" required id="wholewheat" value="whole-wheat">
+            <label for = "wheat">Whole Wheat </label> <br> 
+            <input type=radio name="white" required id="white" value="white rice">
+            <label for = "pinto">White Flour</label> <br> 
+            <input type=radio name="spinach" required id="white" value="white rice">
+            <label for = "pinto">Spinach</label> <br>
+            <input type=radio name="bowl" required id="notortilla" value="no-tortilla">
+            <label for = "bowl">Make It a Bowl</label>
+    </fieldset>  
+    <fieldset>
+        <legend>Pick Your Protein Type</legend>
+        <input type=radio name="protein" required id="chicken" value="chicken-pollo"> 
+        <label for = "chicken">Pollo</label> <br>
+        <input type=radio name="protein" required id="steak" value="steak-carne"> 
+        <label for = "steak">Carne Asada</label> <br>
+        <input type=radio name="protein" required id="pork" value="pork-pastor"> 
+        <label for = "pork">Al Pastor</label> <br>
+        <input type=radio name="protein" required id="barboca" value="barboca-barbacoa">
+        <label for = "barbaoca">Barbacoa </label> <br> 
+        <input type=radio name="protein" required id="tofu" value="tofu-sofaritas">
+        <label for = "tofu">Sofaritas</label> <br> 
+        <input type=radio name="protein" required id="noprtein" value="no-protein">
+        <label for = "none">No Protein</label>
+    </fieldset>
+    <fieldset>
+         <legend>Choose Your Beans</legend>
+        <input type=radio name="beans" required id="black" value="black-beans">
+        <label for = "black">Black Beans </label> <br> 
+        <input type=radio name="beans" required id="pinto" value="pinto-beans">
+        <label for = "pinto">Pinto Beans</label> <br> 
+        <input type=radio name="beans" required id="nobeans" value="no-beans">
+        <label for = "nobeans">No Beans</label>
+    </fieldset>
+    <fieldset>
+        <legend>Choose Your Rice</legend>
+       <input type=radio name="rice" required id="brown" value="brown-rice">
+       <label for = "black">Brown Rice </label> <br> 
+       <input type=radio name="rice" required id="white" value="white rice">
+       <label for = "pinto">White Rice</label> <br> 
+       <input type=radio name="rice" required id="norice" value="no-rice">
+       <label for = "nobeans">No Rice</label>
+   </fieldset>
+        <legend>Add Ons</legend> 
+        <input type="checkbox" name="cheese" required id="yescheese" value="yes-cheese">
+        <label for = "cheese">Cheese </label> <br> 
+        <input type="checkbox" name="sourcream" required id="sour" value="sour-cream">
+        <label for = "sourcream">Sour Cream </label> <br> 
+        <input type="checkbox" name="green" required id="greensalsa" value="green-salsa">
+        <label for = "green">Green Salsa</label> <br> 
+        <input type="checkbox" name="red" required id="redsalsa" value="red-salsa">
+        <label for = "red">Red Salsa </label> <br> 
+        <input type="checkbox" name="pico" required id="picodegallo" value="pico-de-gallo">
+        <label for = "pico">Pico de Gallo</label> <br> 
+        <input type="checkbox" name="guac" required id="guacamole" value="guac-amole">
+        <label for = "guac">Guacamole </label> <br>
+        <input type="checkbox" name="let" required id="lettuce" value="lett-uce">
+        <label for = "let">Lettuce </label>
+    
+    
+    
+    <fieldset>
+        <legend> Create An Account</legend>
+        Username: <input type="text" name="username" patter="[a-z]{1-15]" title="username must between 1-15 characters and all lowercase"><br>
+        Password: <input type="text" name="password" pattern="[A-Z, a-z]{8-20}" title="password must be between 8-20 characters"><br>
+        Name (First, Last): <input type="text" name="name"> <br>
+        Email: <input type="text" name="email"><br>
+        Phone Number:<input type="text" name="phone"><br>
+        DOB: <input type="text" name="dob"><br>
+        Street Address: <input type="text" name="street"><br>
+        City: <input type="text" name="city"><br>
+        State: <input type="text" name="state">
+        Zipcode: <input type="text" name="zipcod"><br>
+    </fieldset>
+    <button type="submit"> submit order</button> 
+    <button type="reset"> reset order</button>
+</form>
