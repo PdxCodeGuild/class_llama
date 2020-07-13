@@ -70,14 +70,32 @@
 
             <fieldset>
                 <legend>GIVE US DATA</legend>
-                <input type="text" name="username" id="username" placeholder="User Name">
-                <input type="text" name="password" id="password" placeholder="Password"><br>
-                <input type="text" name="firstname" id="first-name" placeholder="First Name">
-                <input type="text" name="lastname" id="last-name" placeholder="Last Name"><br>
+                <input type="text" pattern="[\w\d]{6,}" title = "Username must be at least 6 characters" name="username" id="username" placeholder="User Name">
+                <input type="text" pattern="[\w\d]{6,}" title = "Password must be at least 6 characters" name="password" id="password" placeholder="Password"><br>
+                <input type="text" pattern="[\w]{3,}" title = "Your name must be at least 3 characters" name="firstname" id="first-name" placeholder="First Name">
+                <input type="text" pattern="[\w]{3,}" title = "Your name must be at least 3 characters" name="lastname" id="last-name" placeholder="Last Name"><br>
                 <label for = "email">Email:</label>
-                <input type="text" name="email" id="email" placeholder="emailaddress@domainname.com"><br>
+                <input type="text" pattern="[\w\d]+\@[\w]+\.[\w]+" title = "Please enter an email address in the proper format" name="email" id="email" placeholder="emailaddress@domainname.com"><br>
                 <label for = "phone-number">Phone Number:</label>
-                <input type="text" name="phone-number" id="phone-number" placeholder="###-###-####"><br>
+                <input type="text" pattern="[\d]{3}[\D\W]{0,1}[\d]{3}[\D\W]{0,1}[\d]{4}" title = "Please enter a phone number in the proper format" name="phone-number" id="phone-number" placeholder="###-###-####"><br>
+                <label for = "month">Birthday</label>
+                <select name="month" id="month">
+                    <option value="" disabled selected>month</option>
+                    <option value="ca">Jan</option>
+                    <option value="or">Feb</option>
+                    <option value="wa">Mar</option>
+                    <option value="wa">Apr</option>
+                    <option value="wa">May</option>
+                    <option value="wa">June</option>
+                    <option value="wa">July</option>
+                    <option value="wa">Aug</option>
+                    <option value="wa">Sept</option>
+                    <option value="wa">Oct</option>
+                    <option value="wa">Nov</option>
+                    <option value="wa">Dec</option>    
+                </select>
+                <input type="text" name="date" id="date" placeholder="##">
+                <input type="text" name="year" id="year" placeholder="####">
                 <label for = "ssn">Social Security Number:</label>
                 <input type="text" name="ssn" id="ssn" placeholder="###-##-###"><br>
                 <label for = "address">Address:</label>
