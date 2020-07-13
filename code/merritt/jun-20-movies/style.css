@@ -92,6 +92,28 @@ main {
     right: 100px;
 } */
 
+input[type="text"] {
+    background-color: coral;
+    color: white;
+}
+
+input[type="text"]::placeholder {
+    color: red;
+}
+
+input[type="text"]:hover {
+    box-shadow: 0 0 5px black;
+}
+
+input[type="text"]:focus {
+    background-color: darkslategray;
+    
+}
+
+#zip {
+    width: 78px;
+}
+
 @media (min-width: 768px) {
     
     .container {
