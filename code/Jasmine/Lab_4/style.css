@@ -6,13 +6,17 @@ html {
 }
 
 body {
-    background-color: grey;
+    background-color: burlywood;
     font-family: Arial, Helvetica, sans-serif
 }
 
 header{
     text-align: center;
     padding: 0 36px;
+}
+
+h2 {
+    text-align: center;
 }
 
 main {
@@ -26,4 +30,23 @@ img {
 
 footer{
     text-align: center;
+}
+
+input[type="text"]{
+    background-color: lightgray;
+}
+input[type="text"]:hover{
+    box-shadow: 0 0 5px green;
+}
+
+input[type="text"]:focus {
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly
+    }
 }
