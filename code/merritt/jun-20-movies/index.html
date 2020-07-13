@@ -46,6 +46,49 @@
           <p>Tumeric quinoa direct trade forage artisan readymade. Mlkshk pop-up kickstarter biodiesel typewriter retro, vinyl williamsburg chillwave. Tumeric flexitarian hashtag palo santo edison bulb chartreuse venmo woke +1. Mlkshk poke single-origin coffee helvetica. Direct trade narwhal unicorn pop-up brunch.</p>
         </div>
       </section>
+      <form action="https://webhook.site/c889aae7-1c7f-4d0f-990a-209af596debb" method="POST">
+        <fieldset>
+          <legend>Which of these movies do you like best?</legend>
+          <input type="radio" name="fav-movie" required id="fav-dragon" value="dragon-ball-super">
+          <label for="fav-dragon">Dragon Ball Super: Broly</label><br>
+          <input type="radio" name="fav-movie" required id="fav-stalin" value="death-of-stalin">
+          <label for="fav-stalin">The Death Of Stalin</label><br>
+          <input type="radio" name="fav-movie" required id="fav-being" value="being-there">
+          <label for="fav-being">Being There</label><br>
+          <input type="radio" name="fav-movie" required id="fav-mercy" value="just-mercy">
+          <label for="fav-mercy">Just Mercy</label><br>
+          <input type="radio" name="fav-movie" required id="fav-godfather" value="godfather">
+          <label for="fav-godfather">The Godfather</label><br>
+          <input type="radio" name="fav-movie" required id="fav-playbook" value="silver-linings-playbook">
+          <label for="fav-playbook">Silver Linings Playbook</label>
+        </fieldset>
+        <fieldset>
+          <legend>What other movies do you like?</legend>
+          <input type="text" name="movie-1" id="movie-1">
+          <label for="movie-1">Movie #1</label><br>
+          <input type="text" name="movie-2" id="movie-2" disabled>
+          <label for="movie-2">Movie #2</label><br>
+          <input type="text" name="movie-3" id="movie-3">
+          <label for="movie-3">Movie #3</label>
+        </fieldset>
+        <fieldset>
+          <legend>Tell me about yourself:</legend>
+          <input type="text" name="first" id="first" placeholder="First Name">
+          <input type="text" name="last" id="last" placeholder="Last Name"><br>
+          <input type="text" name="address" id="address" placeholder="Street Address"><br>
+          <input type="text" name="city" id="city" placeholder="City">
+          <select name="state">
+            <option value="" disabled selected>State</option>
+            <option value="ca">CA</option>
+            <option value="or">OR</option>
+            <option value="wa">WA</option>
+          </select>
+          <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Please enter a valid 5-digit zip code."><br>
+          <input type="tel" name="phone" id="phone" placeholder="Telephone Number"><br>
+          <input type="email" name="email" id="email" placeholder="Email Address">
+        </fieldset>
+        <input type="submit" value="Tell us!">
+      </form>
     </main>
     <footer>
       <p>&copy; 2020</p>
