@@ -2,9 +2,8 @@
 
 .topnav {
     width: 100%;
-    background-color: #C29415;
+    background-color: #F7ECEB;
     overflow: hidden;
-    text-align: center;
   }
   
 .topnav a {
@@ -17,67 +16,66 @@
   }
   
 .topnav a:hover {
-    background-color: #75590D;
+    background-color: #E32B12;
     color: black;
   }
   
 .topnav a.active {
-    background-color: #75590D;
+    border-top: 3px solid #E32B12;
+    border-bottom: 3px solid #E32B12;
     color: black;
   }
 
-  body {
-    background-color: #F7D065;
+body {
+    background-color: #F7ECEB;
 }
 
 h1 {
     margin-bottom: 0px;
     padding: 10px 15px;
-    background-color: #776E56;
+    background-color: #575352;
+    color: #F7ECEB;
+    text-align: center;
 }
 
 h2 {
     margin-bottom: 0px;
     padding: 10px 15px;
-    background-color: #776E56;
+    background-color: #575352;
+    color: #F7ECEB;
+}
+
+main {
+    display: flex;
+}
+.photos {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 55%;
+    padding-left: 10px;
 }
 
 form fieldset {
     background-color: #F5BB1B;
 }
 
-input[type="text"] {
-    background-color: #FAE6B1;
-}
-
-input[type="password"] {
-    background-color: #FAE6B1;
-}
-
-input[type="email"] {
-    background-color: #FAE6B1;
-}
-
-input[type="tel"] {
-    background-color: #FAE6B1;
-}
-
-input[type="date"] {
-    background-color: #FAE6B1;
-}
-
-select {
-    background-color: #FAE6B1;
-}
-
 input[type="submit"] {
     width: 15%;
-    background-color: #C29415;
+    margin-top: 55px;
+    margin-bottom: 15px;
+    background-color: #F7ECEB;
+    border: 3px solid #E32B12;
     align-self: center;
+}
+
+img {
+    border: 1px solid #575352;
+    border-radius: 4px;
+    padding: 5px;
 }
