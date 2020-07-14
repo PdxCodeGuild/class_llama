@@ -1,0 +1,81 @@
+/* Burrito Order Form */
+
+.topnav {
+    width: 100%;
+    background-color: #F7ECEB;
+    overflow: hidden;
+  }
+  
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 7px 8px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+.topnav a:hover {
+    background-color: #E32B12;
+    color: black;
+  }
+  
+.topnav a.active {
+    border-top: 3px solid #E32B12;
+    border-bottom: 3px solid #E32B12;
+    color: black;
+  }
+
+body {
+    background-color: #F7ECEB;
+}
+
+h1 {
+    margin-bottom: 0px;
+    padding: 10px 15px;
+    background-color: #575352;
+    color: #F7ECEB;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 0px;
+    padding: 10px 15px;
+    background-color: #575352;
+    color: #F7ECEB;
+}
+
+main {
+    display: flex;
+}
+.photos {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    padding-left: 10px;
+}
+
+form fieldset {
+    background-color: #F5BB1B;
+}
+
+input[type="submit"] {
+    width: 15%;
+    margin-top: 55px;
+    margin-bottom: 15px;
+    background-color: #F7ECEB;
+    border: 3px solid #E32B12;
+    align-self: center;
+}
+
+img {
+    border: 1px solid #575352;
+    border-radius: 4px;
+    padding: 5px;
+}
