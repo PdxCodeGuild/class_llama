@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Burrito Builder
+        </title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        </head>
+
+    <section class="container">
+    <body>
+    <header>
+        <h1> Build-A-Burrito </h1>
+        <img class="image1" src= "C:\Users\Jasmine Moore\Desktop\pdx_code2\class_llama\code\Jasmine\Lab_4\AL-PASTOR-BURRITO.jpg" alt= "burrito"/></img>
+
+        
+     </header>
+    <main>
+        <h2> Build Your Own Burrito</h2>
+    <form action="https://webhook.site/988f819c-a7d1-4e51-86f6-ec392b0eb63e "method="POST"> 
+        <fieldset>
+            <legend>Choose Your Tortilla</legend>
+                <input type=radio name="tortilla" required id="wholewheat" value="whole-wheat">
+                <label for = "wheat">Whole Wheat </label> <br> 
+                <input type=radio name="tortilla" required id="white" value="white rice">
+                <label for = "pinto">White Flour</label> <br> 
+                <input type=radio name="tortilla" required id="white" value="white rice">
+                <label for = "pinto">Spinach</label> <br>
+                <input type=radio name="tortilla" required id="notortilla" value="no-tortilla">
+                <label for = "bowl">Make It a Bowl</label>
+        </fieldset>  
+        <fieldset>
+            <legend>Pick Your Protein Type</legend>
+            <input type=radio name="protein" required id="chicken" value="chicken-pollo"> 
+            <label for = "chicken">Pollo</label> <br>
+            <input type=radio name="protein" required id="steak" value="steak-carne"> 
+            <label for = "steak">Carne Asada</label> <br>
+            <input type=radio name="protein" required id="pork" value="pork-pastor"> 
+            <label for = "pork">Al Pastor</label> <br>
+            <input type=radio name="protein" required id="barboca" value="barboca-barbacoa">
+            <label for = "barbaoca">Barbacoa </label> <br> 
+            <input type=radio name="protein" required id="tofu" value="tofu-sofaritas">
+            <label for = "tofu">Sofaritas</label> <br> 
+            <input type=radio name="protein" required id="noprtein" value="no-protein">
+            <label for = "none">No Protein</label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose Your Beans</legend>
+            <input type=radio name="beans" required id="black" value="black-beans">
+            <label for = "black">Black Beans </label> <br> 
+            <input type=radio name="beans" required id="pinto" value="pinto-beans">
+            <label for = "pinto">Pinto Beans</label> <br> 
+            <input type=radio name="beans" required id="nobeans" value="no-beans">
+            <label for = "nobeans">No Beans</label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose Your Rice</legend>
+        <input type=radio name="rice" required id="brown" value="brown-rice">
+        <label for = "black">Brown Rice </label> <br> 
+        <input type=radio name="rice" required id="white" value="white rice">
+        <label for = "pinto">White Rice</label> <br> 
+        <input type=radio name="rice" required id="norice" value="no-rice">
+        <label for = "nobeans">No Rice</label>
+    </fieldset>
+            <legend>Add Ons</legend> 
+            <input type="checkbox" name="addons" required id="yescheese" value="yes-cheese">
+            <label for = "cheese">Cheese </label> <br> 
+            <input type="checkbox" name="addons" required id="sour" value="sour-cream">
+            <label for = "sourcream">Sour Cream </label> <br> 
+            <input type="checkbox" name="addons" required id="greensalsa" value="green-salsa">
+            <label for = "green">Green Salsa</label> <br> 
+            <input type="checkbox" name="addons" required id="redsalsa" value="red-salsa">
+            <label for = "red">Red Salsa </label> <br> 
+            <input type="checkbox" name="addons" required id="picodegallo" value="pico-de-gallo">
+            <label for = "pico">Pico de Gallo</label> <br> 
+            <input type="checkbox" name="addons" required id="guacamole" value="guac-amole">
+            <label for = "guac">Guacamole </label> <br>
+            <input type="checkbox" name="addons" required id="lettuce" value="lett-uce">
+            <label for = "let">Lettuce </label>
+        <br>
+        <br>
+        <fieldset>
+            <legend> Create An Account</legend>
+            <input type="text" name="username" id="username" placeholder="Username" pattern="[a-z]{1-15]" title="username must between 6-15 characters and all lowercase" required/><br>
+            <input type="text" name="password" id="password" placeholder="password" pattern="[A-Z, a-z]{8-20}" title="password must be between 8-20 characters" required/><br>
+            <input type="text" name="first" id="first" placeholder="First Name" required/> <br>
+            <input type="text" name="last" id="last" placeholder="Last Name" required/> <br>
+            <input type="email" name="email" id="email" placeholder="Email Address" required/> <br>
+            <input type="tel" name="phone" id="first" placeholder="Phone Number" pattern="[0-9}{10}" required/> <br>
+            <input type="text" name="dob" id="dob" placeholder="Date Of Birth"><br>
+            <input type="text" name="address" id="address" placeholder="Street Address" required/><br>
+            <input type="text" name="city" id="city" placeholder="City" patter="[0-9]{5}" required/><br>
+            <select>
+                <option value="" disabled selected>State</option>
+                <option value="or">Oregon</option>
+                <option vlaue="wa">Washington</option>
+            </select>
+            <input type="text" name="zipcode" id="zipcode" place="Zip Code" required/>
+        </fieldset>
+        <br>
+        <input type="submit" value="Submit Order">
+        <input type="reset" value="Reset Order">
+    </form>
+    </main>
+    </section>
+
+        <footer>
+            <p>&copy; 2020 Build-A-Burrito</p>
+        </footer>
+    </body>
+</html>
