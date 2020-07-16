@@ -54,6 +54,3 @@ while True:
 
     else:
         print("Please enter a valid response.")
-
-        
-       
