@@ -81,7 +81,8 @@ main {
 }
 
 .allpics {
-    align-items: center;
+    display: flex;
+    flex-direction: column
 }
 
 .smallpics {
@@ -99,6 +100,7 @@ main {
     display: flex;
     max-width: 30%;
     justify-content: center;
+    align-content:center;
     
 }
 
