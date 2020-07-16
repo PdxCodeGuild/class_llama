@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="style.css"/>
         </head>
 
+    <section class="container">
     <body>
     <header>
         <h1> Build-A-Burrito </h1>
@@ -62,45 +63,47 @@
         <label for = "nobeans">No Rice</label>
     </fieldset>
             <legend>Add Ons</legend> 
-            <input type="checkbox" name="cheese" required id="yescheese" value="yes-cheese">
+            <input type="checkbox" name="addons" required id="yescheese" value="yes-cheese">
             <label for = "cheese">Cheese </label> <br> 
-            <input type="checkbox" name="sourcream" required id="sour" value="sour-cream">
+            <input type="checkbox" name="addons" required id="sour" value="sour-cream">
             <label for = "sourcream">Sour Cream </label> <br> 
-            <input type="checkbox" name="green" required id="greensalsa" value="green-salsa">
+            <input type="checkbox" name="addons" required id="greensalsa" value="green-salsa">
             <label for = "green">Green Salsa</label> <br> 
-            <input type="checkbox" name="red" required id="redsalsa" value="red-salsa">
+            <input type="checkbox" name="addons" required id="redsalsa" value="red-salsa">
             <label for = "red">Red Salsa </label> <br> 
-            <input type="checkbox" name="pico" required id="picodegallo" value="pico-de-gallo">
+            <input type="checkbox" name="addons" required id="picodegallo" value="pico-de-gallo">
             <label for = "pico">Pico de Gallo</label> <br> 
-            <input type="checkbox" name="guac" required id="guacamole" value="guac-amole">
+            <input type="checkbox" name="addons" required id="guacamole" value="guac-amole">
             <label for = "guac">Guacamole </label> <br>
-            <input type="checkbox" name="let" required id="lettuce" value="lett-uce">
+            <input type="checkbox" name="addons" required id="lettuce" value="lett-uce">
             <label for = "let">Lettuce </label>
         <br>
         <br>
         <fieldset>
             <legend> Create An Account</legend>
-            <input type="text" name="username" id="username" placeholder="Username" pattern="[a-z]{1-15]" title="username must between 6-15 characters and all lowercase"><br>
-            <input type="text" name="password" id="password" placeholder="password" pattern="[A-Z, a-z]{8-20}" title="password must be between 8-20 characters"><br>
-            <input type="text" name="first" id="first" placeholder="First Name"> <br>
-            <input type="text" name="last" id="last" placeholder="Last Name"> <br>
-            <input type="email" name="email" id="email" placeholder="Email Address"> <br>
-            <input type="tel" name="phone" id="first" placeholder="Firt Names"> <br>
+            <input type="text" name="username" id="username" placeholder="Username" pattern="[a-z]{1-15]" title="username must between 6-15 characters and all lowercase" required/><br>
+            <input type="text" name="password" id="password" placeholder="password" pattern="[A-Z, a-z]{8-20}" title="password must be between 8-20 characters" required/><br>
+            <input type="text" name="first" id="first" placeholder="First Name" required/> <br>
+            <input type="text" name="last" id="last" placeholder="Last Name" required/> <br>
+            <input type="email" name="email" id="email" placeholder="Email Address" required/> <br>
+            <input type="tel" name="phone" id="first" placeholder="Phone Number" pattern="[0-9}{10}" required/> <br>
             <input type="text" name="dob" id="dob" placeholder="Date Of Birth"><br>
-            <input type="text" name="address" id="address" placeholder="Street Address"><br>
-            <input type="text" name="city" id="city" placeholder="City" patter="[0-9]{5}"><br>
+            <input type="text" name="address" id="address" placeholder="Street Address" required/><br>
+            <input type="text" name="city" id="city" placeholder="City" patter="[0-9]{5}" required/><br>
             <select>
                 <option value="" disabled selected>State</option>
                 <option value="or">Oregon</option>
                 <option vlaue="wa">Washington</option>
             </select>
-            <input type="text" name="zipcode" id="zipcode" place="Zip Code">
+            <input type="text" name="zipcode" id="zipcode" place="Zip Code" required/>
         </fieldset>
         <br>
         <input type="submit" value="Submit Order">
         <input type="reset" value="Reset Order">
     </form>
     </main>
+    </section>
+
         <footer>
             <p>&copy; 2020 Build-A-Burrito</p>
         </footer>

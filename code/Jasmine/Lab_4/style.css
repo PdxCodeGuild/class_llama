@@ -6,13 +6,18 @@ html {
 }
 
 body {
-    background-color: grey;
+    background-color: #D8D7D2;
     font-family: Arial, Helvetica, sans-serif
 }
 
 header{
     text-align: center;
+    color: black;
     padding: 0 36px;
+}
+
+h2 {
+    text-align: center;
 }
 
 main {
@@ -22,8 +27,32 @@ main {
 img {
     display: block;
     max-width: 100%;
+    i
 }
 
 footer{
     text-align: center;
+}
+
+input[type="text"]{
+    background-color: lightgray;
+}
+input[type="text"]:hover{
+    box-shadow: 0 0 5px green;
+}
+
+input[type="text"]:focus {
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly
+    }
+}
+
+@media (min-width: 1100px) {
+
 }

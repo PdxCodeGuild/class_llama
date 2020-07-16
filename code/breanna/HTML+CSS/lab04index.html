@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Burrito Order <Form></Form></title>
+        <title>Burrito Order<Form></Form></title>
         <meta name="author" content="Breanna"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
@@ -18,103 +18,111 @@
             <a href="#contact">Contact us</a>
         </section>
         <h1>Welcome to the "Build your burrito" page!</h1>
-        <form action="https://webhook.site/45fc31e7-5249-4fac-9347-27aed9935927" method="POST">
-            <h2>We need some information from you first.</h2>
-            <fieldset>
-            <legend>Customer information:</legend>
-            Username - <input type="text" name="username" required id="username" placeholder="Username" pattern=".{6,}" title="Username must be at least 6 characters."><br>
-            Password - <input type="password" name="password" required id="password" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters."><br>
-            Name on the order - <input type="text" name="order-name" required id="order-name" placeholder="First and last name"><br>
-            Email - <input type="email" name="email" required id="email" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Email address must be formatted ex. name@provider.domain">
-            Telephone - <input type="tel" name="phone" required id="phone" placeholder="Telephone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Telephone number must be formatted ex. 123-456-7890."><br>
-            DOB - <input type="date" name="birthday" required id="birthday" placeholder="mm/dd/yyyy"><br>
-            SSN - <input type="password" name="social" required id="social" placeholder="###-##-####" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" title="SSN must be formatted ex. ###-##-####."><br>
-            Delivery address - <input type="text" name="address" required id="address" placeholder="Street address"><br>
-            <input type="text" name="city" required id="city" placeholder="City">
-            <select name="state" required>
-                <option value="" disabled selected>State</option>
-                <option value="or">OR</option>
-                <option value="wa">WA</option>
-            </select>
-            <input type="text" name="zip" required id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Please enter a valid 5-digit zip code."><br>
-            </fieldset>
-            <h2>Now let's build your burrito.</h2>
-            <fieldset>
-            <legend>Tortilla:</legend>
-            <input type="radio" name="tortilla" required id="tortilla-corn-y" value="yellow-corn">
-            <label for="tortilla-corn-y">Corn (yellow)</label>
-            <input type="radio" name="tortilla" required id="tortilla-corn-w" value="white-corn">
-            <label for="tortilla-corn-w">Corn (white)</label>
-            <input type="radio" name="tortilla" required id="tortilla-white" value="wheat">
-            <label for="tortilla-wheat">Wheat</label>
-            <input type="radio" name="tortilla" required id="tortilla-wheat" value="white">
-            <label for="tortilla-white">White</label><br>
-            <input type="radio" name="tortilla" required id="tortilla-none" value="none">
-            <label for="tortilla-none">None (bowl)</label><br>
-            </fieldset>
-            <fieldset>
-            <legend>Rice:</legend>
-            <input type="radio" name="rice" required id="rice-spanish" value="spanish">
-            <label for="rice-spanish">Spanish</label>
-            <input type="radio" name="rice" required id="rice-white" value="white">
-            <label for="rice-white">White</label>
-            <input type="radio" name="rice" required id="rice-brown" value="brown">
-            <label for="rice-brown">Brown</label><br>
-            <input type="radio" name="rice" required id="rice-none" value="none">
-            <label for="rice-none">None</label><br>
-            </fieldset>
-            <fieldset>
-                <legend>Beans:</legend>
-                <input type="radio" name="beans" required id="beans-black" value="black">
-                <label for="beans-black">Black</label>
-                <input type="radio" name="beans" required id="beans-pinto" value="pinto">
-                <label for="beans-pinto">Pinto</label>
-                <input type="radio" name="beans" required id="beans-refried" value="refried">
-                <label for="beans-refried">Refried</label><br>
-                <input type="radio" name="protein" required id="beans-none" value="none">
-                <label for="beans-none">None</label><br>
-            </fieldset>
-            <fieldset>
-                <legend>Protein:</legend>
-                <input type="radio" name="protein" required id="protein-ground-beef" value="ground-beef">
-                <label for="protein-ground-beef">Ground beef</label>
-                <input type="radio" name="protein" required id="protein-carne-asada" value="carne-asada">
-                <label for="protein-carne-asada">Carne asada</label>
-                <input type="radio" name="protein" required id="protein-carnitas" value="carnkitas">
-                <label for="protein-carnitas">Carnitas</label>
-                <input type="radio" name="protein" required id="protein-chicken" value="chicken">
-                <label for="protein-chicken">Chicken</label>
-                <input type="radio" name="protein" required id="protein-sofritas" value="sofritas">
-                <label for="protein-sofritas">Sofritas</label><br>
-                <input type="radio" name="protein" required id="protein-none" value="none">
-                <label for="protein-none">None</label><br>
-            </fieldset>
-            <fieldset>
-                <legend>Additional options:</legend>
-                <input type="checkbox" name="sour-cream" id="ao-sour-cream" value="sour-cream">
-                <label for="ao-sour-cream">Sour cream</label>
-                <input type="checkbox" name="cheese" id="ao-cheese" value="cheese">
-                <label for="ao-cheese">Cheese blend</label>
-                <input type="checkbox" name="lettuce" id="ao-lettuce" value="lettuce">
-                <label for="ao-lettuce">Shredded lettuce</label>
-                <input type="checkbox" name="cilantro" id="ao-cilantro" value="cilantro">
-                <label for="ao-cilantro">Cilantro</label><br>
-                <input type="checkbox" name="tomato" id="ao-tomato" value="tomato">
-                <label for="ao-tomato">Diced tomato</label>
-                <input type="checkbox" name="chili" id="ao-chili" value="chili">
-                <label for="ao-chili">Diced green chili</label>
-                <input type="checkbox" name="onion" id="ao-onion" value="onion">
-                <label for="ao-onion">Onion</label>
-                <input type="checkbox" name="pico" id="ao-pico" value="pico">
-                <label for="ao-pico">Pico de gallo</label><br>
-                <input type="checkbox" name="salsa-verde" id="ao-salsa-verde" value="salsa-verde">
-                <label for="ao-salsa-verde">Salsa verde</label>
-                <input type="checkbox" name="red-salsa" id="ao-red-salsa" value="red-salsa">
-                <label for="ao-red-salsa">Red salsa</label>
-                <input type="checkbox" name="hot-sauce" id="ao-red-sauce" value="red-sauce">
-                <label for="ao-red-sauce">Red chili sauce</label><br>
-            </fieldset>
-            <input type="submit" value="Add to order">
-        </form>
+        <main>
+            <section class="food">
+                <img src="https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2018/07/03143923/FlourTortilla_square.jpg" alt="tortillas"/><br>
+                <img src="https://thumbs.dreamstime.com/b/pile-brown-rice-white-background-51570994.jpg" alt="rice"/><br>
+                <img src="https://img.thrfun.com/img/017/037/pinto_beans_x.jpg" alt="beans"/><br>
+                <img src="https://s3.envato.com/files/264224398/25976.jpg" alt="meat"/>
+            </section>
+            <form action="https://webhook.site/45fc31e7-5249-4fac-9347-27aed9935927" method="POST">
+                <h2>We need some information from you first.</h2>
+                <fieldset>
+                <legend>Customer information:</legend>
+                Username - <input type="text" name="username" required id="username" placeholder="Username" pattern=".{6,}" title="Username must be at least 6 characters."><br>
+                Password - <input type="password" name="password" required id="password" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters."><br>
+                Name on the order - <input type="text" name="order-name" required id="order-name" placeholder="First and last name"><br>
+                Email - <input type="email" name="email" required id="email" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Email address must be formatted ex. name@provider.domain">
+                Telephone - <input type="tel" name="phone" required id="phone" placeholder="Telephone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Telephone number must be formatted ex. 123-456-7890."><br>
+                DOB - <input type="date" name="birthday" required id="birthday" placeholder="mm/dd/yyyy"><br>
+                SSN - <input type="password" name="social" required id="social" placeholder="###-##-####" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" title="SSN must be formatted ex. ###-##-####."><br>
+                Delivery address - <input type="text" name="address" required id="address" placeholder="Street address"><br>
+                <input type="text" name="city" required id="city" placeholder="City">
+                <select name="state" required>
+                    <option value="" disabled selected>State</option>
+                    <option value="or">OR</option>
+                    <option value="wa">WA</option>
+                </select>
+                <input type="text" name="zip" required id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Please enter a valid 5-digit zip code."><br>
+                </fieldset>
+                <h2>Now let's build your burrito.</h2>
+                <fieldset>
+                <legend>Tortilla:</legend>
+                <input type="radio" name="tortilla" required id="tortilla-corn-y" value="yellow-corn">
+                <label for="tortilla-corn-y">Corn (yellow)</label>
+                <input type="radio" name="tortilla" required id="tortilla-corn-w" value="white-corn">
+                <label for="tortilla-corn-w">Corn (white)</label>
+                <input type="radio" name="tortilla" required id="tortilla-white" value="wheat">
+                <label for="tortilla-wheat">Wheat</label>
+                <input type="radio" name="tortilla" required id="tortilla-wheat" value="white">
+                <label for="tortilla-white">White</label><br>
+                <input type="radio" name="tortilla" required id="tortilla-none" value="none">
+                <label for="tortilla-none">None (bowl)</label><br>
+                </fieldset>
+                <fieldset>
+                <legend>Rice:</legend>
+                <input type="radio" name="rice" required id="rice-spanish" value="spanish">
+                <label for="rice-spanish">Spanish</label>
+                <input type="radio" name="rice" required id="rice-white" value="white">
+                <label for="rice-white">White</label>
+                <input type="radio" name="rice" required id="rice-brown" value="brown">
+                <label for="rice-brown">Brown</label><br>
+                <input type="radio" name="rice" required id="rice-none" value="none">
+                <label for="rice-none">None</label><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Beans:</legend>
+                    <input type="radio" name="beans" required id="beans-black" value="black">
+                    <label for="beans-black">Black</label>
+                    <input type="radio" name="beans" required id="beans-pinto" value="pinto">
+                    <label for="beans-pinto">Pinto</label>
+                    <input type="radio" name="beans" required id="beans-refried" value="refried">
+                    <label for="beans-refried">Refried</label><br>
+                    <input type="radio" name="protein" required id="beans-none" value="none">
+                    <label for="beans-none">None</label><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Protein:</legend>
+                    <input type="radio" name="protein" required id="protein-ground-beef" value="ground-beef">
+                    <label for="protein-ground-beef">Ground beef</label>
+                    <input type="radio" name="protein" required id="protein-carne-asada" value="carne-asada">
+                    <label for="protein-carne-asada">Carne asada</label>
+                    <input type="radio" name="protein" required id="protein-carnitas" value="carnkitas">
+                    <label for="protein-carnitas">Carnitas</label>
+                    <input type="radio" name="protein" required id="protein-chicken" value="chicken">
+                    <label for="protein-chicken">Chicken</label>
+                    <input type="radio" name="protein" required id="protein-sofritas" value="sofritas">
+                    <label for="protein-sofritas">Sofritas</label><br>
+                    <input type="radio" name="protein" required id="protein-none" value="none">
+                    <label for="protein-none">None</label><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Additional options:</legend>
+                    <input type="checkbox" name="sour-cream" id="ao-sour-cream" value="sour-cream">
+                    <label for="ao-sour-cream">Sour cream</label>
+                    <input type="checkbox" name="cheese" id="ao-cheese" value="cheese">
+                    <label for="ao-cheese">Cheese blend</label>
+                    <input type="checkbox" name="lettuce" id="ao-lettuce" value="lettuce">
+                    <label for="ao-lettuce">Shredded lettuce</label>
+                    <input type="checkbox" name="cilantro" id="ao-cilantro" value="cilantro">
+                    <label for="ao-cilantro">Cilantro</label><br>
+                    <input type="checkbox" name="tomato" id="ao-tomato" value="tomato">
+                    <label for="ao-tomato">Diced tomato</label>
+                    <input type="checkbox" name="chili" id="ao-chili" value="chili">
+                    <label for="ao-chili">Diced green chili</label>
+                    <input type="checkbox" name="onion" id="ao-onion" value="onion">
+                    <label for="ao-onion">Onion</label>
+                    <input type="checkbox" name="pico" id="ao-pico" value="pico">
+                    <label for="ao-pico">Pico de gallo</label><br>
+                    <input type="checkbox" name="salsa-verde" id="ao-salsa-verde" value="salsa-verde">
+                    <label for="ao-salsa-verde">Salsa verde</label>
+                    <input type="checkbox" name="red-salsa" id="ao-red-salsa" value="red-salsa">
+                    <label for="ao-red-salsa">Red salsa</label>
+                    <input type="checkbox" name="hot-sauce" id="ao-red-sauce" value="red-sauce">
+                    <label for="ao-red-sauce">Red chili sauce</label><br>
+                </fieldset>
+                <input type="submit" value="Add to order">
+            </form>
+        </main>
     </body>
 </html>
