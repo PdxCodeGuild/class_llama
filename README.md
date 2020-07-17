@@ -23,6 +23,21 @@ September 7th -- Labor Day
 Capstone proposal due: TBA  
 Presentation Day: September 18th, 2020  
 
+## HTML/CSS Labs Assigned:
+
+Lab 01 Bio  
+Lab 02 Blog  
+Lab 03 Business  
+Lab 04 Burrito Order Form  
+Lab 05 Personal Portfolio  
+
+#### Optional HTML/CSS Labs
+
+Optional Animations  
+Grid Garden  
+Flexbox Froggy  
+CSS Diner  
+
 ## Python Labs Assigned:
 
  Lab 09 -- Unit Converter  
