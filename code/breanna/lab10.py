@@ -14,3 +14,4 @@ while True:
     else:
         nums.append(float(new_num))
         print(nums)
+        

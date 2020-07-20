@@ -65,4 +65,4 @@ words.sort(key=lambda tup: tup[1], reverse=True)
 # print the top 10 words
 for i in range(min(10, len(words))):
     print(words[i])
-
+    

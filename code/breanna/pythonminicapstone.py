@@ -1,6 +1,5 @@
 '''
 I REALLY Need a Vacation (In the US)
-
 Steps:
 1) get a list of all US states, display to the user
 2) let the user pick the state they want to go to
@@ -172,10 +171,8 @@ elif visit_state in ["Wyoming","WY"]:
 
 '''
 Here is the pretty version of steps 3 and 4:
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
 driver = webdriver.Chrome()
 driver.get("https://www.tripadvisor.com/Search?q=Oregon&searchSessionId=CAACC22D5A827F2C2C5B482A8BC3987D1593554732925ssid&searchNearby=false&sid=95CFA2941911FF8F49348AE8E406E01C1593554756143&blockRedirect=true")
 search_bar = driver.find_element_by_id("mainSearch")
@@ -189,4 +186,3 @@ state_dropdown.click()
 things_to_do_tab = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="lithium-root"]/main/div[6]/div/div/div/div[2]/span/div/div/div[1]/a[7]')))
 things_to_do_tab.click()
 '''
-
