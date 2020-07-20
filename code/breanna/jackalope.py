@@ -39,3 +39,4 @@ while len(total_jacks) < 1000:
     
     print(total_jacks)
     print(num_years)
+    
