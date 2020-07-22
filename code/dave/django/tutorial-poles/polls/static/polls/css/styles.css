@@ -1,0 +1,27 @@
+body {
+    box-sizing: border-box;
+}
+
+/* ul {
+    margin-top: 3rem;
+
+    background-image: url('../img/HiddenAptBoar-max-1mb.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+} */
+
+.question-list {
+    margin: 1rem 2rem;
+    width: auto;
+}
+
+.animation {
+    margin-top: 1rem;
+
+    background-image: url('../img/HiddenAptBoar-max-1mb.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 50vh;
+}
