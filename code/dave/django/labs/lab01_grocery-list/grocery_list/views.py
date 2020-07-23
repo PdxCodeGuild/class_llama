@@ -26,7 +26,7 @@ def updateItem(request, pk):
     form = GroceryItemForm(instance=item)
 
     if request.method == 'POST':
-        form = GroceryListForm(request.POST, instance=task)
+        form = GroceryItemForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
         return redirect('/')

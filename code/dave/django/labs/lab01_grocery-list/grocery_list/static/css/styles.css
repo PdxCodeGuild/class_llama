@@ -1,3 +1,5 @@
+/* ----- list.html ----- */
+
 /**** fonts *****
 font-family: 'Montserrat', sans-serif;
 
@@ -61,6 +63,7 @@ body {
 
 .item-input {
     margin-top: 3rem;
+    padding: 1.5rem;
     display: flex;
     justify-content: start;
 
@@ -69,12 +72,12 @@ body {
     -webkit-border-radius: 3px 3px 3px 3px;
     border: 0px solid #000000;
     
-    -webkit-box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
-    -moz-box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
-    box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 29px -11px rgba(0,0,255,1);
+    -moz-box-shadow: 0px 0px 29px -11px rgba(0,0,255,1);
+    box-shadow: 0px 0px 29px -11px rgba(0,0,255,1);
 }
 
-.task-list {
+.grocery-list {
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -85,7 +88,7 @@ body {
     min-width: 15rem;
 }
 
-.individual-task {
+.individual-item {
 
     background: blue;
 
@@ -108,7 +111,7 @@ body {
     color: antiquewhite;
 }
 
-.individual-task a {
+.individual-item a {
     text-decoration: none;
     margin-top: 1rem;
 }
@@ -132,3 +135,45 @@ body {
 
     padding: .3rem .5rem;
 }
+
+/* ----- ---------------- --------------------------------------------------------------- */
+/* ----- update_item.html --------------------------------------------------------------- */
+/* ----- ---------------- --------------------------------------------------------------- */
+
+.update-item {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: start;
+
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border: 0px solid #000000;
+    
+    -webkit-box-shadow: 0px 0px 29px -11px rgba(0,0,255,1);
+    -moz-box-shadow: 0px 0px 29px -11px rgba(0,0,255,1);
+    box-shadow: 0px 0px 29px -11px rgba(0,0,255,1);
+}
+
+/* ----- ---------------- --------------------------------------------------------------- */
+/* ----- delete.html --------------------------------------------------------------- */
+/* ----- ---------------- --------------------------------------------------------------- */
+
+.update-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-item a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.confirm-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

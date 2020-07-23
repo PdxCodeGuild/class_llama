@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200;1,300;1,500&family=Roboto:wght@300;500&display=swap" rel="stylesheet"> 
-    <title>List</title>
+    <title>Grocery List</title>
 </head>
 <body>
     <div class="popout">
@@ -24,9 +24,9 @@
                 </form>
             </div>
         
-            <div class="task-list">
+            <div class="grocery-list">
                 {% for item in items %}
-                <div class="individual-task">
+                <div class="individual-item">
             
                     {% if item.complete == True %}
                     <strike>{{item}}</strike>

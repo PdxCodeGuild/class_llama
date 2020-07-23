@@ -1,8 +1,23 @@
-<h3>Update Task</h3>
+{% load static %}
+	
+<head>
+    <link rel="stylesheet"  href="{%  static  'css/styles.css'  %}">
+    <title>Grocery List</title>
+</head>
 
-<form method="POST" action="">
-    {% csrf_token %}
-
-    {{form}}
-    <input type="submit" value="update" name="Update Item">
-</form>
+<div class="popout">
+    <div class="container">
+        <div class="page-name">
+            <h3 class="hero-text">Update Item</h3>
+        </div>
+        
+        <div class="update-item">
+            <form method="POST" action="">
+                {% csrf_token %}
+            
+                {{form}}
+                <input class="update" type="submit" value="update" name="Update Item">
+            </form>
+        </div>
+    </div>
+</div>
