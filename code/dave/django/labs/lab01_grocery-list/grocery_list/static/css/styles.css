@@ -160,6 +160,10 @@ body {
 /* ----- delete.html --------------------------------------------------------------- */
 /* ----- ---------------- --------------------------------------------------------------- */
 
+.page-name p {
+    padding: 1rem;
+}
+
 .update-item {
     display: flex;
     justify-content: center;
@@ -168,7 +172,7 @@ body {
 
 .update-item a {
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;`
 }
 
 .confirm-delete {
