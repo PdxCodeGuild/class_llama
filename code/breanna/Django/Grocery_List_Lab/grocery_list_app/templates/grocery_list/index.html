@@ -1,45 +1,59 @@
+{% comment %} Grocery List Index {% endcomment %}
+
 {% load static %}
-<link rel="stylesheet" href="{% static 'grocery_list/style.css' %}">
 
-<h1>Grocery List</h1>
-{% if incomplete %}
-    <h1>Incomplete</h1>
-    <ul>
-    {% for grocery_item in incomplete %}
-        <li>{{ grocery_item.grocery_item }} -- {{ grocery_item.created_date }} -- {{ grocery_item.completed }} -- {{ grocery_item.completed_date }}
-            <form action="{% url 'grocery_list:completed' grocery_item.id %}" method="post">
-                {% csrf_token %}
-                {% comment %} change checkboxes to buttons {% endcomment %}
-                <input type="checkbox" name="completed"/>
-                <button type="submit">Mark complete</button>
-            </form>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>You don't have a grocery list.</p>
-{% endif %}
-
-<form action="{% url 'grocery_list:add' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="grocery_item"/>
-    <button type="submit">Add item to list</button>
-</form>
-
-{% if completed %}
-    <h2>Completed</h2>
-    <ul>
-    {% for grocery_item in completed %}
-        <li>{{ grocery_item.grocery_item }} -- {{ grocery_item.created_date }} -- {{ grocery_item.completed }} -- {{ grocery_item.completed_date }}
-            <form action="{% url 'grocery_list:completed' grocery_item.id %}" method="post">
-                {% csrf_token %}
-                {% comment %} delete instead of checkboxes {% endcomment %}
-                <input type="checkbox" name="completed"/>
-                <button type="submit">Mark complete</button>
-            </form>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>You don't have a grocery list.</p>
-{% endif %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grocery List</title>
+        <meta name="author" content="Breanna"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'grocery_list/style.css' %}"/>
+    </head>
+    <body>
+        <h1>Grocery List</h1>
+        <section class="need">
+            <section class="incomplete">
+                {% if incomplete %}
+                    <h2>Need:</h2>
+                    <ul>
+                    {% for grocery_item in incomplete %}
+                        <li>{{ grocery_item.grocery_item }} -- {{ grocery_item.created_date }} -- {{ grocery_item.completed }} -- {{ grocery_item.completed_date }}
+                            <form action="{% url 'grocery_list:completed' grocery_item.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" name="completed">Mark complete</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                    </ul><br>
+                {% else %}
+                    <p>You don't have a grocery list.</p>
+                {% endif %}
+            </section>
+            <section class="add_item">
+                <form action="{% url 'grocery_list:add' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="grocery_item"/>
+                    <button type="submit">Add item to list</button>
+                </form>
+            </section>
+        </section>
+        <section class="completed">
+            {% if completed %}
+                <h2>Have:</h2>
+                <ul>
+                {% for grocery_item in completed %}
+                    <li>{{ grocery_item.grocery_item }} -- {{ grocery_item.created_date }} -- {{ grocery_item.completed }} -- {{ grocery_item.completed_date }}
+                        <form action="{% url 'grocery_list:deleted' grocery_item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" name="deleted">Delete</button>
+                        </form>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>You need everything.</p>
+            {% endif %}
+        </section>
+    </body>
