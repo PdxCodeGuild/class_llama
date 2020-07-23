@@ -1,0 +1,134 @@
+/**** fonts *****
+font-family: 'Montserrat', sans-serif;
+
+font-family: 'Roboto', sans-serif; 
+*************************************/
+
+body {
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    min-width: 20rem;
+
+}
+
+.popout {
+    background: #fafafa;
+    margin-top: 1rem;
+
+    border-radius: 13px;
+    box-shadow: 10px 16px 18px -4px rgba(0,0,0,0.36);
+    -webkit-box-shadow: 10px 16px 18px -4px rgba(0,0,0,0.36);
+    -moz-box-shadow: 10px 16px 18px -4px rgba(0,0,0,0.36);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2.5rem 4rem;
+    
+    min-width: 20rem;
+}
+
+.page-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 30rem;
+    min-width: 15rem;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+
+    background: blue;
+
+    border-radius: 13px 3px 13px 3px;
+    -moz-border-radius: 13px 3px 13px 3px;
+    -webkit-border-radius: 13px 3px 13px 3px;
+    border: 0px solid #000000;
+    
+    -webkit-box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+    box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+
+    color: antiquewhite;
+}
+
+.item-input {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: start;
+
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border: 0px solid #000000;
+    
+    -webkit-box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+    box-shadow: -3px 12px 22px -14px rgba(0,0,0,0.75);
+}
+
+.task-list {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 30rem;
+    min-width: 15rem;
+}
+
+.individual-task {
+
+    background: blue;
+
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border: 0px solid #000000;
+    
+    -webkit-box-shadow: 10px 10px 25px -10px rgba(0,0,255,1);
+    -moz-box-shadow: 10px 10px 25px -10px rgba(0,0,255,1);
+    box-shadow: 10px 10px 25px -10px rgba(0,0,255,1);
+
+    border-radius: 13px 3px 13px 3px;
+    -moz-border-radius: 13px 3px 13px 3px;
+    -webkit-border-radius: 13px 3px 13px 3px;
+    border: 0px solid #000000;
+
+    color: antiquewhite;
+}
+
+.individual-task a {
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.crud-btns {
+    margin-top: 0.75rem;
+}
+
+.update {
+    background: rgba(73,155,234,1);
+    border-radius: 7px;
+    color: antiquewhite;
+
+    padding: .3rem .5rem;
+}
+
+.delete {            
+    background: rgb(206, 40, 59);
+    border-radius: 7px;
+    color: antiquewhite;
+
+    padding: .3rem .5rem;
+}
