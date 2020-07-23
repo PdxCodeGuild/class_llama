@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class GroceriesProjectConfig(AppConfig):
-    name = 'groceries_project'
+    name = 'groceries_app'

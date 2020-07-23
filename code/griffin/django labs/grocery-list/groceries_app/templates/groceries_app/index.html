@@ -1,0 +1,14 @@
+{% load static %}
+
+
+
+<h1>Grocery List</h1>
+    <ul>
+        {% for item in grocery_items %}
+            <p>{{ item.description }}</p>
+            <p>date created: {{ item.created_date }}</p>
+            <p>has this been completed? {{ item.complete }}</p>
+            <p>date completed: {{ item.completed_date }}</p>
+            <button>complete task</button>
+        {% endfor %}    
+    </ul>
