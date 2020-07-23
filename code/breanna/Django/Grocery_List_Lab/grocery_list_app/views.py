@@ -26,3 +26,8 @@ def completed(request, grocery_item_id):
     grocery_item.completed_date = timezone.now()
     grocery_item.save()
     return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def deleted(request, grocery_item_id):
+    grocery_item = get_object_or_404(GroceryItem, pk=grocery_item_id)
+    grocery_item.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
