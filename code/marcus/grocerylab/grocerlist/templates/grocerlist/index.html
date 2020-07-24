@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body>
+    <h1>Grocery List</h1>
+    {% if grocerydb %}
+
+    <ol>
+        {% for item in grocerydb %}
+            <li>
+                {{item}} created on: {{item.created_date}} completed on: {{item.completed_date}} 
+                <br/><a href='{% url 'grocerlist:completed' item.id %}'><button>Purchase</button></a>
+            </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <hr/>
+    {% if completeddb %}
+    <ol>
+        {% for item in completeddb %}
+            <li>
+                {{item}}  completed on: {{item.completed_date}}
+                <br/><a href='{% url 'grocerlist:delete' item.id %}'><button>Delete</button></a>
+            </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+
+    <form action='{% url 'grocerlist:add' %}' method='Post'>
+        {% csrf_token %}
+        <input name='adder' id='adder' type='text' placeholder='Grocery Item'/>
+        <button type='submit'>Submit</button>
+    </form>
+    
+    
+
+</body>
+</html>
