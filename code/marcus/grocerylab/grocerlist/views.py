@@ -15,7 +15,7 @@ def index(request):
         'completeddb':completeddb
     }
     
-    print(grocerydb)
+    
     return render(request, 'grocerlist/index.html', context)
 
 def add(request):
