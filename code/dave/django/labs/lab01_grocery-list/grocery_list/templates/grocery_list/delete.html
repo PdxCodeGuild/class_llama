@@ -1,0 +1,26 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet"  href="{%  static  'css/styles.css'  %}">
+    <title>Grocery List</title>
+  </head>
+
+
+<div class="popout">
+    <div class="container">
+        <div class="page-name">
+            <p>Are you sure you want to delete <b>"{{item}}"</b>?</p>
+        </div>
+        
+        <div class="update-item">
+            <a  class="cancel" href="{% url 'list' %}">Cancel</a>
+
+            <div class="confirm-delete">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <input type="submit" value="confirm" name="Confirm">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
