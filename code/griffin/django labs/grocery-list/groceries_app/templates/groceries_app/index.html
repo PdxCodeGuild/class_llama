@@ -1,14 +1,33 @@
 {% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grocery List</title>
+    </head>
+    <h1>Grocery List</h1>
+        <ul>
+            {% for item in grocery_items %}
+                <p>{{ item.description }}</p>
+                <p>date created: {{ item.created_date }}</p>
+                <p>has this been completed? {{ item.completed }}</p>
+                <p>date completed: {{ item.completed_date }}</p>
+                {% if item.completed == False %}
+                    <a href="{% url 'groceries_app:update' item.id %}">
+                        <button type="">complete task</button>
+                    </a>
+                {% else %}
+                    <p>Task Complete</p>  
+                    <a href="{% url 'groceries_app:delete' item.id %}">
+                        <button type="">delete item</button>
+                    </a>
+                {% endif %}
 
-
-
-<h1>Grocery List</h1>
-    <ul>
-        {% for item in grocery_items %}
-            <p>{{ item.description }}</p>
-            <p>date created: {{ item.created_date }}</p>
-            <p>has this been completed? {{ item.complete }}</p>
-            <p>date completed: {{ item.completed_date }}</p>
-            <button>complete task</button>
-        {% endfor %}    
-    </ul>
+            {% endfor %}    
+        </ul>
+        <div>
+            <form action="{% url 'groceries_app:add' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="description" id="add">
+                <button type="submit">Add Grocery Item</button> 
+        </div>
+</html>
