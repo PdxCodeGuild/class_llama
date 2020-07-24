@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>placeholder</title>
+</head>
+<body>
+    <ul>
+    {% for item in grocery_item %}
+        <li> {{ item }}  {{ item.is_done }}
+
+         <form action="{% url 'grocery_list:update' item.id %}" method='post'>
+        {% csrf_token %} 
+        
+        <button type="submit">Complete</button>
+    </form>   
+
+        </li>
+
+    {% endfor %}
+    </ul>
+
+    <form action="{% url 'grocery_list:itemlist' %}" method='post'>
+        {% csrf_token %} 
+        <input type="text" name="grocery" id="grocery" placeholder="What item would you like to add to your shopping list:"/>
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>

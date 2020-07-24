@@ -5,36 +5,36 @@ I get it run in one function 'validate_credit_card'
 """
 
 # create func that converts the input string into a list of ints
-def convert_string_to_ints():
-    pass
+# def convert_string_to_ints():
+#     pass
 
 # '' that slices last digit and stores last digit in variable named 'check_digit'
-def get_check_digit():
-    pass
+# def get_check_digit():
+#     pass
 
 # '' that reverses the order of the digits
-def reverse_order():
-    pass
+# def reverse_order():
+#     pass
 
 # '' that doubles every other element in the reversed list
-def double_every_other():
-    pass
+# def double_every_other():
+#     pass
 
 # '' that subtracts nine from numbers over nine
-def subtract_9_if_over_9():
-    pass
+# def subtract_9_if_over_9():
+#     pass
 
 # '' that sums all values in the list
-def sum_all_values():
-    pass
+# def sum_all_values():
+#     pass
 
 # '' that stores second digit of sum as 'second_digit'
-def second_digit_of_sum():
-    pass
+# def second_digit_of_sum():
+#     pass
 
 # '' that compares 'check_digit' to 'second_digit'
-def compare_check_and_second():
-    pass
+# def compare_check_and_second():
+#     pass
 
 # create func that passes card_num from main in and runs all steps for validation. Print 'Valid' or 'Not Valid'
 def validate_credit_card(card_num):
