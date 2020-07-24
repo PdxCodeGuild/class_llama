@@ -26,6 +26,7 @@ def update(request, grocery_id):
     complete.save()
     return HttpResponseRedirect(reverse('grocery_list:index'))
 
-def delete(request, grocery_id):
+def remove(request, grocery_id):
     deleteitem = get_object_or_404(GroceryItem, pk= grocery_id)
-    
+    deleteitem.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
