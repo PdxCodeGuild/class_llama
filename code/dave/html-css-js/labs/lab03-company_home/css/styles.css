@@ -1,0 +1,214 @@
+body {
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+}
+
+.items {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 4rem 4rem 1fr 4rem;
+}
+
+/* ------------ item one ------------ */
+
+.item-1{
+    background: red;
+    grid-column: span 4;
+    padding-top: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+/* ------------ item two ------------ */
+
+.item-2{
+    background: blue;
+    grid-column: span 4;
+    padding-top: 20px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* ------------ item three ------------ */
+
+.item-3{
+    background: white;
+    grid-column: span 4;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.hook {
+    display: flex;
+    justify-content: center;
+}
+
+.samples {
+    display: none;
+}
+
+.cta-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.cta-btn a{
+    padding: 15px 15%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    transition: .4s ease-in-out;
+    -webkit-box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 13px 0px rgba(0,0,0,0.75);
+    text-transform: capitalize;
+}
+
+.cta-btn a:hover{
+    padding: 15px 15%;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #0f0f0f;
+    border-radius: 3px;   
+}
+
+/* ------------ item four ------------ */
+
+.item-4{
+    background: yellow;
+    grid-column: span 4;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
+.social-media .fab{
+    padding: 1rem 1rem;
+    font-size: 1rem;
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .items {
+        background: rgba(0, 0, 0, 0.6);
+        height: 100vh;
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: 150px repeat(3, 1fr);
+        grid-template-rows: 4rem 4rem 1fr 4rem;
+    }
+
+    /* ------------ item one ------------ */
+    /* ---------------------------------- */
+
+    .item-1{
+        background: red;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    /* ------------ item two ------------ */
+    /* ---------------------------------- */
+
+    .item-2{
+        background: blue;
+        grid-column: 1 / 2;
+        grid-row: 2 / span 3;
+    }
+
+    /* ------------ item three ------------ */
+    /* ---------------------------------- */
+
+    .item-3{
+        background: white;
+        grid-column: 2 / span 3;
+        grid-row: 3 / 4;
+    }
+
+    .pop-out {
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .hook {
+        display: flex;
+        justify-content: center;
+    }
+
+    .samples {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        column-gap: 2rem;
+    }
+
+    .tile {
+        background: rgba(255, 255, 255, 0.4);
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .tile h3 {
+        text-align: center;
+    }
+
+    .tile img {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: center;
+        max-width: 80%;
+        margin: auto;
+        max-height: 15rem;
+    }
+
+    .tile p {
+        line-height: 1.5;
+        font-family: 'Roboto', sans-serif;
+        max-width: 50%;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    .cta-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* ------------ item four ------------ */
+    /* ---------------------------------- */
+
+    .item-4{
+        background: yellow;
+        grid-column: 2 / span 3;
+        grid-row: 4 / 5;
+    }
+
+} 

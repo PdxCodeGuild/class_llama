@@ -1,5 +1,8 @@
 # # Jackalope
+<<<<<<< HEAD
 
+=======
+>>>>>>> f3d370e3e894e7aaa988237f1ebaade842a9680c
 
 
 # def aging_jacks(x):
@@ -11,6 +14,7 @@
 #     return new_list
     
 
+<<<<<<< HEAD
 def new_jacks(jacks):
     offspring = [0, 0]
     if jacks >= 4 and jacks <= 8:
@@ -21,6 +25,23 @@ def new_jacks(jacks):
 jacks = (4,4)   
 
 # def old_yeller(x):
+=======
+
+# NEEDS WORK
+def new_jacks(old):
+    offspring = [0, 0]
+    
+    for jacks in old:
+        if jacks >=4 and jacks <=8:
+            old.extend(offspring)
+            print(old)
+
+
+
+def old_yeller(x):
+    return [jack for jack in x if jack < 10]
+
+>>>>>>> f3d370e3e894e7aaa988237f1ebaade842a9680c
 
 #     for jacks in x:
 #         if jacks == 10:
@@ -28,6 +49,7 @@ jacks = (4,4)
 #     return x
 
 
+<<<<<<< HEAD
 # total_jacks = [0, 0]
 # num_years = 0
 
@@ -36,6 +58,14 @@ jacks = (4,4)
 # while len(total_jacks) < 10:
 
 #     babies = new_jacks(total_jacks)
+=======
+
+while len(total_jacks) < 60:
+
+    total = new_jacks(total_jacks)
+
+    total_jacks = old_yeller(total_jacks)
+>>>>>>> f3d370e3e894e7aaa988237f1ebaade842a9680c
 
 #     deceased = old_yeller(total_jacks)
 

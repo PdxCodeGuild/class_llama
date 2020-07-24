@@ -1,0 +1,104 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: rgb(65, 34, 94);
+    color: rgb(204, 189, 189);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: rgb(215, 224, 215);
+     
+}
+
+h4 {
+    margin: 10px;
+    border: 3px solid rgb(220, 221, 206);
+    border-radius: 10px;
+    padding: 5px;
+    background-color:rgb(126, 8, 0);
+    color: rgb(204, 189, 189);
+    
+}
+
+img {
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+.item {
+    margin: 10px;
+    border: 3px solid rgb(220, 221, 206);
+    padding: 5px;
+    border-radius: 10px;
+    background-color:rgb(126, 8, 0)
+}
+
+#sidenav {
+    margin: 10px;
+    border: 3px solid rgb(220, 221, 206);
+    border-radius: 10px;
+    padding: 5px;
+    background-color:rgb(126, 8, 0);
+    flex-wrap: wrap
+    
+    
+    
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column    
+        
+}
+
+@media (min-width: 768px) {
+
+    
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .item {
+        max-width: 45%
+    }
+
+
+    
+}
+
+@media (min-width: 1100px) {
+    h4 {
+        max-width: 20%
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .item {
+        max-width: 30%
+    }
+}

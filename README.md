@@ -23,6 +23,21 @@ September 7th -- Labor Day
 Capstone proposal due: TBA  
 Presentation Day: September 18th, 2020  
 
+## HTML/CSS Labs Assigned:
+
+Lab 01 Bio  
+Lab 02 Blog  
+Lab 03 Business  
+Lab 04 Burrito Order Form  
+Lab 05 Personal Portfolio  
+
+#### Optional HTML/CSS Labs
+
+Optional Animations  
+Grid Garden  
+Flexbox Froggy  
+CSS Diner  
+
 ## Python Labs Assigned:
 
  Lab 09 -- Unit Converter  
@@ -33,11 +48,22 @@ Presentation Day: September 18th, 2020
  Lab 13 -- ROT13  
  Lab 20 -- Credit Card Validation  
  Lab 14 -- Pick 6  
+ Group -- Jackalope  
+ Lab 21 -- Count Words  
+ Lab 16 -- Image Manipulation  
+ Lab 22 -- ARI  
+ Lab 23 -- Contact List  
+ Lab 25 -- ATM  
+ Lab 26 -- Tic Tac Toe  
+ Python Mini-Capstone: Mini presentations Thursday, June 26th  
 
 #### Optional Python Labs
 
 Practice 1-5  
-Labs 01-08, 12 (You did these during the intro course)  
+Labs 01-08, 12, 17 (You did these during the intro course)  
+Lab 18 -- Peaks and Valleys  
+Lab 24 -- Rain Data  
+Lab 27 -- Connect Four  
 
 ## Student Presentations
 
@@ -142,6 +168,9 @@ https://cssgridgarden.com/
 
 Flexbox Froggy  
 http://flexboxfroggy.com/
+
+Grid or Flexbox?  
+https://www.youtube.com/watch?v=hs3piaN4b5I
 
 CSS Diner  
 https://flukeout.github.io/

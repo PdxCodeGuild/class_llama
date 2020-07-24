@@ -1,0 +1,11 @@
+/* Grocery List Style */
+
+body {
+    margin: 35px;
+    background-color: rgb(250, 243, 214);
+    font-family: sans-serif;
+}
+
+h1, h2 {
+    font-style: italic;
+}

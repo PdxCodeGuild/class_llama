@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 body {
@@ -18,3 +19,6 @@ pre {
 a {text-align:center;
     color: black;
     font-size: x-large;}
+=======
+h1 a pre h2 {text-align: center}
+>>>>>>> f3d370e3e894e7aaa988237f1ebaade842a9680c

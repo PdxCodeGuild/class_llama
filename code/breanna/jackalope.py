@@ -1,53 +1,42 @@
-# Jackalope
+# Jackalope brought to you by Justin, Breanna, and Marcus
+
+# function to age jacks by one year
+def aging_jacks(x):
+    new_list = []
+    for jack in x:
+        jack += 1
+        new_list.append(jack)   
+    
+    return new_list
+    
+
+# function to make new jacks when their age is between 4 and 8
+def new_jacks(old):
+    offspring = [0]
+    
+    return [old.extend(offspring) for jacks in old if jacks >= 4 and jacks <= 8]
+
+
+# function to kill off jacks that are older than 10
+def old_yeller(x):
+    return [jack for jack in x if jack < 10]
+
+
 
 total_jacks = [0, 0]
 num_years = 0
 
-
-def mature_jacks(total_jacks):
-    
-    mature_jacks = 0
-    
-    for jacks in total_jacks:
-        if jacks >= 4 and jacks <= 8:
-            mature_jacks += 1
-    
-    print(mature_jacks)
-
-def aging_jacks(total_jacks):
-    
-    for jacks in total_jacks:
-        jacks += 1
-    return total_jacks
-
-def new_jacks(total_jacks):
-
-    for num in range(len(total_jacks)):
-        total_jacks.append(0)
-
-    return total_jacks
-
-def old_yeller(total_jacks):
-
-    for jacks in total_jacks:
-        if jacks == 10:
-            total_jacks.remove(jacks)
-        else:
-            pass
-
-# while loop to get to 1000
-# variable pop, while pop < 1000
+# put it all together y'all
 while len(total_jacks) < 1000:
 
-    # for inside while, for jackelope in jackalopes
-    for jacks in total_jacks:
-        total_mature_jacks = mature_jacks(total_jacks)
-        total_new_jacks = new_jacks(total_mature_jacks)
-        goodbye_old_yeller = old_yeller(total_jacks)
-        aging_jacks(total_jacks)
+    total = new_jacks(total_jacks)
+
+    total_jacks = old_yeller(total_jacks)
+
+    total_jacks = aging_jacks(total_jacks)
 
     num_years += 1
-
-print(num_years)
-
-
+    
+    print(total_jacks)
+    print(num_years)
+    

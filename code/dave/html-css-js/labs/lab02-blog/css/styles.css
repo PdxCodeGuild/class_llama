@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400&display=swap');
+
+body {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body a{
+    text-decoration: none;
+    color: #654321;
+}
+
+/* section, header, div{
+    border: 2px solid black;
+} */
+
+
+/*--------- header section ---------*/
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffefdb;
+    padding: 25px;
+    box-shadow: 0px 23px 26px -20px rgba(0,0,0,0.75);}
+
+header img{
+    height: 50px;
+    width: auto;
+}
+
+header h1{
+    padding-left: 5px;
+}
+
+/*--------- nav sections ---------*/
+
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+nav li{
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 25px 0;
+}
+
+
+
+/*--------- new post section ---------*/
+
+.newest-post{
+    box-shadow: 6px 4px 23px -6px rgba(0,0,0,0.75);
+    border-radius: 4px;
+    background: #ffefdb;
+
+    margin-bottom: 35px;
+}
+
+.np-box{
+    width: 90%;
+    margin: auto;
+    padding: 15px 0;
+}
+
+.np-header{
+    display: flex;
+    align-items: center;
+}
+
+.np-box img{
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+}
+
+.np-box h3{
+    padding-left: 6px;
+    font-size: 1.2rem;
+}
+
+.np-box p{
+    margin: 10px 20px;
+    height: 2.4rem;
+    overflow: hidden;
+    display: none;
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fafafa', endColorstr='#cffafafa',GradientType=0 ); /* IE6-9 */
+}
+
+.np-author{
+    display: flex;
+    align-items: center;
+}
+
+.stack-name-date{
+    padding-top: 5px;
+    display: block;
+}
+
+.date{
+    font-size: .7rem;
+    margin-top: 5px;
+}
+
+/*--------- promoted writer section ---------*/
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.title h3{
+    font-size: 1.2rem;
+}
+
+.writers-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 6px 4px 23px -6px rgba(0,0,0,0.75);
+    border-radius: 4px;
+    background: #ffefdb;
+
+    margin-bottom: 35px;
+
+    padding: 15px 10px;
+}
+
+.ws-wrapper{
+    display: block;
+    text-align: center;
+}
+
+.writers-section img{
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 50%;
+    padding: 10px 20px;
+}
+
+.writers-section p{
+    margin: 10px 20px;
+    height: 2.7rem;
+    overflow: hidden;
+    display: none;
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fafafa', endColorstr='#cffafafa',GradientType=0 ); /* IE6-9 */
+}
+
+/*--- footer ---*/
+
+footer{
+    background: #ffefdb;
+    padding: 3rem;
+}
+
+.copyright{
+    padding: 0.7rem;
+    text-align: center;
+}
+
+.social-media{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media .fab{
+    font-size: 2rem;
+}
+
+
+/* ------------------------------------- */
+/* ----------- MEDIA QUERRIES ---------- */
+
+@media (min-width: 740px) {
+    .container{
+        max-width: 60%;
+        margin: auto;
+    }
+
+    /*--- new post section ---*/
+    
+    .np-box{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .np-header h3{
+        max-width: 120px;
+    }
+
+    .np-header img{
+        width: 70px;
+    }
+
+    .np-author{
+        display: none;
+    }
+
+    .np-box p{
+        display: block;
+        height: 5.8rem;
+        width: 20rem;
+        font-size: 1.4rem;
+    }
+
+    /* ----- promoted writer section ----- */
+
+
+
+    .writers-section{
+        display: flex;
+        justify-content: center;
+    }
+
+    .writers-section p{
+        display: block;
+        width: 20rem;
+        font-size: 1.2rem;
+        height: 2.7rem;
+    }
+
+    /* --------- footer section ---------- */
+
+    .social-media{
+        display: flex;
+        justify-content: center;
+    }
+
+    .social-media .fab{
+        padding: 0 20px;
+    }
+}
+
+
+@media (min-width: 1281px) {
+
+    header{
+        width: 80%;
+        margin: auto;
+    }
+
+    main{
+        width: 80%;
+        margin: auto;
+    }
+
+    .writers-section{
+        padding: 
+    }
+
+}
