@@ -5,5 +5,8 @@ from . import views
 
 app_name = 'grocery_list'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'), 
+    path('', views.index, name='index'), 
+    path('itemlist/', views.itemlist, name='itemlist'),
+    path('update/<int:grocery_id>/', views.update, name='update'),
+    path('remove/<int:grocery_id>/' , views.remove, name='remove'),
 ]

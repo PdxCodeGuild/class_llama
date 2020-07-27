@@ -1,1 +1,21 @@
-h1 a pre h2 {text-align: center}
+<<<<<<< HEAD
+
+
+body {
+    background-color: green;
+    color: #FFFFFF;
+   }
+h1 {
+    color: #f5ac0d;
+    text-align: center;
+    font: italic 200% fantasy;
+   }
+pre {
+    background-color: #f5ac0d;
+    color: #333300;
+    text-align: center;
+    border: 3px groove #080804;
+   }
+a {text-align:center;
+    color: black;
+    font-size: x-large;}

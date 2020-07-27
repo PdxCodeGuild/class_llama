@@ -1,3 +1,4 @@
+
 """
 Django settings for grocerylist project.
 
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'grocerlist.apps.GrocerlistConfig'
 ]
 
 MIDDLEWARE = [

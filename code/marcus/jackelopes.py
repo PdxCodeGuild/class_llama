@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Jackalope brought to you by Justin, Breanna, and Marcus
 
 # function to age jacks by one year
