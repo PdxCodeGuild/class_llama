@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'url_shortener'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.submit_url, name='submit'),
+    path('', views.redirect, name='redirect')
 ]
