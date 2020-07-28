@@ -14,10 +14,13 @@
     <body>
         <h1>Url Shortener</h1>
         <section class="input_url">
-            <form action="{% url 'url_shortener:index' something.idunno %}" method="post">
+            <form action="{% url 'url_shortener:submit' %}" method="post">
                 {% csrf_token %}
-                <input type="text" name="url"/>
-                <button type="submit" name="completed">Shorten this url</button>
+                <input type="text" name="long_url"/>
+                <button type="submit">Shorten this url</button>
             </form>
         </section>
+        {% if short_url %}
+            <p> <a href="{% url 'url_shortener:redirect' short_url %}"> {{ short_url }} </a> </p>
+        {% endif %}
     </body>
