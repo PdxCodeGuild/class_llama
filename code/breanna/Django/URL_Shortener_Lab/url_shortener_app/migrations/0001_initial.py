@@ -19,4 +19,4 @@ class Migration(migrations.Migration):
                 ('short_url', models.CharField(max_length=6)),
             ],
         ),
-    ]
+    ] 
