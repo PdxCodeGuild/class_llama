@@ -25,7 +25,7 @@ Your app should contain the following:
 - Use django's `HTTPResponseRedirect` to handle redirecting users
 
 
-## Version 2:
+## Version 2 (Optional):
 When the user is redirected, store some meta-data on the user in the database.
 
 Some examples of user meta data are:
@@ -34,5 +34,5 @@ Some examples of user meta data are:
 - Where they clicked the link from
 - etc...
 
-## Version 3:
+## Version 3 (Optional):
 Style your page using any CSS framework of your choice, try and make it look fancy and modern.
