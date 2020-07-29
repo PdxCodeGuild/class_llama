@@ -6,4 +6,4 @@ class UrlShortener(models.Model):
     short_url = models.CharField(max_length=6)
 
     def __str__(self):
-        return self.long_url
+        return self.long_url 

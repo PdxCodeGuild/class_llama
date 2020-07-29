@@ -1,0 +1,26 @@
+{% comment %} URL Shortener Index {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>URL Shortener</title>
+        <meta name="author" content="Breanna"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'url_shortener/style.css' %}"/>
+    </head>
+    <body>
+        <h1>URL Shortener</h1>
+        <section class="input_url">
+            <form action="{% url 'url_shortener:submit' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="long_url"/>
+                <button type="submit">Shorten this URL</button>
+            </form>
+        </section>
+        {% if short_url %}
+            <p> <a href="{% url 'url_shortener:redirect' short_url %}"> {{ short_url }} </a> </p>
+        {% endif %}
+    </body> 
