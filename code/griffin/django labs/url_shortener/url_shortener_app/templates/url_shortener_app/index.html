@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>short.n8</title>
+    </head>
+    <body>
+        <form action="{% url 'url_shortener_app:add' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="long_url" id="add">
+            <button type="submit">Gimme a Code</button> 
+        </form>
+        {% if new_link.secret_code %}
+            <p> <a href= "{% url 'url_shortener_app:lookup' new_link.secret_code %}"> {{ new_link.secret_code }}</a> </p>
+
+        {% endif %}
+
+        
+        
+    </body>
+
+</html>
