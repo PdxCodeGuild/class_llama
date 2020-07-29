@@ -9,21 +9,23 @@
 </head>
 
 <body>
-<header> 
-    <h1> URL CONVERSION </h1>
-</header>
+    <header> 
+        <h1> URL CONVERSION </h1>
+    </header>
 
     <main>
 
-    <form action ="{% url 'url_project:convert' %}" method='post'> 
-        {% csrf_token %}
-    <fieldset>
-        <input type='text' name="get_url" id="get_url" placeholder="longurl" title="Enter the long url please:  " required/><br>
-        <button type="submit">Submit</button>
-    </fieldset>
-   
-    </form> 
-    <a href="{% 'url_project:redirect' short_url %}"> {{ short_url }} </a>  
+        <form action ="{% url 'url_project:convert' %}" method='post'> 
+            {% csrf_token %}
+            <fieldset>
+                <input type='text' name="get_url" id="get_url" placeholder="longurl" title="Enter the long url please:  " required/><br>
+                <button type="submit">Submit</button>
+            </fieldset>
+
+        </form> 
+        {% if short_url %}
+            <a href="{% url 'url_project:redirect' short_url %}"> {{ short_url }} </a>  
+        {% endif %}
 
 
 

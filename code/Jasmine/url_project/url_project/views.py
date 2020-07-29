@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 import string, random
+import re
 
 from .models import url
 
@@ -19,5 +20,7 @@ def convert(request):
     return render (request , 'form/index.html', {'short_url': url.objects.get(short_url=short_url)})
 
 def redirect(request, short_url):
-   redirect_url = get_object_or_404(url,short_url=short_url)
-   return HttpResponseRedirect(redirect_url.long_url)
+    redirect_url = get_object_or_404(url, short_url=short_url)
+    if re.match('(?:http|ftp|https)://', redirect_url.long_url):
+        return HttpResponseRedirect(redirect_url.long_url)
+    return HttpResponseRedirect('//'+redirect_url.long_url)
