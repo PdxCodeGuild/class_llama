@@ -19,7 +19,5 @@ def convert(request):
     return render (request , 'form/index.html', {'short_url': url.objects.get(short_url=short_url)})
 
 def redirect(request, short_url):
-   get_url = get_object_or_404(url, pk= short_url)
-   get_url = long_url
-
-   return HttpResponseRedirect(reverse())
+   redirect_url = get_object_or_404(url,short_url=short_url)
+   return HttpResponseRedirect(redirect_url.long_url)

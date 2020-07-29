@@ -21,12 +21,9 @@
         <input type='text' name="get_url" id="get_url" placeholder="longurl" title="Enter the long url please:  " required/><br>
         <button type="submit">Submit</button>
     </fieldset>
-    <p>{{ short_url }} </p>
-
-
-
-</form> 
-
+   
+    </form> 
+    <a href="{% 'url_project:redirect' short_url %}"> {{ short_url }} </a>  
 
 
 
