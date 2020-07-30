@@ -26,4 +26,6 @@ def submit_url(request):
 
 def redirect(request, short_url):
     url = get_object_or_404(UrlShortener, short_url=short_url)
+    url.clicks += 1
+    url.save()
     return HttpResponseRedirect(url.long_url) 
