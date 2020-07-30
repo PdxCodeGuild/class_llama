@@ -1,0 +1,15 @@
+{% extends 'posts/base.html' %}
+
+
+{% block content %}
+    
+    <div class="container">
+        {% for chirp in chirps  %}
+        <a href="#"> {{ chirp.name }} </a>
+        <p>{{ chirp.text }}</p>
+        {% endfor %}
+    </div>
+    
+        
+{% endblock content %}
+    
