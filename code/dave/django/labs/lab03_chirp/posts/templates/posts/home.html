@@ -6,13 +6,14 @@
 
         {% for chirp in chirps  %}
 
-            <br><br>
+            <br>
             <div class="card">
                 <div class="card-header">
-                    <a href="#">{{  chirp.name }}</a>
+                    <a href="#">{{ chirp.user_name }}</a>
+                    <p>{{ chirp.created }}</p>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ chirp.text }}</p>
+                    <p class="card-text">{{ chirp.chirp }}</p>
                 </div>
             </div>
 
