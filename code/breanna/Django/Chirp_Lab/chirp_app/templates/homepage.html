@@ -1,0 +1,11 @@
+{% extends 'basepage.html' %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div class="create_post">
+            <h2><a href="{% url 'chirp:detail' post.pk %}">{{ post.title }}</a></h2>
+            {% comment %} <h4><em><a href="{% url 'users:profile' post.author.username %}">Author: {{ post.author.username }}</a> Created: {{ post.created }}</em></h4> {% endcomment %}
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
