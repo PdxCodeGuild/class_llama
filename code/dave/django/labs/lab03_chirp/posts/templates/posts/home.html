@@ -2,14 +2,23 @@
 
 
 {% block content %}
-    
     <div class="container">
+
         {% for chirp in chirps  %}
-        <a href="#"> {{ chirp.name }} </a>
-        <p>{{ chirp.text }}</p>
+
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    <a href="#">{{ chirp.user_name }}</a>
+                    <p>{{ chirp.created }}</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ chirp.chirp }}</p>
+                </div>
+            </div>
+
         {% endfor %}
     </div>
-    
         
 {% endblock content %}
     

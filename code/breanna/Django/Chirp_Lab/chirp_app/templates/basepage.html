@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chirp</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+        <div class="nav-left">
+            <h1><a href="{% url 'chirp:homepage' %}">Chirp Chirp Chirp</a></h1>
+        </div>
+        <div class="nav-right">
+          {% if request.user.is_authenticated %}
+            {% comment %} <p>Logged in as: <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a></p> {% endcomment %}
+            <p><a href="{% url 'logout' %}">Sign out of account</a></p>
+            {% comment %} <p><a href="{% url 'chirp:new' %}">Add a new Chirp</a></p> {% endcomment %}
+          {% else %}
+            <p><a href="{% url 'login' %}">Log into account</a></p>
+            {% comment %} <p><a href="{% url 'users:signup' %}">Create account</a></p> {% endcomment %}
+          {% endif %}
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+  </body>
+</html>

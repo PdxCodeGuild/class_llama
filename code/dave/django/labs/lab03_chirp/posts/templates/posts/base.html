@@ -2,37 +2,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="3" > -->
     <title>Chirp</title>
-    <link rel="stylesheet" href="../../static/posts/css/styles.css">
     <script src="https://kit.fontawesome.com/eb3d9f2f00.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/posts/css/styles.css">
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <ul>
-            <li class="nav-item">
-                <a href="#"><i class="fab fa-earlybirds"></i></a>
-            </li>
-            <li class="nav-item">
-                <a href="#"><i class="fas fa-caravan"></i>Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="#"><i class="far fa-bell"></i>Notifications</a>
-            </li>
-            <li class="nav-item">
-                <a href="#"><i class="far fa-envelope"></i>Message</a>
-            </li>
-        </ul>
-        
+    <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post-home' %}">home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">logout</a>
+        </li>
+      </ul>
     </nav>
     
-    
+    {% if messages %}
+        
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+            
+    {% endif %}
+        
     {% block content %}
-
-
 
     {% endblock content %}
     

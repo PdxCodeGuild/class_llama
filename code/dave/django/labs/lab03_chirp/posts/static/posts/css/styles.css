@@ -1,4 +1,7 @@
-.container {
-    /* background: blue;  (TEST(Pass): does stylesheet connect to html) */ 
+nav {
+    background: blue;
 }
 
+nav a {
+    color: floralwhite;
+}
