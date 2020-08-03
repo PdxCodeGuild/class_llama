@@ -8,6 +8,6 @@
     </div>
 
     <p><a href="{% url 'posts:edit' post.pk %}"> Edit Chirp </a></p>
-    <p><a href="{$ url 'posts:delete' post.pk $}"> Delete Chirp </a><p> 
+    <p><a href="{% url 'posts:delete' post.pk %}"> Delete Chirp </a><p> 
 
 {% endblock content%}
