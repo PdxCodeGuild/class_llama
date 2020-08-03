@@ -7,12 +7,12 @@ from django.shortcuts import get_object_or_404
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
-    # template_name = 'signup.html'
-    # success_url = reverse_lazy('login')
+    template_name = 'signup.html'
+    success_url = reverse_lazy('login')
 
 class UserProfileView(DetailView):
     model = User
-    # template_name = 'user_profile.html'
+    template_name = 'user_profile.html'
 
-    # def get_object(self):
-    #     return get_object_or_404(User, username=self.kwargs['username'])
+    def get_object(self):
+        return get_object_or_404(User, username=self.kwargs['username'])
