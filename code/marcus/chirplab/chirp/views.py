@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .models import Chirping
 
@@ -22,7 +22,15 @@ class ChirpCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+class ChirpEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Chirping
+    template_name = 'chirp_edit.html'
+    fields = ['chirp_char']
 
+class ChirpDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Chirping
+    template_name = 'chirp_delete.html'
+    success_url = reverse_lazy('chirp:home')
 
      
 
