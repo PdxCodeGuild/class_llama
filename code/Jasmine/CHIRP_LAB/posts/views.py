@@ -17,6 +17,7 @@ class ChirpCreateView(CreateView):
     template_name = 'post_new.html'
     fields = ['body']
 
+
 class ChirpEditView(UpdateView):
     model = Post
     template_name = 'post_edit.html'
