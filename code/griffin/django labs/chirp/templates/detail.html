@@ -2,9 +2,11 @@
 
 {% block content %}
     <div>
+        <a href="{% url 'posts:home' %}">RETURN TO THE TREES</a>
         <h3>{{post.chirp}}</h3>
         <h4>Posted on {{post.created}}</h4>
         <h4>Posted on {{post.updated}}</h4>
-
+        <h4><a href="{% url 'posts:update' post.pk %}">REFINE THE CHORP</a></h4>
+        <h4><a href="{% url 'posts:delete' post.pk %}">DESTROY THE CHORP</a></h4>
     </div>
 {% endblock content %}
