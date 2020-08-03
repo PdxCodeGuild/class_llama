@@ -9,16 +9,30 @@
     <title> CHIRP </title> 
 </head>
 
-    <body>
+<body>
     <header>
         <div class="nav-left">
             <h1><a href ="{% url 'posts:home' %}"> Chirpy. </a> </h1>
             <h3> A Social Experiment.
         </div>
 
+         <div class="nav-right">
+            {% if request.user.is_authenticated %}
+                <p> Welcome, <a href="{url 'users:profile' request.username %}"> {{ request.user.username}} </a>!<p>
+                <p><a href="{% url 'posts:home' %}"> Go Home </a></p>
+                <p><a href="{% url 'posts:create' %}"> New Chirp </a></p>
+            {% else %}
+                <p><a href="{% url 'login' %}"> Login </a><p>
+                <p><a href="{% url 'users:signup' %}"> Create An Account </a></p>
+            {% endif %}
+        </div>
+    </header>
+
         <div class="container">
             {% block content %}
             {% endblock content %}
         </div>
+    
+       
 </body>
 </html>

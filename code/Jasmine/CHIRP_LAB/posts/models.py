@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -7,3 +8,9 @@ class Post(models.Model):
 
     def __str__(self): 
         return self.body
+
+    def get_absolute_url(self): 
+        return reverse('posts:detail' , args=(self.id,))
+
+    class Meta: 
+        ordering = ['-created']

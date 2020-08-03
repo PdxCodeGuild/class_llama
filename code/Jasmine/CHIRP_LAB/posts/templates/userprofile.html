@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3> Hello, {{ object.username }} !</h3>
+<h5> Chirpy member since {{object.date_joined }}</h5>
+{% for post in object.post_set.all %}
+    <div class="post-entry">
+        <h4><a href="{% url 'posts:detail' post.pk %}"></a>
+        <p>{{ post.body}}</p> 
+    </div>
+{% endfor %}
+{% endblock content %}
