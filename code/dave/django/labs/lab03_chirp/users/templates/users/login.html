@@ -6,22 +6,18 @@
     <div class="content-session">
         <form method="POST"> {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Now</legend>
-                
-                <!-- use pipe char to apply filter, add crispy form filter -->
-                {{ form|crispy }} 
-
+                <legend class="border-bottom mb-4">Sign In</legend>
+                {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Sign Up</button>
+                <button class="btn btn-primary" type="submit">Sign In</button>
             </div>
             <div class="border-top pt-3">
                 <small class="text-muted">
-                    Already Have An Account? <a class="ml-2" href="#">Sign In</a>
+                    Need An Account? <a class="ml-2" href="{% url 'signup' %}">Sign Up Now</a>
                 </small>
             </div>            
         </form>
     </div>
 
 {% endblock content %}
-    
