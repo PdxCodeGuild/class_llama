@@ -14,5 +14,5 @@ class PostChirp(models.Model):
     def get_absolute_url(self):
             return reverse('chirp:detail', args=(self.id,))
 
-class Meta:
-        ordering = ['-created']
+    class Meta:
+        ordering = ['-created_date']

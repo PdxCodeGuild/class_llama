@@ -4,7 +4,7 @@
     {% for post in object_list %}
         <div class="all-chirps">
             <h2><a href="{% url 'chirp:detail' post.pk %}">{{ post.title }}</a></h2>
-            <h4><em><a href="{% url 'users:profile' post.author.username %}">Author: {{ post.author.username }}</a> Created: {{ post.created_date }}</em></h4>
+            <h4><em>Author: <a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a> Created: {{ post.created_date }}</em></h4>
             <p>{{ post.body }}</p>
         </div>
     {% endfor %}

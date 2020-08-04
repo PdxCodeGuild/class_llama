@@ -2,11 +2,11 @@
 
 {% block content %}
 <h1>{{ object.username }}</h1>
-<h5><em>Chirping since: {{ object.date_joined }}</em></h5>
-{% for post in object.post_set.all %}
+<h4><em>Chirping since: {{ object.date_joined }}</em></h4><br>
+{% for post in object.postchirp_set.all %}
     <div class="all-chirps">
-        <h2><a href="{% url 'post:detail' post.pk %}">{{ post.title }}</a></h2>
-        <h4><em>{{ post.author.username }} -- {{ post.created }}</em></h4>
+        <h2><a href="{% url 'chirp:detail' post.pk %}">{{ post.title }}</a></h2>
+        <h4><em>{{ post.created_date }}</em></h4>
         <p>{{ post.body }}</p>
     </div>
 {% endfor %}
