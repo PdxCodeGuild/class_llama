@@ -14,12 +14,12 @@
         </div>
         <div class="nav-right">
           {% if request.user.is_authenticated %}
-            {% comment %} <p>Logged in as: <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a></p> {% endcomment %}
+            <p>Logged in as: <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a></p>
             <p><a href="{% url 'logout' %}">Sign out of account</a></p>
-            {% comment %} <p><a href="{% url 'chirp:new' %}">Add a new Chirp</a></p> {% endcomment %}
+            <p><a href="{% url 'chirp:new' %}">Add a new Chirp</a></p>
           {% else %}
-            <p><a href="{% url 'login' %}">Log into account</a></p>
-            {% comment %} <p><a href="{% url 'users:signup' %}">Create account</a></p> {% endcomment %}
+            <p><a href="{% url 'login' %}">Chirper Login</a></p>
+            <p><a href="{% url 'users:signup' %}">Create Chirp account</a></p>
           {% endif %}
         </div>
     </header>

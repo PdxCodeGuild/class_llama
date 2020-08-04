@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object.username }}</h1>
+
+{% for chirp in object.post_set.all %}
+    <div>
+        <h4> on {{ post.created }} {{ post.author.username }} said:<br></h4>
+        <p>{{ post.chirp }}</p>
+    </div>
+{% endfor %}
+{% endblock content %}
