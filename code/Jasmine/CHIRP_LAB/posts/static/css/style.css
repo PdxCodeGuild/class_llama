@@ -1,0 +1,17 @@
+
+
+
+.nav-left {
+    margin-right: auto;
+}
+
+.nav-right  {
+    display: flex;
+    padding-top: 2rem;
+
+}
+
+.nav-right p {
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
