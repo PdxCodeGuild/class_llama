@@ -3,14 +3,13 @@
 {% block content %}
     <div class="chirp-details">
         <h2>{{ postchirp.title }}</h2>
-        <h4><em><a href="{% url 'users:profile' postchirp.author.username %}">{{ postchirp.author.username }}</a></em></h4>
-        <h4><em>Posted on {{ postchirp.created_date }}</em></h4>
-        <h4><em>Last updated on {{ postchirp.updated_date }}</em></h4>
+        <h4><em>Author: <a href="{% url 'users:profile' postchirp.author.username %}">{{ postchirp.author.username }}</a></em></h4>
+        <h4><em>Chirped: {{ postchirp.created_date }}</em></h4>
+        <h4><em>Updated: {{ postchirp.updated_date }}</em></h4>
         <p>{{ postchirp.body|linebreaks }}</p>
-    </div>
-
+    </div><br><br>
     {% if user == postchirp.author %}
-    <p><a href="{% url 'chirp:edit' postchirp.pk %}">Edit Chirp</a></p>
-    <p><a href="{% url 'chirp:delete' postchirp.pk %}">Delete Chirp</a></p>
+    <p><b><a href="{% url 'chirp:edit' postchirp.pk %}">Edit Chirp</a></b></p>
+    <p><b><a href="{% url 'chirp:delete' postchirp.pk %}">Delete Chirp</a></b></p>
     {% endif %}
 {% endblock content %}
