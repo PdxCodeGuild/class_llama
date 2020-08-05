@@ -1,5 +1,23 @@
+html {
+    box-sizing: border-box;
+}
 
+*,*:before, *:after {
+    box-sizing: inherit;
+}
 
+body {
+    background-image: url(city.jpg);
+    padding: 12px;
+    margin: 12px;
+}
+
+header {
+    background-color: rgba(217, 198, 178, .5);
+    display: flex;
+    padding: 0px 36px;
+    margin: 12px;
+}
 
 .nav-left {
     margin-right: auto;
@@ -14,4 +32,20 @@
 .nav-right p {
     margin-left: .25rem;
     margin-right: .25rem;
+}
+
+
+
+.container {
+    background-color: rgba(217, 198, 178, .5);
+    padding: 12px 36px;
+    margin: 12px;
+
+}
+
+.post-entry {
+    background-color: lightblue;
+    text-align: justify;
+    padding: 0px 12px;
+    margin: 16px;
 }

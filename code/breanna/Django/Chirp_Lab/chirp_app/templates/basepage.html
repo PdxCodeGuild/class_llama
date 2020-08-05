@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Chirp</title>
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/basepage.css' %}" rel="stylesheet">
   </head>
   <body>
     <header>
         <div class="nav-left">
-            <h1><a href="{% url 'chirp:homepage' %}">Chirp Chirp Chirp</a></h1>
+            <h1>Chirp Chirp Chirp</h1>
         </div>
         <div class="nav-right">
+          <p><a href="{% url 'chirp:homepage' %}">Nest</a></p>
           {% if request.user.is_authenticated %}
-            <p>Logged in as: <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a></p>
-            <p><a href="{% url 'logout' %}">Sign out of account</a></p>
-            <p><a href="{% url 'chirp:new' %}">Add a new Chirp</a></p>
+            <p>Currently logged in as: <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a></p>
+            <p><a href="{% url 'chirp:new' %}">Add a New Chirp</a></p>
+            <p><a href="{% url 'logout' %}">Sign Out of Account</a></p>
           {% else %}
             <p><a href="{% url 'login' %}">Chirper Login</a></p>
-            <p><a href="{% url 'users:signup' %}">Create Chirp account</a></p>
+            <p><a href="{% url 'users:signup' %}">Create Chirp Account</a></p>
           {% endif %}
         </div>
     </header>
