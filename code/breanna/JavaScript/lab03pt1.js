@@ -98,7 +98,7 @@ let account = new ATM()
             account.print_transactions() */
   
 while (true) {
-    let action = prompt("Please make a selection: \ncheck current balance (check b) \nmake a deposit (deposit) \ncheck if an amount can be withdrawn (check w) \nmake a withdrawal (withdraw) \ncheck transactions (trans) \n\nSelection: ")
+    let action = prompt("Please make a selection: \ncheck current balance (check b) \nmake a deposit (deposit) \ncheck if an amount can be withdrawn (check w) \nmake a withdrawal (withdraw) \ncheck transactions (trans) \nquit \n\nSelection: ")
 
     if ("check b".includes(action)) {
         account.check_balance();
@@ -117,6 +117,9 @@ while (true) {
     }
     else if ("trans".includes(action)) {
         account.print_transactions();
+    }
+    else if ("quit".includes(action)) {
+        break;
     }
     else {
         alert("Please make a valid selection - check b, deposit, check w, withdraw, or trans");
