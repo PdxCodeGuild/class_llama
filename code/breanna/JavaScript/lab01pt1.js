@@ -1,5 +1,4 @@
 // JavaScript for Python Lab 11: Simple Calculator - Part 1
-// You should first try to write them using JavaScript's prompt and alert in place of Python's input and print.
 
 /* def math_prob():
     op = input("Which operation would you like to use? [+, -, *, /]")
