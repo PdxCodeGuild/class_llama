@@ -18,28 +18,28 @@ function main(){
     prompting until correct value is prompt
     */
     let first_card = prompt("What's your first card? ").toUpperCase();
-    while (!(first_card in card_values) {
+    while (!(first_card in card_values)) {
         first_card = prompt("Not a valid card, enter another card value for first card: ").toUpperCase();
     }
-    print(first_card);
+    console.log(first_card);
 
 
     let second_card = prompt("What's your second card? ").toUpperCase();
-    while (!(second_card in card_values.keys())){
+    while (!(second_card in card_values)){
         second_card = prompt("Not a valid card, enter another card value for second card: ").toUpperCase();
     }
-    print(second_card)
+    console.log(second_card)
 
 
-    let third = prompt("What's your third card? ").toUpperCase();
-    while (!(third_card in card_values.keys())){
+    let third_card = prompt("What's your third card? ").toUpperCase();
+    while (!(third_card in card_values)){
         third_card = prompt("Not a valid card, enter another card value for third card: ").toUpperCase();
     }
-    print(third_card);
+    console.log(third_card);
 
-    let first_card = card_values[first_card];
-    let second_card = card_values[second_card];
-    let third_card = card_values[third_card];
+    first_card = card_values[first_card];
+    second_card = card_values[second_card];
+    third_card = card_values[third_card];
 
 
     let card_sum = first_card + second_card + third_card;
