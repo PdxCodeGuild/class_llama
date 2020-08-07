@@ -37,7 +37,7 @@ function num_matches(winning, ticket) {
 }
 
 function main() {
-    let play_number = parseInt(prompt("How many times do you want to play the lottery? "));
+    
     let savings_account = 0;
     let earnings = 0;
     let expenses = 0;
@@ -45,7 +45,9 @@ function main() {
     let winning = [];
     let money_won = 0;
 
-    for (let i=0; i< play_number;i++) {
+    
+
+    for (let i=0; i< parseInt(play_number.value);i++) {
         ticket = pick6();
         winning = pick6();
         money_won = num_matches(winning, ticket);
@@ -55,10 +57,13 @@ function main() {
     };
 
     savings_account = earnings - expenses;
-    roi = (savings_account/expenses)*100
+    roi = (savings_account/expenses)*100;
 
-    alert(`You spent $${expenses} on lottery tickets, and won $${earnings}. Your return on investment is ${roi}%... you dumb idiot`);
-
+    
+    let result = document.getElementById("result");
+    result.innerText = (`You spent $${expenses} on lottery tickets, and won $${earnings}. Your return on investment is ${roi}%... you dumb idiot`)
 }
 
-main();
+let play_number = document.getElementById("times");
+let activate = document.getElementById("activate");
+activate.addEventListener("click", main);
