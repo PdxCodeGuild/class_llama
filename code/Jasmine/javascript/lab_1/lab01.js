@@ -20,7 +20,7 @@ console.log(convert)
 console.log(measurement)
 console.log(units[measurement])
 
-number = number/units[measurement]
+alert(number = number/units[measurement])
 console.log(number, 'this a number')
 alert("The conversion is " + number*units[convert])
 
