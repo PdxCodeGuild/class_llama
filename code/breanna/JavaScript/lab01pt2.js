@@ -8,7 +8,7 @@ solve.addEventListener("click", function(){
     let num2 = Number(document.getElementById("num2").value)
     let problemSolution = document.getElementById("problem-solution")
 
-    if ( problemSolution !== null)
+    if (problemSolution !== null)
         problemSolution.innerHTML = ""
     
     let op = document.getElementsByName("op")
