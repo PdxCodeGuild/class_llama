@@ -9,10 +9,8 @@ solve.addEventListener("click", function(){
     let num2 = Number(document.getElementById("num2").value)
     let problemSolution = document.getElementById("problem-solution")
 
-    let name = document.getElementById("solutionName")
-    
-    if (name !== null)
-        name.innerText = ""
+    if ( problemSolution !== null)
+        problemSolution.innerHTML = ""
     
     let op = document.getElementsByName("op")
     let operator = ""
@@ -22,7 +20,6 @@ solve.addEventListener("click", function(){
             operator += op[i].value;
         }
     }
-
 
     if (operator === "+") {
         let sum = num1 + num2;
