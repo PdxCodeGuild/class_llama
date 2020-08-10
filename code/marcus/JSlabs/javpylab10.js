@@ -1,12 +1,24 @@
-// nums = []
-// count = 0
-// print("Welcome to Number Avenger!")
+let nums = [];
 
-// while count < 1:
-//     user_data = input("Pick a number! Or enter done!: ")
-//     if user_data == "done":
-//         count += 1
-//         print(sum(nums)/len(nums))
-//         break
-//     else:
-//         nums.append(float(user_data))
+alert("Welcome to the Number Averager!")
+
+let i = 0;
+while (i < 1) {
+
+    let user_num = prompt("Please submit a number");
+
+    nums.push(user_num);
+    if (user_num == "done");
+    i++;
+}
+function average(nums) {
+    return nums.reduce((a,b) => (a + b)) / nums.length;
+}
+
+
+
+
+
+
+
+
