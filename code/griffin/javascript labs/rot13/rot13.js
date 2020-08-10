@@ -33,11 +33,11 @@ function letterize(character) {
     if (character == " ") {
         return " "
     } else if (character > 26) {
-        character = character -26;
+        character = character %26;
         for (number in codex) {
             if (character == number) {
                 return codex[character]
-            }
+            };
         };
     } else {
         for (number in codex) {
@@ -51,7 +51,7 @@ function letterize(character) {
 
 function main() {
     console.log("test");
-    let phrase_list = phrase.value.split("");
+    let phrase_list = phrase.value.toLowerCase().split("");
     code_numbers = phrase_list.map(numberize);
     new_code_numbers = code_numbers.map(encode);
     new_phrase_list = new_code_numbers.map(letterize);
