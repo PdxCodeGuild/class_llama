@@ -2,7 +2,6 @@
 
 let solve = document.getElementById("solve")
 
-
 solve.addEventListener("click", function(){
     
     let num1 = Number(document.getElementById("num1").value)
