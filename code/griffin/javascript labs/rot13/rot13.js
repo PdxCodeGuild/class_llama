@@ -2,11 +2,11 @@ let codex = {1:"a",2:"b",3:"c",4:"d",5:"e",6:"f",7:"g",8:"h",9:"i",10:"j",11:"k"
 let code_numbers = [];
 let new_code_numbers = [];
 let new_phrase_list = [];
-let phrase = prompt("enter a phrase to send to your spy: ").toLowerCase();
-let offset = parseInt(prompt("enter a number with which to encode your message: "));
-let new_phrase = ""
 
-let phrase_list = phrase.split("");
+let phrase = document.getElementById("phrase");
+let offset = document.getElementById("number");
+let new_phrase = "";
+
 
 function numberize(letter) {
     if (letter === " ") {
@@ -25,7 +25,7 @@ function encode(number) {
     if (number == " ") {
         return " ";
     } else {
-    return parseInt(number) + offset
+    return parseInt(number) + parseInt(offset.value)
     };
 };
 
@@ -49,13 +49,18 @@ function letterize(character) {
 };
 
 
+function main() {
+    console.log("test");
+    let phrase_list = phrase.value.split("");
+    code_numbers = phrase_list.map(numberize);
+    new_code_numbers = code_numbers.map(encode);
+    new_phrase_list = new_code_numbers.map(letterize);
+    new_phrase = new_phrase_list.join("");
+    let result = document.getElementById("result");
+    result.innerText = (`You agent will be sent the following: ${new_phrase}`);
+}
 
-code_numbers = phrase_list.map(numberize);
-new_code_numbers = code_numbers.map(encode);
-new_phrase_list = new_code_numbers.map(letterize);
-new_phrase = new_phrase_list.join("");
 
-
-
-alert(new_phrase)
+let pigeon = document.getElementById("pigeon");
+pigeon.addEventListener("click", main);
 
