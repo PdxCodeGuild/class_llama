@@ -1,39 +1,6 @@
 // This program will take a list of integers(nums) and return the average
 
 // version #1
-// let nums = [5, 0, 8, 3, 4, 1, 6];
-
-// // loop over the elements
-// nums.forEach(function(num) {
-//     console.log(num);
-// });
-// for num in nums:
-//     print(num)
-
-// loop over the indices
-// for (let i=0; i<nums.length; i++) {
-//     console.log(nums[i]);
-// }
-// for i in range(len(nums)):
-//     print(nums[i])
-
-
-// initialize the variable total to hold the sum of all numbers in list
-// let total = 0;
-
-// // loop through each indices of nums list
-// for (let i=0; i<nums.length; i++) {
-//     total=total+nums[i];
-//     console.log(total);
-// }
-// total = total / nums.length;
-// console.log("The average is: " + total);
-// for i in range(len(nums)):
-//     total=total+nums[i]
-//     print(total)
-// print("The average is: ",total / len(nums))
-
-// version #2
 // """
 // This program will ask user for number inputs
 // until the user terminates with done. Then all numbers 
@@ -72,6 +39,6 @@ for (let i=0; i<nums.length; i++) {
     sum += parseInt(nums[i], 10); // base10
 }
 let average = sum/nums.length;
-// average = sum(nums) / len(nums)
-console.log("The average of nums is: " + average);
+
 // print("average:",average)
+console.log("The average of nums is: " + average);
