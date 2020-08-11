@@ -1,5 +1,6 @@
 // JavaScript for Python Lab 25: ATM - Part 2
 
+// is this even necessary? automatically updates/shows, no need for button?
 let option1 = document.getElementById("option1")
 option1.addEventListener("click", function(){
     document.getElementById("check-balance").innerText = `Current balance: ${account.check_balance()}`;
@@ -23,24 +24,41 @@ depositAmount.addEventListener("click", function(){
 
 let option3 = document.getElementById("option3")
 option3.addEventListener("click", function(){
-    
+    let checkWithdrawal = document.getElementById("check-withdrawal")
+    if (checkWithdrawal.style.display === "block") {
+        checkWithdrawal.style.display = "none"
+    } else {
+        checkWithdrawal.style.display = "block"
+    }
+})
+
+let withdrawAmountC = document.getElementById("check-withdrawal-amount-s")
+withdrawAmountC.addEventListener("click", function(){
+    account.check_withdrawal(document.getElementById("check-withdrawal-amount").value);
+    document.getElementById("check-balance").innerText = `Current balance: ${account.check_balance()}`;
+    // if statement for true/false below to show if amount can be withdrawn? keep alerts? show would-be balance?
 })
 
 let option4 = document.getElementById("option4")
 option4.addEventListener("click", function(){
-    
+    let withdraw = document.getElementById("withdrawal")
+    if (withdraw.style.display === "block") {
+        withdraw.style.display = "none"
+    } else {
+        withdraw.style.display = "block"
+    }
+})
+
+let withdrawAmount = document.getElementById("withdrawal-amount-s")
+withdrawAmount.addEventListener("click", function() {
+    account.withdraw(document.getElementById("withdrawal-amount").value);
+    document.getElementById("check-balance").innerText = `Current balance: ${account.check_balance()}`;
 })
 
 let option5 = document.getElementById("option5")
 option5.addEventListener("click", function(){
     
 })
-
-let option6 = document.getElementById("option6")
-option6.addEventListener("click", function(){
-    
-})
-
 
 class ATM {
     
@@ -50,7 +68,7 @@ class ATM {
     }
      
     check_balance() {
-        return this.balance
+        return this.balance;
     }
 
     deposit(deposit_amount) {
@@ -71,7 +89,6 @@ class ATM {
     withdraw(withdraw_amount) {
         if (this.check_withdrawal(withdraw_amount) === true) {
             this.balance -= Number(withdraw_amount);
-            alert(`New balance: $${this.balance}`);
             this.transactions.push(`Withdrew: $${withdraw_amount}`);
         }
         else {
@@ -80,7 +97,7 @@ class ATM {
     }
 
     print_transactions() {
-        alert(`${this.transactions}`);
+        return this.transactions;
     }
 }
 
