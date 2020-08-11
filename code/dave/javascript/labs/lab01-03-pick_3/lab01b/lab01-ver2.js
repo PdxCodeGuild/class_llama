@@ -12,30 +12,36 @@ let card_sum = 0
 
 function main(){
 
-    /*  
-    prompt user for 3 cards create while loop that asks
-    for user card prompt. if not valid it will keep
-    prompting until correct value is prompt
-    */
-    let first_card = prompt("What's your first card? ").toUpperCase();
-    while (!(first_card in card_values)) {
-        first_card = prompt("Not a valid card, enter another card value for first card: ").toUpperCase();
-    }
-    console.log(first_card);
+    
+
+//     /*  
+//     prompt user for 3 cards create while loop that asks
+//     for user card prompt. if not valid it will keep
+//     prompting until correct value is prompt
+//     */
+//     let first_card = prompt("What's your first card? ").toUpperCase();
+//     while (!(first_card in card_values)) {
+//         first_card = prompt("Not a valid card, enter another card value for first card: ").toUpperCase();
+//     }
+//     console.log(first_card);
 
 
-    let second_card = prompt("What's your second card? ").toUpperCase();
-    while (!(second_card in card_values)){
-        second_card = prompt("Not a valid card, enter another card value for second card: ").toUpperCase();
-    }
-    console.log(second_card)
+//     let second_card = prompt("What's your second card? ").toUpperCase();
+//     while (!(second_card in card_values)){
+//         second_card = prompt("Not a valid card, enter another card value for second card: ").toUpperCase();
+//     }
+//     console.log(second_card)
 
 
-    let third_card = prompt("What's your third card? ").toUpperCase();
-    while (!(third_card in card_values)){
-        third_card = prompt("Not a valid card, enter another card value for third card: ").toUpperCase();
-    }
-    console.log(third_card);
+//     let third_card = prompt("What's your third card? ").toUpperCase();
+//     while (!(third_card in card_values)){
+//         third_card = prompt("Not a valid card, enter another card value for third card: ").toUpperCase();
+//     }
+//     console.log(third_card);
+
+    let first_card = document.getElementById("num1").value;
+    let second_card = document.getElementById("num2").value;
+    let third_card = document.getElementById('num3').value;
 
     first_card = card_values[first_card];
     second_card = card_values[second_card];
@@ -45,17 +51,17 @@ function main(){
     let card_sum = first_card + second_card + third_card;
 
     if (card_sum < 17) {
-        console.log((card_sum) + " Hit");
+        document.getElementById('advice').innerHTML = 'Hit';
     }
     else if (card_sum > 17 && card_sum < 21) {
-        console.log((card_sum) + " Stay");
+        document.getElementById('advice').innerHTML = 'Stay';
     }
     else if (card_sum == 21) {
-        console.log((card_sum) + " Blackjack!!");
+        document.getElementById('advice').innerHTML = 'Blackjack!!';
     }    
     else {
-        console.log((card_sum) + " Already Busted");
+        document.getElementById('advice').innerHTML = 'Already Busted';
     }
 }
 
-console.log(main())
+console.log(main());
