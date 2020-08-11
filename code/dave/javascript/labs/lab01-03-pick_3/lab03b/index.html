@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 01-03</title>
+</head>
+<body>
+
+    <div>
+        <input id="user-input" type="text">
+        <button id="add-btn">Add</button>
+        <button id='done-btn'>Done</button>
+        
+    </div>
+    <div class="display-area">
+        <h3 id="results"></h3>
+    </div>
+
+    <!-- <script src="./lab01-pick_3.js"></script> -->
+    <!-- <script src="./lab02-pick_3.js"></script> -->
+    <script>
+
+    let nums = [];
+    let text_field = document.getElementById('user-input');
+    let user_input = text_field.value;
+    let add_btn = document.getElementById('add-btn');
+    let done_btn = document.getElementById('done-btn');
+    
+    function add_num() {
+        nums.push(input_number);
+    }
+
+    add_btn.addEventListener('click', add_num());
+
+
+    // function done() {
+
+    // }
+
+    // while (input) {
+    //     if  
+    // }
+
+    // // # print list of numbers added for user to view
+    // console.log(nums);
+
+    // // # create variable that calculates the average by dividing the sum of all input numbers by the length of input numbers.
+    // let sum = 0;
+    // for (let i=0; i<nums.length; i++) {
+    //     sum += parseInt(nums[i], 10); // base10
+    // }
+    // let average = sum/nums.length;
+
+    // console.log("The average of nums is: " + average);
+
+    </script>
+</body>
+</html>
