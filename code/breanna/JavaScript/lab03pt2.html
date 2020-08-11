@@ -5,42 +5,19 @@
     </head>
     <body>
         <p>ATM<p><br>
-        <p>Please make a selection from the following:</p><br>
-        <label for="option1">Check current balance </label>
-        <input type="button" id="option1" name="check-b" value="Select">
-        <div id="check-balance"></div><br>
-        <div class="class-deposit">
-            <label for="option2">Make a deposit </label>
-            <input type="button" id="option2" name="deposit" value="Select">
-            <form id="deposit">
-                <p>Enter deposit amount: </p>
-                <input type="number" id="deposit-amount" name="deposit-amount">
-                <input type="button" id="deposit-amount-s" name="deposit-amount-s" value="Select">
-            </form><br>
-        </div>
-        <div class="class-check-withdrawal">
-            <label for="option3">Check if an amount can be withdrawn </label>
-            <input type="button" id="option3" name="check-w" value="Select">
-            <form id="check-withdrawal">
-                <p>Enter withdrawal amount: </p>
-                <input type="number" id="check-withdrawal-amount" name="check-withdrawal-amount">
-                <input type="button" id="check-withdrawal-amount-s" name="check-withdrawal-amount-s" value="Select"><br>
-            </form><br>
-        </div>
-        <div class="class-withdrawal">
-            <label for="option4">Make a withdrawal </label>
-            <input type="button" id="option4" name="withdraw" value="Select">
-            <form id="withdrawal">
-                <p>Enter withdrawal amount: </p>
-                <input type="number" id="withdrawal-amount" name="withdrawal-amount">
-                <input type="button" id="withdrawal-amount-s" name="withdrawal-amount-s" value="Select">
-            </form><br>
-        </div><br>
-        <label for="option5">Show recent transactions </label>
-        <input type="button" id="option5" name="trans" value="Select">
-        <div id="check-transactions"></div><br><br>
-        {% comment %} make this reset the session {% endcomment %}
-        <input type="reset"><br>
+        <p>Current balance = $<span id="current-balance">0</span></p><br>
+        <p>Enter deposit amount: </p>
+        $
+        <input type="number" id="deposit-amount" name="deposit-amount">
+        <input type="button" id="deposit-amount-s" name="deposit-amount-s" value="Select"><br>
+        <p>Enter withdrawal amount: </p>
+        $
+        <input type="number" id="withdrawal-amount" name="withdrawal-amount">
+        <input type="button" id="withdrawal-amount-s" name="withdrawal-amount-s" value="Select"><br><br>
+        <p>Transactions: </p>
+        <ul id="all-transactions">
+        </ul><br><br>
+        <input type="reset" id="reset"><br>
         <script src="lab03pt2.js"></script>
     </body>
 </html>
