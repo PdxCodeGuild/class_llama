@@ -19,8 +19,7 @@ class ATM {
     check_withdrawal(check_amount) {
         if (this.balance - Number(check_amount) >= 0) {
             return true;
-        }
-        else {;
+        } else {
             return false;
         }
     }
@@ -29,8 +28,7 @@ class ATM {
         if (this.check_withdrawal(withdraw_amount) === true) {
             this.balance -= Number(withdraw_amount);
             this.transactions.push(`Withdrew: $${withdraw_amount}`);
-        }
-        else {
+        } else {
             alert("You cannot withdraw this amount.");
         }
     }
