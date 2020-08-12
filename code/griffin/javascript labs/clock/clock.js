@@ -21,10 +21,11 @@ function update_time() {
 window.setInterval(update_time,1000);
 
 function update_stopwatch() {
+    stopseconds = stopdate.getSeconds();
     stopseconds += 1;
     stopdate.setSeconds(stopseconds);
     
-    stopwatch.innerText = `${stopdate.getMinutes()}:${stopdate.getSeconds()}`;
+    stopwatch.innerText = `${stopdate.getHours()}:${stopdate.getMinutes()}:${stopdate.getSeconds()}`;
 }
 
 startstop.addEventListener("click", function() {

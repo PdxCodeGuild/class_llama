@@ -8,60 +8,41 @@ var card_values = {'A': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 
 
 
 // initailize variables
-let card_sum = 0
+let card_sum = 0;
 
-function main(){
+let first_card = document.getElementById("num1");
+let second_card = document.getElementById("num2");
+let third_card = document.getElementById('num3');
 
-    
+let calculate = document.getElementById("calculate");
 
-//     /*  
-//     prompt user for 3 cards create while loop that asks
-//     for user card prompt. if not valid it will keep
-//     prompting until correct value is prompt
-//     */
-//     let first_card = prompt("What's your first card? ").toUpperCase();
-//     while (!(first_card in card_values)) {
-//         first_card = prompt("Not a valid card, enter another card value for first card: ").toUpperCase();
-//     }
-//     console.log(first_card);
+calculate.addEventListener("click", function() {
+    this.first_card = card_values[first_card.value];
+    this.second_card = card_values[second_card.value];
+    this.third_card = card_values[third_card.value];
+    console.log(first_card, second_card, third_card);
 
-
-//     let second_card = prompt("What's your second card? ").toUpperCase();
-//     while (!(second_card in card_values)){
-//         second_card = prompt("Not a valid card, enter another card value for second card: ").toUpperCase();
-//     }
-//     console.log(second_card)
-
-
-//     let third_card = prompt("What's your third card? ").toUpperCase();
-//     while (!(third_card in card_values)){
-//         third_card = prompt("Not a valid card, enter another card value for third card: ").toUpperCase();
-//     }
-//     console.log(third_card);
-
-    let first_card = document.getElementById("num1").value;
-    let second_card = document.getElementById("num2").value;
-    let third_card = document.getElementById('num3').value;
-
-    first_card = card_values[first_card];
-    second_card = card_values[second_card];
-    third_card = card_values[third_card];
-
-
-    let card_sum = first_card + second_card + third_card;
+    let card_sum = this.first_card + this.second_card + this.third_card;
 
     if (card_sum < 17) {
         document.getElementById('advice').innerHTML = 'Hit';
+        console.log((card_sum) + " Hit");
     }
     else if (card_sum > 17 && card_sum < 21) {
         document.getElementById('advice').innerHTML = 'Stay';
+        console.log((card_sum) + " Stay");
     }
     else if (card_sum == 21) {
         document.getElementById('advice').innerHTML = 'Blackjack!!';
-    }    
-    else {
-        document.getElementById('advice').innerHTML = 'Already Busted';
+        console.log((card_sum) + " Blackjack!!");
     }
-}
+    else if (card_sum > 21) {
+        document.getElementById('advice').innerHTML = 'Already Busted';
+        console.log((card_sum) + " Already Busted");
+    }   
+    else {
+        document.getElementById('advice').innerHTML = 'One Or More Cards Is Invalid, Try Again.';
+        console.log((card_sum) + " Already Busted");
+    }
+});
 
-console.log(main());
