@@ -17,11 +17,12 @@ let third_card = document.getElementById('num3');
 let calculate = document.getElementById("calculate");
 
 calculate.addEventListener("click", function() {
-    first_card = card_values[first_card.value];
-    second_card = card_values[second_card.value];
-    third_card = card_values[third_card.value];
+    this.first_card = card_values[first_card.value];
+    this.second_card = card_values[second_card.value];
+    this.third_card = card_values[third_card.value];
+    console.log(first_card, second_card, third_card);
 
-    let card_sum = first_card + second_card + third_card;
+    let card_sum = this.first_card + this.second_card + this.third_card;
 
     if (card_sum < 17) {
         document.getElementById('advice').innerHTML = 'Hit';
@@ -34,9 +35,13 @@ calculate.addEventListener("click", function() {
     else if (card_sum == 21) {
         document.getElementById('advice').innerHTML = 'Blackjack!!';
         console.log((card_sum) + " Blackjack!!");
-    }    
-    else {
+    }
+    else if (card_sum > 21) {
         document.getElementById('advice').innerHTML = 'Already Busted';
+        console.log((card_sum) + " Already Busted");
+    }   
+    else {
+        document.getElementById('advice').innerHTML = 'One Or More Cards Is Invalid, Try Again.';
         console.log((card_sum) + " Already Busted");
     }
 });
