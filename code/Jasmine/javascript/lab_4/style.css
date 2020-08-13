@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 }
@@ -32,4 +32,20 @@ main {
     text-align: justify;
     padding: 12px;
     margin: 12px;
+}
+
+footer {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 768px) {
+    main {
+        display: flex;
+    }
+    .item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
 }
