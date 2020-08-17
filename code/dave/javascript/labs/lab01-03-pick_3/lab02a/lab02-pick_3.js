@@ -48,3 +48,4 @@ console.log(customer1.check_balance());
 console.log(customer1.deposit(5));
 console.log(customer1.check_balance());
 
+
