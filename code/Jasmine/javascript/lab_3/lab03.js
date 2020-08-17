@@ -1,4 +1,4 @@
-alert("The average five numbers tool.")
+alert("The average any five numbers tool.")
 
 
 let num1 = parseInt(prompt("first number: "))

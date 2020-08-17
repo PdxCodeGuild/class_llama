@@ -1,12 +1,35 @@
-<p> Welcome to your to do list.</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Task List</title>
+        <meta name= "viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+    <header><h1> Welcome to your to do list.</h1></header>
 
-<div>
+
+    <div class="textbox">
     <input type="text" id="newitem">
     <button id="submit_item"> Add New Item</button>
-    <button id="complete"> Completed  </button>
-    <button id="remove"> Remove Item </button>
-</div>
 
-<ul id="todolist"></ul>
+    </div>
+    <main>
+    <div class="item" id="tasklist">
+        <h4>Tasks To Complete</h4>
+        <ul id="todolist"></ul> 
+    </div>
 
-<script src = "lab04.js"></script>
+    
+
+    <div class="item" id="completelist">
+        <h4>Completed Tasks</h4>
+    </div>
+
+    </main>
+    <script src = "lab04.js"></script>
+
+</body>
+
+<footer>&copy; 2020 Task List</footer>
+</html>
