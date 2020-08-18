@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML for JavaScript Lab 11</title>
+        <link rel="stylesheet" href="lab11site.css" />
+    </head>
+    <body>
+        <p>My To-Do List:<p><br>
+        <div id="todo-list">
+            <ul>
+                <li v-for="todo in incompleteTasks" :key="todo.id">
+                {{ todo.text }} -- 
+                <label>Mark task as complete</label>
+                <input type="checkbox" v-model="todo.completed">
+                <button v-on:click="deleteTask">Delete this task</button>
+                </li>
+            </ul>
+            <input type="text" v-model="newTaskText" placeholder="Type new task here">
+            <button v-on:click="newTask">Add this task</button>
+            <ul>
+                <li v-for="todo in completeTasks" :key="todo.id">
+                {{ todo.text }} -- 
+                <label>Mark task as incomplete</label>
+                <input type="checkbox" v-model="todo.completed">
+                <button v-on:click="deleteTask">Delete this task</button>
+                </li>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="lab11site.js"></script>
+    </body>
+</html>

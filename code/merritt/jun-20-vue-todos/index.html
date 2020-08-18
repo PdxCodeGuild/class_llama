@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <div id="app">
+        <h1>Things To Do Today</h1>
+        <div>
+            <input type="text" v-model="newTodo" placeholder="what do you need to do?">
+            <button @click="addTodo">Add to list</button>
+        </div>
+        <ul>
+            <li v-for="todo in incompleteTodos" :key="todo.id">
+                {{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}
+                <input type="checkbox" v-model="todo.completed">
+                <button @click="removeTodo(todo)">Remove</button>
+            </li>
+        </ul>
+        <ul>
+            <li v-for="todo in completeTodos" :key="todo.id">
+                {{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}
+                <input type="checkbox" v-model="todo.completed">
+                <button @click="removeTodo(todo)">Remove</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... -->
+    <script src="/js/site.js"></script>
+</body>
+</html>
