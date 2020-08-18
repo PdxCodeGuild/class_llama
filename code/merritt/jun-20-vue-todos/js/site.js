@@ -1,3 +1,40 @@
+Vue.component('todo-item', {
+    props: ['todo'],
+    data: function() {
+        return {}
+    },
+    template: `
+    <li>
+        {{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}
+        <input type="checkbox" v-model="todo.completed">
+        <button @click="$emit('remove', todo)">Remove</button>
+    </li>`,
+    methods: {
+        
+    }
+});
+
+Vue.component('add-todo', {
+    data: function() {
+        return {
+            text: "",
+            id: 4 
+        }
+    },
+    template: `
+    <div>
+        <input type="text" v-model="text" placeholder="what do you need to do?">
+        <button @click="add">Add to list</button>
+    </div>`,
+    methods: {
+        add: function (event) {
+            this.$emit('add', { text: this.text, completed: false, id: this.id });
+            this.newTodo = "";
+            this.newTodoId++;
+        }
+    }
+});
+
 let vm = new Vue({
     el: '#app',
     data: {
@@ -5,18 +42,11 @@ let vm = new Vue({
             { text: "Walk the dog", completed: false, id: 1 },
             { text: "Groceries", completed: true, id: 2 },
             { text: "Laundry", completed: false, id: 3 }
-        ],
-        newTodo: "",
-        newTodoId: 4 
+        ]
     },
     methods: {
-        addTodo: function (event) {
-            this.todos.push({ text: this.newTodo, completed: false, id: this.newTodoId });
-            this.newTodo = "";
-            this.newTodoId++;
-        },
-        completeTodo: function (todo) {
-            todo.completed = true;
+        addTodo: function (todo) {
+            this.todos.push(todo);
         },
         removeTodo: function (todo) {
             this.todos.splice(this.todos.indexOf(todo), 1);

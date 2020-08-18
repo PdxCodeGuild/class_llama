@@ -11,23 +11,22 @@
 <body>
     <div id="app">
         <h1>Things To Do Today</h1>
-        <div>
-            <input type="text" v-model="newTodo" placeholder="what do you need to do?">
-            <button @click="addTodo">Add to list</button>
-        </div>
+        <add-todo @add="addTodo"></add-todo>
         <ul>
-            <li v-for="todo in incompleteTodos" :key="todo.id">
-                {{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}
-                <input type="checkbox" v-model="todo.completed">
-                <button @click="removeTodo(todo)">Remove</button>
-            </li>
+            <todo-item
+                v-for="todo in incompleteTodos"
+                :key="todo.id"
+                :todo="todo"
+                @remove="removeTodo"
+            ></todo-item>
         </ul>
         <ul>
-            <li v-for="todo in completeTodos" :key="todo.id">
-                {{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}
-                <input type="checkbox" v-model="todo.completed">
-                <button @click="removeTodo(todo)">Remove</button>
-            </li>
+            <todo-item
+                v-for="todo in completeTodos"
+                :key="todo.id"
+                :todo="todo"
+                @remove="removeTodo"
+            ></todo-item>
         </ul>
     </div>
 
