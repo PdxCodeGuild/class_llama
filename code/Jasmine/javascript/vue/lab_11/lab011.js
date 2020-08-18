@@ -1,6 +1,24 @@
-new Vue({
-    el: '#app',
+let vm = new Vue({
+    el: '#vm',
     data: {
-        message: 'Hello world!'
+        current: '', 
+        todos: [
+        
+        ],
+
+    },
+
+    methods: {
+        create: function(current) {
+            this.todos.push({text: this.current})
+            this.current=''
+        },
+
+        del:function() {
+            console.log('del')
+        }
     }
+    
+       
 })
+
