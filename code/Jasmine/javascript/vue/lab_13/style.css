@@ -16,6 +16,13 @@ body {
     text-align: justify;
 }
 
+.filbox {
+    background-color: lavenderblush;
+    padding: 10px 24px;
+}
+
+
+
 .Q1 {
     background-color: lavenderblush;
     text-align: justify;
@@ -23,3 +30,4 @@ body {
     margin: 12px;
     padding: 10px 24px;
 }
+
