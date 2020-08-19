@@ -10,20 +10,28 @@
         <h1>Quotes</h1><br>
         <div id="app">
             <label for="searchType">Choose a search type:</label>
-            <select name="searchType" id="searchType">
-                <option value="select">Select</option>
+            <select name="searchType" id="searchType" v-model="searchType">
+                <option value="initial" disabled>Select</option>
                 <option value="author">Author</option>
-                <option value="quote">Quote</option>
+                <option value="">Keyword</option>
                 <option value="tag">Tag</option>
             </select>
             <input type="text" v-model="searchTerm" placeholder="Type search term here">
             <button @click="listQuotes">List quotes</button>
+            <div>
+                <initial-quote
+                    v-for="item in quotes"
+                    v-bind:quote="item"
+                    v-bind:key="item.id"
+                ></initial-quote>
+            </div>
             <div>
                 <a-quote
                     v-for="item in quotes"
                     v-bind:quote="item"
                     v-bind:key="item.id"
                 ></a-quote>
+            <button @click="nextPage">Load more...</button>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

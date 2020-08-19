@@ -1,10 +1,12 @@
 // Javascript for Lab 13 - Quotes
 
-// Your app must use Vue to fetch data and interact with the results.
-// Let the user enter a search term and select whether to search by keyword, author, or tag.
-// Implement pagination buttons when the search returns more than 25 quotes.
-// When the page first loads, show the user a set of completely random quotes.
 
+// Implement pagination buttons when the search returns more than 25 quotes.
+
+Vue.component('initial-quote', {
+    props: ['quote'],
+    template: '<p>"{{ quote.body }}"<br>Author: {{ quote.author }}</p>'
+  })
 
 Vue.component('a-quote', {
     props: ['quote'],
@@ -14,9 +16,22 @@ Vue.component('a-quote', {
 let vm = new Vue({
     el: '#app',
     data: {
-        searchType: '',
+        searchType: 'initial',
         searchTerm: '',
-        quotes: []
+        quotes: [],
+        page: 1
+    },
+    created: function () {
+        axios({
+            headers: {
+                Authorization: `Token token="${FavQsKey}"`
+            },
+            method: "get",
+            url: `https://favqs.com/api/quotes/`
+        }).then(response => {
+            console.log(response.data);
+            this.quotes = response.data.quotes;
+        })
     },
     methods: {
         listQuotes: function () {
@@ -25,13 +40,26 @@ let vm = new Vue({
                     Authorization: `Token token="${FavQsKey}"`
                 },
                 method: "get",
-                url: `https://favqs.com/api/quotes/?filter=${this.searchTerm}`
-                // https://favqs.com/api/quotes/?filter=${this.searchTerm}&type=tag
+                url: `https://favqs.com/api/quotes/?filter=${this.searchTerm}&type=${this.searchType}/`
             }).then(response => {
+                console.log(response.data);
                 this.quotes = response.data.quotes;
             });
-            this.searchType = '';
+            this.searchType = 'initial';
             this.searchTerm = ''
+        },
+        nextPage: function () {
+            page ++
+            axios({
+                headers: {
+                    Authorization: `Token token="${FavQsKey}"`
+                },
+                method: "get",
+                url: `https://favqs.com/api/quotes/?filter=${this.searchTerm}&type=${this.searchType}/?page=${page}`
+            }).then(response => {
+                console.log(response.data);
+                this.quotes = response.data.quotes;
+            });
         }
     }
 });
