@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML for Javascript Lab 13</title>
-    <!-- Add your styles here! -->
-    <link rel="stylesheet" href="lab13site.css" />
-</head>
-<body>
-    <div id="app">
-        {{ message }}
-    </div>
-
-    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
-    <script src="https://unpkg.com/vue"></script>
-    <!-- Include your code here... -->
-    <script src="lab13secrets.js"></script>
-    <script src="lab13site.js"></script>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>HTML for JavaScript Lab 13</title>
+        <link rel="stylesheet" href="lab13style.css">
+    </head>
+    <body>
+        <h1>Quotes</h1><br>
+        <div id="app">
+            <label for="searchType">Choose a search type:</label>
+            <select name="searchType" id="searchType" v-model="searchType">
+                <option value="initial" disabled>Select</option>
+                <option value="author">Author</option>
+                <option value="">Keyword</option>
+                <option value="tag">Tag</option>
+            </select>
+            <input type="text" v-model="searchTerm" placeholder="Type search term here">
+            <button @click="listQuotes">List quotes</button>
+            <div>
+                <initial-quote
+                    v-for="item in quotes"
+                    v-bind:quote="item"
+                    v-bind:key="item.id"
+                ></initial-quote>
+            </div>
+            <div>
+                <a-quote
+                    v-for="item in quotes"
+                    v-bind:quote="item"
+                    v-bind:key="item.id"
+                ></a-quote>
+            <button @click="nextPage">Load more...</button>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="secrets.js"></script>
+        <script src="lab13app.js"></script>
+    </body>
 </html>
