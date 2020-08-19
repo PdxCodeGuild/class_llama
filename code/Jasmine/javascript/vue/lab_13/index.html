@@ -4,32 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Todo List</title>
-    <!-- Add your styles here! -->
-    <link rel="stylesheet" href="/css/site.css" />
+    <title>Snag-a-Quote</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-    <div>
-    </div>
+    <header>
+        <h1> Snag-A-Quote </h1>
+    </header>
 
-    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+
+    <div id="app">
+        <div>
+            <input type="text" v-model="filter" placeholder="Filter Quotes"/>
+        </div>
+        <br>
+        <button @click="searchQuote"> Get Quotes </button>
+        <div class="Q1" v-for="quote in quotes">
+            <p> {{ quote.body }} </p>
+            <p><i><a :href="quote.url"> {{ quote.author }} </i></a></p>
+        </div>
+        <button @click="loadMore"> More Quotes </button>
     
-
-    <div id="vm">
-        <input type="text" v-model='current'/>
-        <button @click="create">Add To List</button>
-        <ol>
-            <li v-for="todo in todos">
-                {{ todo.text }}
-                <button @click="del">Delete</button>
-            </li>
-        </ol>
     </div>
 
 
-    <!-- Include your code here... -->
-    <script src="lab13.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="lab13.js"></script>
+
+    
 </body>
 </html>
