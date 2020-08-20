@@ -1,13 +1,5 @@
 // Javascript for Lab 13 - Quotes
 
-
-// Implement pagination buttons when the search returns more than 25 quotes.
-
-Vue.component('initial-quote', {
-    props: ['quote'],
-    template: '<p>"{{ quote.body }}"<br>Author: {{ quote.author }}</p>'
-  })
-
 Vue.component('a-quote', {
     props: ['quote'],
     template: '<p>"{{ quote.body }}"<br>Author: {{ quote.author }}</p>'
@@ -19,7 +11,10 @@ let vm = new Vue({
         searchType: 'initial',
         searchTerm: '',
         quotes: [],
-        page: 1
+        page: 1,
+        activeTerm: '',
+        activeType: '',
+        loadMoreButton: false
     },
     created: function () {
         axios({
@@ -35,6 +30,10 @@ let vm = new Vue({
     },
     methods: {
         listQuotes: function () {
+            this.activeType = this.searchType;
+            this.activeTerm = this.searchTerm;
+            this.page = 1;
+            this.loadMoreButton = true;
             axios({
                 headers: {
                     Authorization: `Token token="${FavQsKey}"`
@@ -49,13 +48,13 @@ let vm = new Vue({
             this.searchTerm = ''
         },
         nextPage: function () {
-            page ++
+            this.page ++
             axios({
                 headers: {
                     Authorization: `Token token="${FavQsKey}"`
                 },
                 method: "get",
-                url: `https://favqs.com/api/quotes/?filter=${this.searchTerm}&type=${this.searchType}/?page=${page}`
+                url: `https://favqs.com/api/quotes/?filter=${this.activeTerm}&type=${this.activeType}&page=${this.page}/`
             }).then(response => {
                 console.log(response.data);
                 this.quotes = response.data.quotes;
