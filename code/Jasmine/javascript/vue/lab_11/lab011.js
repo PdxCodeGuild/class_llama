@@ -14,8 +14,8 @@ let vm = new Vue({
             this.current=''
         },
 
-        del:function() {
-            console.log('del')
+        del:function(todo) {
+            this.todos.splice(this.todos.indexOf(todo))
         }
     }
     
