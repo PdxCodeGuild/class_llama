@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Music</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-model="searchmusic" placeholder="Search Music"/>
+        <button @click="getresults"> Find It. </button>
+
+        <div v-if="Object.keys(results).length">
+            <div v-for="album in results.albums.items">
+                <p>{{ album.name}}, {{ album.release_date }}</p>
+                <p> </p>
+            </div>
+            <br>
+            <div v-for="track in results.tracks.items">
+                <p>{{ track.name}}, {{ track.release_date }}</p>
+
+
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="lab14.js"></script>
+</body>
+</html>
