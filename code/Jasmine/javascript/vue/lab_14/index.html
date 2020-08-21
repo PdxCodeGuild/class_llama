@@ -44,16 +44,24 @@
         </div>
 
         <div v-if="Object.keys(results).length">
-            <div v-for="album in results.albums.items">
-                <p> <img class="images" :src="album.images[0].url"> Album: {{ album.name}}, Released on: {{ album.release_date }}, Type: {{album.album_type }}</p>
+            <div class="albums">
+                <h2>ALBUMS</h2>
+                <div class="individualal" v-for="album in results.albums.items">
+                    
+                    <p> <img class="images" :src="album.images[0].url"> Album: {{ album.name}}, Released on: {{ album.release_date }}, Type: {{album.album_type }}</p>
 
-                
+                    
+                </div>
             </div>
-            <br>
-            <div v-for="track in results.tracks.items">
-                <p>{{ track.name }},  Artist: <template v-for="artist in track.artists "> {{artist.name }} </template></p>
+                <br>
+            <div class="tracks">
+                <h2>THE TRACKS</h2>
+                <div v-for="track in results.tracks.items">
+                    
+                    <p>{{ track.name }},  Artist: <template v-for="artist in track.artists "> {{artist.name }} </template></p>
 
 
+                </div>
             </div>
         </div>
         
