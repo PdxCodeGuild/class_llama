@@ -6,7 +6,8 @@ let vm = new Vue ({
         searchmusic: '',
         type: 'album,artist,playlist,track',
         browsenew: {},
-    
+        userprofile: {},
+        searchprofile: '',
     
         
     }, 
@@ -25,12 +26,24 @@ let vm = new Vue ({
         getnew: function() {
             axios({
                 method: "get", 
-                url: `https://api.spotify.com/v1/browse/new-releases?country=US`,
+                url: `https://api.spotify.com/v1/browse/new-releases?country=US&limit=50`,
                 headers: {Authorization: `Bearer ${this.token}`}
         }).then(response=> {
             this.browsenew = response.data
         })
-    }},
+    },
+
+        getuser: function() {
+            axios({
+                method: "get",
+                url: `https://api.spotify.com/v1/users/${this.searchprofile}`,
+                headers: {Authorization: `Bearer ${this.token}`}
+        }).then(response=> {
+            this.userprofile = response.data
+        })
+    }
+
+    },
 
 
     created: function() {

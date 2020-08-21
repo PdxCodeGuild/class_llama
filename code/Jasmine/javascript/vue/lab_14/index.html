@@ -6,21 +6,40 @@
     <link rel="stylesheet" href="style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 
-    <title>Music</title>
+    <title>Music information your way.</title>
 </head>
 <body>
-    <header>
-        <h1> Music Search</h1>
-    </header>
+   
 
     <div id="app">
+        <header>
+            <h1> Music Search</h1>
         <input type="text" v-model="searchmusic" placeholder="Search Music"/>
         <button @click="getresults"> Find It. </button>
         <button @click="getnew"> New Releases. </button>
+        <br>
+        <br>
+        <input type="text" v-model="searchprofile" placeholder="Find User"/>
+        <button @click="getuser"> Find User. </button>
+        </header>
+
+        <div v-if="Object.keys(userprofile).length">
+            <div>
+                <p v-if="userprofile.images.length"> <img class="images" :src="userprofile.images[0].url"/></p> 
+                <p>Username: <a :href="userprofile.external_urls.spotify"> {{ userprofile.display_name }}</a></p>
+                <p>Followers: {{ userprofile.followers.total }}</p>
+                <p>Account Type: {{ userprofile.type }}</p>
+            </div>
+
+
+        </div>
 
         <div v-if="Object.keys(browsenew).length">
             <div class="newreleases" v-for="album in browsenew.albums.items">
-                {{album.name}}, Artist: <template v-for="artist in album.artists"> {{ artist.name }}</template>, Released: {{ album.release_date }}
+                <p> <a :href="album.external_urls.spotify"><img class="images" :src="album.images[0].url"></a>
+                <p>Album: {{album.name}}, 
+                <p>Artist: <template v-for="artist in album.artists"> {{ artist.name }}</template>
+                <p>Released: {{ album.release_date }}
             </div>
         </div>
 
