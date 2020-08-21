@@ -5,6 +5,8 @@ let vm = new Vue ({
         results: {},
         searchmusic: '',
         type: 'album,artist,playlist,track',
+        browsenew: {},
+    
     
         
     }, 
@@ -18,7 +20,18 @@ let vm = new Vue ({
         }).then(response=> {
             this.results = response.data
         })
+    },
+
+        getnew: function() {
+            axios({
+                method: "get", 
+                url: `https://api.spotify.com/v1/browse/new-releases?country=US`,
+                headers: {Authorization: `Bearer ${this.token}`}
+        }).then(response=> {
+            this.browsenew = response.data
+        })
     }},
+
 
     created: function() {
         axios({
