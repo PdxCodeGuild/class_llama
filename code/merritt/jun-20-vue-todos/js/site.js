@@ -1,16 +1,22 @@
 Vue.component('todo-item', {
     props: ['todo'],
     data: function() {
-        return {}
+        return {
+            editing: false
+        }
     },
     template: `
     <li>
-        {{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}
+        <template v-if="editing"><input type="text" v-model="todo.text">  -- {{ todo.completed ? "done" : "not done" }}</template>
+        <template v-else>{{ todo.text }} -- {{ todo.completed ? "done" : "not done" }}</template>
         <input type="checkbox" v-model="todo.completed">
+        <button @click="toggleEdit">Edit</button>
         <button @click="$emit('remove', todo)">Remove</button>
     </li>`,
     methods: {
-        
+        toggleEdit: function() {
+            this.editing = this.editing ? false : true;
+        }
     }
 });
 
