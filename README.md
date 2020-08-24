@@ -8,7 +8,10 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 July 3rd -- Independence Day  
+August 28th -- Capstone Workday (No Class)  
+September 4th -- Capstone Workday (No Class)  
 September 7th -- Labor Day  
+September 11th -- Capstone Workday (No Class)  
 
 ### Staff
 
@@ -20,8 +23,43 @@ September 7th -- Labor Day
 
 ## Capstone Dates:
 
-Capstone proposal due: TBA  
+Capstone proposal due: August 26th, 2020  
 Presentation Day: September 18th, 2020  
+
+## JavaScript Labs Assigned:
+
+Lab 01-03a Pick 3 (alert/prompt)  
+Lab 01-03b Pick 3 (input/events)  
+Lab 04 Todo  
+Lab 06 Clock  
+Lab 11 Vue Todos  
+Lab 13 Vue FavQs  
+Lab 14 Any API in Vue  
+(Django Lab 06 DRF/Vue)  
+
+#### Optional JavaScript Labs
+
+Optional Calculator  
+Optional Form Validation  
+Lab 05 Random Redirector  
+Lab 07 Hacker Typer  
+Lab 08 Bouncing Ball  
+Lab 09 FavQs  
+Lab 10 Any API  
+Lab 12 Calculator  
+
+## Django Labs Assigned:
+
+Lab 01 Grocery List  
+Lab 02 URL Shortener  
+Lab 03 Chirp  
+Lab 06 DRF/Vue  
+
+#### Optional Django Labs
+
+Optional Mad Libs  
+Lab 04 Library  
+Lab 05 Blog  
 
 ## HTML/CSS Labs Assigned:
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Best Words, Perhaps in the History of Words</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <div id = "search">
+            <input type="text" v-model="searchItem">
+            <div>Search by...</div>
+            <select v-model="searchType">
+                <option value="author">author</option>
+                <option value="tag">keyword</option>
+            </select>
+            <button @click = "searchQuotes">Search</button>
+        </div>
+        <div id = "display">
+            <div v-show="search">
+                <ul>
+                
+                    <li  v-for="quote in searchResults">
+                        <p>{{ quote.body }}</p>
+                        <p>--{{ quote.author }}</p>
+                    </li>
+                </ul>
+                <button v-if="current_page > 1" @click="previousPage">Previous Page</button>
+                <button v-show="!finalPage" @click="nextPage">Next Page</button>
+            </div>
+            <div v-show= "!search">
+                <ul>
+                    <li  v-for="quote in quote_array">
+                        <p>{{ quote.body }}</p>
+                        <p>--{{ quote.author }}</p>
+                    </li> 
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Include your code here... -->
+    <script src="favQs.js"></script>
+    <script src="secrets.js"></script>
+</body>
+</html>

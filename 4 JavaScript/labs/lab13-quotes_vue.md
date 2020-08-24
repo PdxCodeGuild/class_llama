@@ -13,6 +13,7 @@ Requirements:
 Resources:
 - [FavQs API](https://favqs.com/api)
 - [Vue documentation](https://vuejs.org/v2/guide/)
+- [Using Axios to Consume APIs](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html)
 - [Axios documentation](https://github.com/axios/axios)
 
 Hints:

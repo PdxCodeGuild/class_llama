@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snag-a-Quote</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+    <header>
+        <h1> Snag-A-Quote </h1>
+    </header>
+
+
+    <div id="app">
+        <div class="filbox">
+            <input type="text" v-model="filter" placeholder="Filter Quotes"/>
+        </div>
+        <br>
+        <button @click="searchQuote"> Get Quotes </button>
+        <div class="Q1" v-for="quote in quotes">
+            <p> {{ quote.body }} </p>
+            <p><i><a :href="quote.url"> {{ quote.author }} </i></a></p>
+        </div>
+        <button @click="loadMore"> More Quotes </button>
+    
+    </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="lab13.js"></script>
+
+    
+</body>
+</html>

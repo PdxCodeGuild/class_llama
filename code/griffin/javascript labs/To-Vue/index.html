@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To-Vue List</title>
+</head>
+<body>
+    <div id="app">
+
+        <h2>Things to View</h2>
+        <div>
+            <input type="text" v-model="newItem" placeholder="have you seen...">
+            <button @click="addItem">See It</button>
+        </div>
+
+        <ul>
+            <!-- why is this key needed, and what does it reference? -->
+            <li v-for="item in incompleteItems" :key="item.id">
+                {{ item.text }} {{ item.completed ? "seent it" : "what is?" }}
+                <input type="checkbox" v-model="item.completed">
+                <button @click= "removeItem(item)">Remove</button>
+            </li>
+        </ul>
+
+        <ul>
+            
+            <li v-for="item in completeItems" :key="item.id">
+                {{ item.text }} {{ item.completed ? "seent it" : "what is?" }}
+                <input type="checkbox" v-model="item.completed">
+                <button @click= "removeItem(item)">Remove</button>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="to-do-list.js"></script>
+</body>
+
+</html>
