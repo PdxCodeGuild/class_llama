@@ -1,15 +1,25 @@
 let vm = new Vue({
     el: '#app',
     data: {
-        quote: {}
+        quotes: {},
+        searchTerm: "",
+
     },
     methods: {
         loadQuote: function () {
             axios({
                 method: "get",
-                url: "https://favqs.com/api/qotd"
+                url: "https://favqs.com/api/quotes/",
+                params: {
+                    filter: this.searchTerm,
+                    type: "author",
+                    page: 2
+                },
+                headers: {
+                    Authorization: `Token token="${favQsKey}"`
+                }
             }).then(response => {
-                this.quote = response.data.quote;
+                this.quotes = response.data.quotes;
             });
         }
     }

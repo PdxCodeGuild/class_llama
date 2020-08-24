@@ -147,10 +147,10 @@ Once you have an API endpoint, your code is the same as any other API call. Make
   mounted: {
     let crsf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
     axios({
-      url: 'api/grocery_item/',
+      url: '/api/grocery_item/',
       method: 'get',
       headers: {
-        X-CSRFToken: csrf_token
+        'X-CSRFToken': csrf_token
       }
     }).then(res => this.grocery_items = res.data)
   }
