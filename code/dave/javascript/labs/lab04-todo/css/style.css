@@ -1,0 +1,111 @@
+html {
+    height: 100vh;
+    min-width: 600px;
+    background-color: crimson;
+}
+
+.container {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 1.5rem 0;
+    align-items: center;
+}
+
+.main {
+    padding: 20px;
+}
+
+form {
+    background-color: cyan;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+}
+
+input[type="text"] {
+    height: 30px;
+    outline: 0;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Monteserrat', sans-serif;
+    color: #0f0f0f;
+    flex-grow: 1;
+}
+
+button {
+    font-size: 1.5rem;
+    background-color: #fafafa;
+    color: crimson;
+    border: none;
+    outline: 0;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+button:hover {
+    color: gray;
+}
+
+.todo-list {
+    background-color: crimson;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 25px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+ul {
+    padding: 0px;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+    padding: 15px 0 15px 5px;
+    font-size: 1rem;
+    color: #0f0f0f;
+    background-color: #fafafa;
+}
+
+i {
+    pointer-events: none;
+}
+
+.todo-item {
+    flex-grow: 1;
+}
+
+.clear-all {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.clear-all:hover {
+    color: lightsteelblue;
+}
+
+.todo-list-item {
+    transition: all 0.3s ease-out;
+}
+
+.todo-list-item-fall {
+    transform: translateY(12rem) rotateZ(10deg);
+    opacity: 0;
+}
