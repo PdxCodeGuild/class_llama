@@ -8,7 +8,10 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 July 3rd -- Independence Day  
+August 28th -- Capstone Workday (No Class)  
+September 4th -- Capstone Workday (No Class)  
 September 7th -- Labor Day  
+September 11th -- Capstone Workday (No Class)  
 
 ### Staff
 
