@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ghibli Face Finder</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <div id="app">
+        <h3>Which Studio Ghibli Character are You?</h3>
+        <div id="search">
+            <label for="gender">Gender: </label>
+            <select v-model="gender" id="gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <label for="eyeColor">Eye Color: </label>
+            <select v-model="eyeColor" id="eyeColor">
+                <option>Blue</option>
+                <option>Brown</option>
+                <option>Green</option>
+            </select>
+            <label for="hairColor">Hair Color: </label>
+            <select v-model="hairColor" id="hairColor">
+                <option>Black</option>
+                <option>Brown</option>
+                <option>Blonde</option>
+                <option>Red</option>
+                <option>Gray</option>
+            </select>
+            <label for="age">Age: </label>
+            <select v-model="age" id="age">
+                <option>young</option>
+                <option>old</option>
+            </select>
+            <button @click="faceSearch">Search</button>
+
+        </div>
+        
+        <div id="results">
+
+        </div>
+
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Include your code here... -->
+    <script src="ghibli.js"></script>
+</body>
+</html>
