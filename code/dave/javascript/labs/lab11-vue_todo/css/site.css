@@ -15,14 +15,14 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: 500px;
-    padding: 1.5rem 0;
+    margin: auto;
     font-family: 'Montserrat', sans-serif;
 }
 
 main h1 {
     color: limegreen;
     padding: 1.2rem 0;
+    display: flex;
 }
 
 form {
@@ -37,6 +37,28 @@ form {
     padding-right: 15px;
 }
 
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+    padding: 15px 0 15px 5px;
+    font-size: 1rem;
+    color: #fafafa;
+    background-color: #0f0f0f;
+}
+
+.lft-side {
+    display: flex;
+    align-items: center;
+}
+
+.lft-side span {
+    padding: 10px 0 0 25px;
+    color: #fafafa;
+    font-size: 1.8rem;
+}
+
 input[type="text"] {
     height: 30px;
     outline: 0;
@@ -47,10 +69,15 @@ input[type="text"] {
     flex-grow: 1;
 }
 
-button {
-    font-size: 1.5rem;
+.submit-btn {
     background-color: #fafafa;
     color: #0f0f0f;
+}
+
+button {
+    font-size: 1.5rem;
+    background-color: #0f0f0f;
+    color: #fafafa;
     border: none;
     outline: 0;
     transition: .2s ease-in-out;
@@ -66,5 +93,13 @@ button:hover {
 }
 
 span {
-    color: #fafafa;
+    color: #0f0f0f;
+}
+
+.remove-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 5px;
+    cursor: pointer;
+    font-size: 1.8rem;
 }

@@ -19,13 +19,15 @@
         <form @submit.prevent="addTodo">
             <label class="label-todo" for="newTodo">New Todo</label>
             <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
-            <button type="submit" name="button">Add</button>
+            <button class="submit-btn" type="submit" name="button">Add</button>
         </form>
         <ul>
             <li v-for="todo in todos">
-                <input type="checkbox" v-model="todo.done">
-                <span :class="{ done: todo.done }">{{todo.title}}</span>
-                <button type="button" name="button">Remove</button>
+                <div class="lft-side">
+                    <input type="checkbox" v-model="todo.done">
+                    <span :class="{ done: todo.done }" id="todo-title">{{todo.title}}</span>
+                </div>
+                <button @click="removeTodo(todo)" type="button" name="button" class="remove-btn">Remove</button>
             </li>
         </ul>
     </main>

@@ -12,6 +12,10 @@ const app = new Vue({
                 done: false
             });
             this.newTodo = '';
+        },
+        removeTodo(todo) {
+            const todoIndex = this.todos.indexOf(todo);
+            this.todos.splice(todoIndex, 1);
         }
     }
 });
