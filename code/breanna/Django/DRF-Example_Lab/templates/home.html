@@ -1,7 +1,94 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DRF Example Lab</title>
+</head>
+<body>
+
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+
+    <div id="app">
+        <h2>Students List</h2>
+        <ul v-if="students.length">
+            <li v-for="student in students" :key="student.id">
+                <h3>[[ student.last_name ]], [[ student.first_name ]]</h3>
+                <h4>Class Cohort: [[ student.cohort ]]</h4>
+                <h4>Favorite topic: [[ student.favorite_topic ]]</h4>
+                <h5>Favorite teacher: [[ student.favorite_teacher ]]</h5>
+                <h5>Capstone: [[ student.capstone ]]</h5>
+            </li>
+        </ul>
+        <div>
+            <input type="text" v-model="newStudent.last_name" placeholder="Last name">
+            <input type="text" v-model="newStudent.first_name" placeholder="First name"><br>
+            <select v-model="newStudent.cohort">
+                <option value="1">Llama</option>
+            </select><br>
+            <input type="text" v-model="newStudent.favorite_topic" placeholder="Favorite topic"><br>
+            <input type="text" v-model="newStudent.favorite_teacher" placeholder="Favorite teacher"><br>
+            <input type="text" v-model="newStudent.capstone" placeholder="Capstone url"><br>
+            <button @click="createStudent">Add Student</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    
+    let vm = new Vue({
+        el: '#app',
+        delimiters: ['[[',']]'],
+        data: {
+            students: [],
+            csrf_token: "",
+            newStudent: {
+                last_name: '',
+                first_name: '',
+                cohort: '',
+                favorite_topic: '',
+                favorite_teacher: '',
+                capstone: ''
+            }
+        },
+        methods: {
+            loadStudents: function () {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/students/',
+                }).then(response => {
+                    this.students = response.data;
+                });
+            },
+            createStudent: function () {
+                axios({
+                    method: 'post',
+                    url: '/api/v1/students/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: this.newStudent
+                }).then(response => {
+                    this.loadStudents();
+                }).catch(error => {
+                    console.log(error.response);
+                });
+            }
+        },
+        mounted: function () {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+            this.loadStudents();
+        }
+    })
+    
+    </script>
+</body>
+</html>

@@ -5,3 +5,50 @@
 <h1>Welcome, visitor!</h1>
 <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
 {% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            first_name: "",
+            last_name: "",
+            cohort: "",
+            favorite_topic: "",
+            favorite_teacher: "",
+            capstone: null,
+            student_list: null
+
+        },
+        methods: {
+            listStudents: function() {
+                axios({
+                    method: "get",
+                    url: "127.0.0.1:8000/apis/v1/",
+                    
+                })
+                .then(response=>{
+                    this.student_list = response.data;
+                    console.log(response.data)
+                })
+            }
+
+        }
+
+    }) 
+</script>

@@ -17,7 +17,7 @@ let vm = new Vue({
                     method: "get",
                     url: "https://favqs.com/api/quotes/",
                     headers: {
-                        Authorization: 'Token token="aeabe25320319442cf558f5212f93a87"'
+                        Authorization: 'Token token="aeabe25320319442cf558f5212f93a87"',
                     },
                     params: {
                         filter: this.searchItem,
