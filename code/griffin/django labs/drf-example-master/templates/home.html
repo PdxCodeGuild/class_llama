@@ -1,10 +1,5 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+{% load static %}
+{% csrf_token %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,16 +10,49 @@
 </head>
 <body>
     <div id="app">
+        
+        <div>
+            {% if user.is_authenticated %}
+                <h1>Welcome {{ user.username }}!</h1>
+                <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% else %}
+                <h1>Welcome, visitor!</h1>
+                <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+
+        <div id="student_list">
+            <ul>
+                <li v-for="student in student_list">
+                <h3>[[student.first_name]] [[student.last_name]]</h3>
+                <h4>[[student.favorite_topic]]</h4>
+                </li>
+            </ul>
+        </div>
+
+        <div id = "crud">
+            {% if user.is_authenticated %}
+
+            {% endif %}
+        </div>
 
     </div>
-    <script src="https://unpkg.com/vue"></script>
+
+    
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/vue"></script>
 </body>
+
+
+
 </html>
 
 <script>
     let app = new Vue({
         el: '#app',
+        delimiters: ["[[","]]"],
         data: {
             first_name: "",
             last_name: "",
@@ -32,22 +60,35 @@
             favorite_topic: "",
             favorite_teacher: "",
             capstone: null,
-            student_list: null
+            student_list: null,
+            new_student: {this.first_name,}
 
         },
         methods: {
             listStudents: function() {
                 axios({
                     method: "get",
-                    url: "127.0.0.1:8000/apis/v1/",
+                    url: "/apis/v1/",
                     
                 })
                 .then(response=>{
                     this.student_list = response.data;
                     console.log(response.data)
                 })
-            }
+            },
+            createStudent: function() {
+                axios({
+                    method: "post",
+                    url: "/apis/v1/",
+                    data: 
+                })
+                .then()
+            },
+            
 
+        },
+        mounted: function() {
+            this.listStudents();
         }
 
     }) 
