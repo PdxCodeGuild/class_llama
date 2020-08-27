@@ -32,7 +32,13 @@
 
         <div id = "crud">
             {% if user.is_authenticated %}
-
+                <input type="text" v-model="new_student.first_name" placeholder="First Name"/>
+                <input type="text" v-model="new_student.last_name" placeholder="Last Name"/>
+                <input type="text" v-model="new_student.cohort" placeholder="Cohort"/>
+                <input type="text" v-model="new_student.favorite_topic" placeholder="Favorite Topic"/>
+                <input type="text" v-model="new_student.favorite_teacher" placeholder="Favorite Teacher"/>
+                <input type="text" v-model="new_student.capstone" placeholder="Capstone"/>
+                <button @click="createStudent">Create Student</button>
             {% endif %}
         </div>
 
@@ -41,7 +47,6 @@
     
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <script src="https://unpkg.com/vue"></script>
 </body>
 
@@ -54,15 +59,16 @@
         el: '#app',
         delimiters: ["[[","]]"],
         data: {
-            first_name: "",
-            last_name: "",
-            cohort: "",
-            favorite_topic: "",
-            favorite_teacher: "",
-            capstone: null,
+            csrf_token: "",
             student_list: null,
-            new_student: {this.first_name,}
-
+            new_student: {
+                first_name: "",
+                last_name: "",
+                cohort: "",
+                favorite_topic: "",
+                favorite_teacher: "",
+                capstone: null,
+            }
         },
         methods: {
             listStudents: function() {
@@ -73,21 +79,31 @@
                 })
                 .then(response=>{
                     this.student_list = response.data;
-                    console.log(response.data)
+                    console.log(response.data);
                 })
             },
             createStudent: function() {
                 axios({
                     method: "post",
                     url: "/apis/v1/",
-                    data: 
+                    data: this.new_student,
+                    headers: {
+                        "X-CSRFToken": this.csrf_token
+                    }
                 })
-                .then()
-            },
+                .then(response=> {
+                    this.listStudents();
+                    }
+                )
+            }
+            
             
 
         },
         mounted: function() {
+            
+            this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+            console.log(this.csrf_token)
             this.listStudents();
         }
 
