@@ -1,4 +1,4 @@
-// Javascript for Lab 13 - Quotes
+// Javascript for Lab 14 - Drinks
 
 Vue.component('drink', {
     props: ['drink'],
