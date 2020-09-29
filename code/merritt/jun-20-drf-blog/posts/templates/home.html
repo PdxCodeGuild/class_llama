@@ -21,7 +21,7 @@
         <div>
             <input type="text" v-model="newPost.title" placeholder="title"><br>
             <select v-model="newPost.author">
-                <option value="1">admin</option>
+                <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
             </select><br>
             <textarea v-model="newPost.body" placeholder="body"></textarea><br>
             <button @click="createPost">New Post</button>
@@ -36,10 +36,11 @@
         delimiters: ['[[',']]'],
         data: {
             posts: [],
+            users: [],
             csrf_token: "",
             newPost: {
                 title: "",
-                author: 1,
+                author: "",
                 body: ""
             }
         },
@@ -50,6 +51,14 @@
                     url: '/api/v1/posts/',
                 }).then(response => {
                     this.posts = response.data;
+                });
+            },
+            loadUsers: function () {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/users/',
+                }).then(response => {
+                    this.users = response.data;
                 });
             },
             createPost: function () {
@@ -70,6 +79,7 @@
         mounted: function () {
             this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
             this.loadPosts();
+            this.loadUsers();
         }
     })
     
