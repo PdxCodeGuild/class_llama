@@ -19,7 +19,7 @@ let vm = new VTTCue({
             item.completed = true;
         },
         removeItem: function (item) {
-            //I don't understand the example code here
+            this.items.spliace(this.items.indexOf(item), 1);
         }
 
 
