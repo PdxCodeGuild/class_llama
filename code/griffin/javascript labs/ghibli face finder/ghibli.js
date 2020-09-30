@@ -16,7 +16,7 @@ new Vue({
                 
 
             }).then(response=>{
-                console.log(response);
+                console.log(response.data);
                 this.matches = response.data
                 
             })
@@ -25,24 +25,30 @@ new Vue({
             let genderMatch = []
             let eyeColorMatch = []
             let hairColorMatch = []
-            
-            for (match in this.matches) {
-                if (this.gender == match.gender) {
-                    genderMatch.append(match)
-                }
-            }
-            for (match in genderMatch) {
-                if (this.eyeColor == match.eye_color) {
-                    eyeColorMatch.append(match)
-                }
-            }
-            for (match in eyeColorMatch) {
-                if (this.hairColor == match.hair_color) {
-                    hairColorMatch.append(match)
-                } 
-            }
-            this.results = hairColorMatch
 
+            this.matches.forEach(match => {
+                if (this.gender === match.gender) {
+                    genderMatch.push(match)
+                    
+                }
+            })
+            
+            genderMatch.forEach(match => {
+                if (this.gender === match.gender) {
+                    eyeColorMatch.push(match)
+                    
+                }
+            })
+            
+            eyeColorMatch.forEach(match => {
+                if (this.gender === match.gender) {
+                    hairColorMatch.push(match)
+                    
+                }
+            })
+
+            this.results = hairColorMatch
+            
         }
     },
     mounted: function() {
